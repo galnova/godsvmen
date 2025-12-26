@@ -1,1 +1,4 @@
-/*  /index.html  200
+# optional: force www -> apex
+https://www.godsvmen.com/* https://godsvmen.com/:splat 301
+
+# NO SPA FALLBACK
