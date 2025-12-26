@@ -1,0 +1,552 @@
+/* Bootstrap Overrides */
+.nav-tabs {
+  margin-top: 15px;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: #fff;
+}
+.nav-tabs li, .nav-tabs li a {
+  border-radius: 0 !important;
+}
+.nav-tabs li a {
+  margin-right: 0 !important;
+  text-align: center !important;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  background-image: url(http://greyvoth.com/2020/wht-bg.png);
+  background-repeat: repeat;
+  background-attachment: inherit;
+}
+.gvm .nav-link.active {
+  background-image: url(http://greyvoth.com/A20/pattern1.png);
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+.nav-tabs li a {
+  text-align: center;
+  border: none;
+  color: #666;
+  outline: none;
+  font-size: 24px;
+  padding: 20px;
+}
+.nav-tabs .nav-link {
+  border-bottom: 0;
+	height: 50px;
+    font-size: 16px;
+	background: #eee;
+	text-align: center;
+	width: 100%;
+  border-top: solid 2px #fff;
+	border-radius: 0!important;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border-radius: 0;
+  border-top: solid 2px #a94442!important;
+/*	height: 50px;*/
+	width: 100%;
+	text-align: center;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active .fas {
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  animation: pulse2 2s infinite;
+}
+
+.nav-tabs li.active a {
+  color: #4285f4 !important;
+}
+.gvm .nav-tabs li a:hover {
+  color: #a94442 !important;
+}
+.nav-tabs li a:hover {
+  color: #a94442 !important;
+  border-top: solid 2px #fff;
+}
+.nav-tabs li {
+  width: 33.3%;
+  background: #fff !important;
+  border-bottom: 0px;
+}
+
+.gvm .nav-tabs.fo li {
+  width: 20%;
+}
+
+.nav-tabs li a {
+  color: #000 !important;
+}
+.gvm .nav-tabs li {
+  background: #fff !important;
+  border-bottom: 0px;
+}
+
+.gvm .tab-pane .nav-tabs.alter li {
+  width: 50%;
+}
+
+.gvm .nav-tabs.alter .nav-link {
+    border-bottom: solid 2px #a94442!important;
+}
+
+.gvm .nav-tabs.alter .nav-link.active  {
+	border: solid 2px #a94442!important;
+  border-bottom: 0!important;
+/*  margin-bottom: 10px;*/
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 0;
+    padding-top: 20px;
+    margin-top: 0;
+}
+
+.tab-pane > h3 {
+    font-size: 18px;
+	text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+/*    text-align: center;*/
+    border-bottom: solid 1px #000;
+}
+
+.portfolio .portfolio-wrap {
+    max-height: 305px;
+	border: solid 3px #9C1C1E;
+	background: #9C1C1E;
+}
+
+.nav-menu a {
+	text-decoration: none;
+}
+/* Bootstrap Overrides */
+
+.gong { 
+/*	margin-bottom: 40px!important;*/
+}
+
+.gong .ang {
+	margin-bottom: 40px;
+}
+
+.gong .ang:last-child {
+	margin-bottom: 0;
+}
+
+.gong .ang a {
+	text-decoration: none;
+}
+
+.gong .ang img {
+	border: solid 3px #9C1C1E;
+}
+
+.gong .ang h3 {
+	background: #9C1C1E;
+    padding: 15px;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.tab-pane h2 {
+	margin-bottom: 20px;
+}
+
+.gvm .gvm-logo {
+    float: left;
+    width: 415px;
+    margin: 0;
+    padding: 0;
+}
+
+.gvm .gvm-logo > img {
+    width: 400px;
+}
+
+.gvm #header {
+/*    background: #dbdbdb;*/
+    border-bottom: solid 5px #9C1C1E;
+/*
+	background:
+      conic-gradient(at 62.5% 12.5%, #f6e3d2 25%, #0000 0) calc(10px/-8) calc(10px/2), 
+      conic-gradient(at 62.5% 12.5%, #f6e3d2 25%, #0000 0) calc(-3*10px/8) calc(10px/4),
+      conic-gradient(at 87.5% 62.5%, #f6e3d2 25%, #0000 0) calc(3*10px/8) calc(10px/4),
+      conic-gradient(at 87.5% 62.5%, #f6e3d2 25%, #0000 0) calc(10px/-8) 0,
+      conic-gradient(at 25% 12.5%, #f6e3d2 25%, #0000 0) 0 calc(10px/-4),
+      conic-gradient(at 25% 12.5%, #f6e3d2 25%, #0000 0) calc(10px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #f6e3d2 25%, #0000 0) calc(10px/8) 0
+      #fecba1;
+*/
+	
+/*
+background:
+      conic-gradient(#ffe3ab 25%,#0000 0) 0 0/calc(2*10px) calc(10px/9.5),
+      conic-gradient(#ffe3ab 25%,#0000 0) 0 0/calc(10px/9.5) calc(2*10px),
+      repeating-conic-gradient(#0000 0 25%,#ffe3ab 0 50%) 10px 0 /calc(2*10px) calc(2*10px), radial-gradient(50% 50%,#ffcea3 98%,#ffe3ab) 0 0/10px 10px;
+*/
+
+background:
+      linear-gradient(135deg,#0000 18.75%,#ffe3ab 0 31.25%,#0000 0),
+      repeating-linear-gradient(45deg,#ffe3ab -6.25% 6.25%,#ffcea3 0 18.75%);
+background-size: 20px 20px;
+
+/*	background-size: 10px 10px;*/
+}
+
+/*
+.gvm .nav-menu li a.active,
+.gvm .nav-menu li a.active:hover .nav-menu li:hover a.active:hover,
+.gvm .nav-menu li:hover a.active {
+    color: #fff;
+    background: #9C1C1E;
+}
+*/
+
+.gvm .nav-menu a {
+    color: #9C1C1E;
+	text-align: center;
+}
+
+.gvm .nav-menu a:hover,
+.gvm .nav-menu .active > a,
+.gvm .nav-menu li:hover > a {
+/*  color: #000;*/
+  text-decoration: none;
+}
+
+.gvm .nav-menu li:hover > a {
+  color: #000;
+}
+
+.gvm .nav-menu a.dropdown-item,
+.gvm .nav-menu a.dropdown-item:hover {
+    color: #fff;
+}
+
+.gvm .nav-menu a.dropdown-item:hover {
+	background: #000
+}
+
+.gvm .nav-menu li a.newt,
+.gvm .nav-menu li a.active,
+.gvm .nav-menu li a.active:hover .nav-menu li:hover a.active:hover,
+.gvm .nav-menu li:hover a.active {
+  color: #9C1C1E;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.gvm .swordsayer img {
+	width: 280px;
+    margin: 0 auto 20px 0;
+}
+
+.gvm .mobile-nav-toggle i {
+	color: #9c1c1e;
+}
+
+.gvm .mobile-nav a {
+	color: #9C1C1E;
+    border: solid 3px #9C1C1E;
+	text-decoration: none;
+}
+
+.gvm .mobile-nav a:hover {
+	color: #000;
+}
+
+.gvm .mobile-nav .col-megamenu a {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.gvm .dropdown-menu {
+    background: #7e2221;
+    width: 100%;
+    border-radius: 20px;
+	border: solid 3px #999;
+    overflow: hidden;
+}
+
+.gvm .nav-item hr {
+    margin: 0;
+    border-top: solid 3px #999;
+}
+
+.gvm .p_tourn {
+	font-size: 1em;
+    line-height: 1.75em;
+    background: #eee;
+    padding: 20px;
+	border: solid 3px #9C1C1E;
+	border-top: 0;
+}
+
+.gvm .p_tourn.nu {
+	font-size: 14px;
+}
+
+.gvm .p_tourn span {
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.megamenu h4 {
+    text-align: center;
+    padding: 0 0 15px 0;
+    border-bottom: solid 1px #000;
+	margin: 0 10px 10px 10px;
+}
+
+.gvm .nav-menu .megamenu a {
+	text-align: center;
+}
+
+.gvm .nav-menu .megamenu a:hover {
+	color: #fff;
+	background: #9C1C1E;
+}
+
+
+.mega_title {
+	padding: 20px 0;
+    margin-bottom: 30px;
+    background: #9C1C1E;
+	color: #fff;
+}
+
+.accordion-flush .accordion-item .accordion-button,
+.accordion-flush .accordion-item .accordion-button.collapsed {
+	border-radius: 0;
+	padding: 25px 0px;
+	margin: 0;
+    background: #fff;
+	border: solid 1px #9C1C1E;
+	font-size: 1.5rem;
+/*	text-align: center;*/
+	color: #9C1C1E;
+}
+
+.accordion-item {
+	margin-bottom: 10px;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: #e7f1ff;
+}
+
+.accordion-button:after {
+	position: absolute;
+    right: 10px;
+}
+
+.accordion-button > span {
+	width: 100%;
+}
+
+.nav-item .accordion-body {
+	padding: 30px;
+}
+
+.accordion-button:focus {
+   z-index: 3;
+   border-color: #279C88;
+   outline: 0!important;
+   box-shadow: 0 0 0 0.25rem rgba(39, 156, 136, 0.25);
+}
+
+.tab-content.alter {
+	    border: solid 2px #a94442!important;
+    border-top: 0!important;
+	margin-bottom: 15px;
+}
+
+.tab-content h2 {
+	text-align: center;
+}
+
+.tab-content p {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.worlder {
+	margin-bottom: 30px;
+}
+
+.polish {
+/*    border: solid 3px #9C1C1E;*/
+/*	padding: 20px;*/
+}
+
+.polish img {
+	width: 100%;
+}
+
+.back-to-top i {
+    left: 8px;
+}
+
+.nuke {
+	max-height: 305px;
+    border: solid 3px #9C1C1E;
+    background: #9C1C1E;
+}
+
+#gallery a {
+/*	float: left;*/
+	cursor: pointer!important;
+}
+
+#gallery a img {
+	border: solid 3px #9C1C1E;
+}
+
+
+.move_wrap img {
+	width: 100%;
+}
+
+.move_wrap h3 {
+	text-align: center;
+	background: #b55f5f;
+	color: #fff;
+	border-radius: 8px;
+}
+
+.move_wrap .col-12 {
+
+}
+
+
+.moves img {
+	aspect-ratio: 1 / 1!important;
+}
+
+.lazy-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 200px; /* Set some height or ensure content size */
+}
+
+@media (max-width: 990px) {
+	.gvm .dropdown-menu.megamenu {
+		width: calc(100% - 40px) !important;
+		background: #fff;
+		margin-bottom: 10px;
+		border: solid 3px #9C1C1E;
+		border-radius: 15px;
+	}
+	
+	.gvm .mobile-nav ul.dropdown-menu li a {
+		width: initial;
+		color: #9C1C1E;
+		background: #fff;
+	}
+	
+	.gvm .mobile-nav a:hover,
+	.gvm .mobile-nav .active > a,
+	.gvm .mobile-nav li:hover > a {
+	  color: #000;
+	  text-decoration: none;
+	  background: #eee;
+	}
+	
+	.gvm .mobile-nav ul.dropdown-menu li a:hover,
+	.gvm .mobile-nav ul.dropdown-menu li:hover > a {
+		color: #000;
+		background: #fff;
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+	
+.accordion-flush .accordion-item .accordion-button,
+.accordion-flush .accordion-item .accordion-button.collapsed {
+    border: none;
+}
+	
+	.nav-item .accordion-body {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.gvm #header-sticky-wrapper {
+	overflow: hidden;
+}
+	
+	.gvm .nav-item hr {
+    	margin: 20px 0 20px 0;
+	}
+	
+	.gvm .gvm-logo > img {
+		width: 300px;
+	}
+	
+	.sm_nill {
+		margin: 0!important;
+		padding: o!important;
+	}
+}
+
+@media (min-width: 992px) {
+	.nav-menu .megamenu {
+		left: 0;
+		right: 0;
+		width: 100%;
+		margin: 0 !important;
+		border-radius: 0;
+		border-left: 0;
+		border-right: 0;
+		background: #fff;
+	}
+}
+
+.nav-menu .megamenu { padding: 1rem; }
+
+/* ============ desktop view ============ */
+
+@media all and (min-width: 992px) {
+
+	.nav-menu .has-megamenu {
+		position: static!important;
+	}
+
+/*
+	.nav-menu .megamenu {
+		left: 0; 
+		right: 0; 
+		width: calc( 100% - 40px); 
+		margin-top: 0;  
+	}
+*/
+}	
+
+/* ============ desktop view .end// ============ */
+
+/* ============ mobile view ============ */
+
+@media(max-width: 991px){
+
+	.nav-menu.fixed-top .nav-menu-collapse,
+	.nav-menu.sticky-top .nav-menu-collapse {
+		overflow-y: auto;
+	    max-height: 90vh;
+	    margin-top:10px;
+	}
+}
+
+/* ============ mobile view .end// ============ */

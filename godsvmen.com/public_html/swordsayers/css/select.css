@@ -1,0 +1,63 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px; /* Updated grid gap */
+    width: 100%;
+    max-width: 800px;
+}
+
+.grid-item {
+    background-color: #007bff;
+    height: 100px; /* Adjust height as needed */
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.grid-item:hover {
+    background-color: #0056b3;
+    animation: electric-border 0.3s infinite alternate;
+}
+
+.full-character-display {
+    position: relative;
+    width: 600px; /* Updated width */
+    border: 2px dashed #007bff;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.inactive {
+    opacity: 0.5; /* Make the inactive display slightly transparent */
+}
+
+#character-display-placeholder {
+    font-size: 20px;
+    color: #6c757d;
+}
+
+#inactive-character-display-placeholder {
+    font-size: 20px;
+    color: #6c757d;
+    text-align: center; /* Center the text in the inactive box */
+}
+
+/* Electric border animation */
+@keyframes electric-border {
+    0% {
+        border: 2px solid #007bff; /* Starting border color */
+        box-shadow: 0 0 10px #007bff; /* Starting shadow color */
+    }
+    100% {
+        border: 2px solid #00aaff; /* Ending border color */
+        box-shadow: 0 0 20px #00aaff, 0 0 30px #00aaff; /* Ending shadow color */
+    }
+}
