@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html ng-app="gvmItems">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>GodsVMen | Character Select</title>
+<meta content="" name="description">
+<meta name="KeyWords" content="greyvoth, Keith Jeter, keith jeter, keith h jeter, online comics, graphic design, graphic arts, design, art, web art, web design, illustration, painting, drawing, resume, portfolio, university of michigan alumni, the academy of art university, cass tech">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+<!-- Favicons -->
+
+<link href="../assets1/img/favicon.png" rel="icon">
+<link href="../assets1/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Nu Font -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets1/vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="../assets1/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="../assets1/vendor/venobox/venobox.css" rel="stylesheet">
+<link href="../assets1/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link href="../assets1/css/style.css" rel="stylesheet">
+<link href="../css/gvm.css" rel="stylesheet">
+<link href="css/tournament.css" rel="stylesheet">
+<script src="js/gvm.js"></script>
+</head>
+
+<body class="gvm tournmain">
+
+<!-- ======= Header ======= -->
+
+<header id="header">
+  <div class="container d-flex align-items-center justify-content-between sm_nill">
+    <div class="logo mr-auto"> 
+
+      <a href="../">
+      <div class="gvm-logo"><img alt="gvm logo" src="../img/gvm-logo-long.png"></div>
+      </a> 
+      
+    </div>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+		  
+        <li class=""><a href="https://greyvoth.com">Greyvoth</a></li>
+		<li class=""><a href="../">GVM</a></li>
+		
+		<li class="nav-item dropdown">
+<!--
+          <a class="nav-link dropdown-toggle active" href="../swordsayers/index.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TOURNAMENT
+          </a>
+-->
+<!--
+		  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<li><a class="dropdown-item" href="../../gvm/swordsayers/">SWORDSAYERS</a></li>
+			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="rounds/index.html">Rounds</a></li>
+            <li><a class="dropdown-item" href="rounds/1/1.html">1-1</a></li>
+			<li><a class="dropdown-item" href="rounds/1/2.html">1-2</a></li>
+			<li><a class="dropdown-item" href="rounds/1/3.html">1-3</a></li>
+          </ul>
+-->
+			
+			<li class="nav-item dropdown has-megamenu">
+				<a class="nav-link dropdown-toggle active newt" href="#" data-bs-toggle="dropdown" aria-expanded="true">SWORDSAYERS</a>
+				<div class="dropdown-menu megamenu" role="menu" data-bs-popper="none">
+					
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        <span>Sever League</span>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+		  					<div class="row g-3">
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">BOUND 16</h4>
+								<ul class="list-unstyled">
+									<li><a href="rounds/sever.html">First Rounds</a></li>
+									<li><a href="rounds/1/1.html">Grandle V. Robe Knight</a></li>
+									<li><a href="rounds/1/2.html">Pond V. Delila Gida</a></li>
+									<li><a href="rounds/1/3.html">Volcanis V. Shana</a></li>
+									<li><a href="rounds/1/4.html">Sparrow V. Kendo</a></li>
+									<li><a href="rounds/1/5.html">Flower V. Macabre Knight</a></li>
+									<li><a href="rounds/1/6.html">Lit Knight V. Lunar Knight</a></li>
+									<li><a href="rounds/1/7.html">Yosh Direside V. Mouse</a></li>
+									<li><a href="rounds/1/8.html">Seth Gate V. Franker Moon</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">ARDENT 8</h4>
+								<ul class="list-unstyled">
+									<li><a href="rounds/sever2.html">Second Rounds</a></li>
+									<li><a href="rounds/1/1a.html">Grandle V. Pond</a></li>
+									<li><a href="rounds/1/2a.html">Shana V. The Ripper</a></li>
+									<li><a href="rounds/1/3a.html">Flower V. Lunar Knight</a></li>
+									<li><a href="rounds/1/4a.html">Yosh V. Seth</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">BRAVE 4</h4>
+								<ul class="list-unstyled">
+									<li><a href="#">TBD</a></li>
+									<li><a href="#">TBD</a></li>
+								</ul>
+							</div>
+						</div>    
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">SEVER FINALS</h4>
+								<ul class="list-unstyled">
+									<li><a href="#">TBD</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+	  </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        <span>Rigor League</span>
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+		  					<div class="row g-3">
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">BOUND 16</h4>
+								<ul class="list-unstyled">
+								    <li><a href="rounds/rigor.html">First Rounds</a></li>
+									<li><a href="rounds/2/1.html">Ignis Weber V. Stormheart</a></li>
+									<li><a href="rounds/2/2.html">Demoni V. Tyree Toth</a></li>
+									<li><a href="rounds/2/3.html">Quint V. Bruno Moon</a></li>
+									<li><a href="rounds/2/4.html">Bastion V. Fara</a></li>
+									<li><a href="rounds/2/5.html">Samson V. Voorhies</a></li>
+									<li><a href="rounds/2/6.html">Eln-Delila V. Tesha</a></li>
+									<li><a href="rounds/2/7.html">Sordin V. Christopher</a></li>
+									<li><a href="rounds/2/8.html">Lunar Knight V. Maxither</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">ARDENT 8</h4>
+								<ul class="list-unstyled">
+									<li><a href="rounds/rigor2.html">Second Rounds</a></li>
+									<li><a href="rounds/2/1a.html">Ignis V. Demoni</a></li>
+									<li><a href="rounds/2/2a.html">Bastion V. Bruno</a></li>
+									<li><a href="rounds/2/3a.html">Samson V. Delila</a></li>
+									<li><a href="rounds/2/4a.html">Christopher V. Maxither</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">BRAVE 4</h4>
+								<ul class="list-unstyled">
+									<li><a href="#">TBD</a></li>
+									<li><a href="#">TBD</a></li>
+								</ul>
+							</div>
+						</div>    
+						<div class="col-lg-3 col-12">
+							<div class="col-megamenu">
+								<h4 class="title">Rigor FINALS</h4>
+								<ul class="list-unstyled">
+									<li><a href="#">TBD</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+		</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <span>Final Match</span>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">TBD</div>
+    </div>
+  </div>
+</div>
+				</div>
+</li>
+			
+        </li>
+		
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    
+  </div>
+</header>
+
+<!-- End Header -->
+
+	<div class="container-fluid nill">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Character Select Screen</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Character Select</h1>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="grid">
+                    <!-- 9 x 5 grid -->
+                    <div class="grid-item" data-character="Character 1"></div>
+                    <div class="grid-item" data-character="Character 2"></div>
+                    <div class="grid-item" data-character="Character 3"></div>
+                    <div class="grid-item" data-character="Character 4"></div>
+                    <div class="grid-item" data-character="Character 5"></div>
+                    <div class="grid-item" data-character="Character 6"></div>
+                    <div class="grid-item" data-character="Character 7"></div>
+                    <div class="grid-item" data-character="Character 8"></div>
+                    <div class="grid-item" data-character="Character 9"></div>
+                    <div class="grid-item" data-character="Character 10"></div>
+                    <div class="grid-item" data-character="Character 11"></div>
+                    <div class="grid-item" data-character="Character 12"></div>
+                    <div class="grid-item" data-character="Character 13"></div>
+                    <div class="grid-item" data-character="Character 14"></div>
+                    <div class="grid-item" data-character="Character 15"></div>
+                    <div class="grid-item" data-character="Character 16"></div>
+                    <div class="grid-item" data-character="Character 17"></div>
+                    <div class="grid-item" data-character="Character 18"></div>
+                    <div class="grid-item" data-character="Character 19"></div>
+                    <div class="grid-item" data-character="Character 20"></div>
+                    <div class="grid-item" data-character="Character 21"></div>
+                    <div class="grid-item" data-character="Character 22"></div>
+                    <div class="grid-item" data-character="Character 23"></div>
+                    <div class="grid-item" data-character="Character 24"></div>
+                    <div class="grid-item" data-character="Character 25"></div>
+                    <div class="grid-item" data-character="Character 26"></div>
+                    <div class="grid-item" data-character="Character 27"></div>
+                    <div class="grid-item" data-character="Character 28"></div>
+                    <div class="grid-item" data-character="Character 29"></div>
+                    <div class="grid-item" data-character="Character 30"></div>
+                    <div class="grid-item" data-character="Character 31"></div>
+                    <div class="grid-item" data-character="Character 32"></div>
+                    <div class="grid-item" data-character="Character 33"></div>
+                    <div class="grid-item" data-character="Character 34"></div>
+                    <div class="grid-item" data-character="Character 35"></div>
+                    <div class="grid-item" data-character="Character 36"></div>
+                </div>
+            </div>
+        </div>
+        <div class="full-character-display mt-4 text-center">
+            <div id="character-display-placeholder">Hover over a box to see character</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+		
+	</div>
+	
+<!-- End #main --> 
+
+<!-- ======= Footer ======= -->
+
+<footer id="footer">
+  <div class="container">
+    <div class="copyright"> &copy; Copyright <strong><span>Greyvoth</span> <span id="year"></span></strong>. All Rights Reserved </div>
+  </div>
+</footer>
+<!-- End  Footer --> 
+
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> 
+
+<script src="../assets1/vendor/jquery/jquery.min.js"></script> 
+<script src="../assets1/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets1/vendor/php-email-form/validate.js"></script> 
+<script src="../assets1/vendor/jquery-sticky/jquery.sticky.js"></script> 
+<script src="../assets1/vendor/waypoints/jquery.waypoints.min.js"></script> 
+<script src="../assets1/vendor/counterup/counterup.min.js"></script> 
+<script src="../assets1/vendor/isotope-layout/isotope.pkgd.min.js"></script> 
+<script src="../assets1/vendor/venobox/venobox.min.js"></script> 
+<script src="https://kit.fontawesome.com/a1b29a2366.js" crossorigin="anonymous"></script>
+<script src="../assets1/vendor/owl.carousel/owl.carousel.min.js"></script> 
+<script src="../assets1/js/main.js"></script>
+	
+	<script>
+	$('.megamenu').on('click', function(event){
+    event.stopPropagation();
+});
+	</script>
+</body>
+</html>

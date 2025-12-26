@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gods V Men Cast</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Allow external images (Unsplash) + data URIs, and our CDN scripts/styles -->
+    <!-- NOTE: If your server ALSO sends a CSP header, update that header too (meta won't override). -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+                   img-src 'self' https://images.unsplash.com data:;
+                   style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                   connect-src 'self';
+                   font-src 'self' data:;
+                   object-src 'none';
+                   base-uri 'self';
+                   frame-ancestors 'none';">
+
+    <!-- Hide your origin from Unsplash (avoids some referrer-related blocks) -->
+    <meta name="referrer" content="no-referrer">
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="./css/character.css" />
+  </head>
+
+  <body class="text-white">
+    <!-- Animated background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+    </div>
+
+    <div class="page-wrap d-flex flex-column min-vh-100 position-relative">
+      <!-- Header -->
+      <header class="container py-4 pt-md-5 pb-md-1 position-relative" style="z-index:2;">
+        <div class="d-flex align-items-center justify-content-between gap-3">
+          <div class="flex-grow-1">
+            <h1 class="display-6 fw-bold text-gradient mb-1">Gods V Men</h1>
+            <h2 class="h6 text-light-70 mb-0">The Fighters are Assembled</h2>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button id="autoplayBtn" class="btn btn-glass rounded-circle p-2" aria-label="Pause autoplay"></button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Character stage -->
+      <main class="flex-grow-1 d-flex align-items-center py-4 py-md-5">
+        <div class="container">
+          <div class="stage position-relative mx-auto">
+            <!-- Card will be injected here -->
+            <div id="cardMount" class="position-relative card-container" aria-live="polite"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Navigation controls -->
+      <section class="container pb-5 position-relative" style="z-index:2;">
+        <div class="d-flex align-items-center justify-content-between gap-2 gap-md-4">
+          <button id="prevBtn" class="btn btn-glass rounded-circle p-2 p-md-3" aria-label="Previous character">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div id="indicators" class="d-flex align-items-center gap-2 gap-md-3"></div>
+
+          <button id="nextBtn" class="btn btn-glass rounded-circle p-2 p-md-3" aria-label="Next character">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="container pb-4 pb-md-5 text-center small text-light-70">
+        © <span id="year"></span> GVM Cast
+      </footer>
+    </div>
+
+    <!-- Character modal -->
+    <div class="modal fade" id="charModal" tabindex="-1"
+         aria-hidden="true" aria-labelledby="charModalLabel">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark-90 text-white border-0">
+          <div class="modal-header border-0">
+            <h3 class="modal-title h4 fw-bold" id="charModalLabel">Character</h3>
+            <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-0">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <div class="ratio ratio-3x4 rounded overflow-hidden">
+                  <img id="modalImg" class="object-fit-cover" src="" alt="" referrerpolicy="no-referrer" />
+                </div>
+              </div>
+              <div class="col-md-7">
+                <p class="mb-1" id="modalMeta"></p>
+                <p class="mb-3" id="modalDesc"></p>
+                <div class="mb-2"><strong>Abilities:</strong> <span id="modalAbilities"></span></div>
+                <div class="mb-2"><strong>Allies:</strong> <span id="modalAllies"></span></div>
+                <div class="mb-0"><strong>Enemies:</strong> <span id="modalEnemies"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Motion (ESM build). Must load BEFORE animation.js. -->
+    <script type="module">
+      import { animate } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+      window.Motion = { animate };
+    </script>
+
+    <!-- Animation helpers (defines window.swapCardHTML) -->
+    <script type="module" src="./js/animation.js"></script>
+
+    <!-- App logic (calls swapCardHTML) -->
+    <script src="./js/character.js"></script>
+  </body>
+</html>
