@@ -1735,6 +1735,7 @@ font-size: 29px;
 }
 #footer .copyright {
   text-align: center;
+  margin-bottom: 20px;
 }
 #footer .credits {
   padding-top: 8px;
