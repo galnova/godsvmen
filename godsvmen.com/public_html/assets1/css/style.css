@@ -659,6 +659,9 @@ background: linear-gradient(90deg, rgba(65,103,193,1) 0%, rgba(103,10,10,1) 100%
 
 /* Full-width buttons on mobile view */
 @media (max-width: 575px) {
+  	.contact .social-links a {
+    margin-bottom: 10px;
+  }
     .social-buttons .btn {
         width: 100%; /* Full width on smaller screens */
         margin: 10px 0; /* Vertical spacing */
@@ -2119,9 +2122,6 @@ footer {
   }
 }
 @media screen and (max-width: 480px) {
-	.contact .social-links a {
-    margin-bottom: 10px;
-  }
 
 	.tab-content h4 {
 	font-size: 18px;
