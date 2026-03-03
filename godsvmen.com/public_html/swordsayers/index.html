@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="gvmItems">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -7,55 +7,44 @@
 <meta name="mobile-web-app-capable" content="yes">
 <title>GodsVMen | SwordSayers</title>
 <meta content="" name="description">
-<meta name="KeyWords" content="greyvoth, Keith Jeter, keith jeter, keith h jeter, online comics, graphic design, graphic arts, design, art, web art, web design, illustration, painting, drawing, resume, portfolio, university of michigan alumni, the academy of art university, cass tech">
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-
-<link href="/assets1/img/favicon.png" rel="icon">
-<link href="/assets1/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+<meta name="keywords" content="greyvoth, Keith Jeter, keith jeter, keith h jeter, online comics, graphic design, graphic arts, design, art, web art, web design, illustration, painting, drawing, resume, portfolio, university of michigan alumni, the academy of art university, cass tech">
+<link rel="icon" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="/assets1/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="/assets1/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="/assets1/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="/assets1/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link href="/assets1/css/style.css" rel="stylesheet">
-<link href="/css/gvm.css" rel="stylesheet">
-<link href="/swordsayers/css/tournament.css" rel="stylesheet">
-<script src="/swordsayers/js/gvm.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="../css/global.css" rel="stylesheet">
+<link href="../css/gvm.css" rel="stylesheet">
 </head>
+<body class="gvm">
 
-<body class="gvm tournmain">
-
-<header id="header">
-  <div class="container d-flex align-items-center justify-content-between sm_nill">
-    <div class="logo mr-auto">
-
-      <a href="/swordsayers/">
-      <div class="gvm-logo"><img alt="gvm logo" src="/img/gvm-logo-long.png"></div>
+<header class="sticky-top gvm-header" id="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-3">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="../swordsayers/" aria-label="Gods V. Men Home">
+        <img src="../img/gvm-logo-long.png" alt="GVM logo" class="gvm-logo">
       </a>
-
-    </div>
-    <nav class="nav-menu d-none d-lg-block">
-      <ul>
-
-        <li class=""><a href="https://greyvoth.com">Greyvoth</a></li>
-        <li class=""><a href="/">GVM</a></li>
-
-        <li class="nav-item dropdown">
-          <li class="nav-item dropdown has-megamenu">
-            <a class="nav-link dropdown-toggle active newt" href="#" data-bs-toggle="dropdown" aria-expanded="true">SWORDSAYERS</a>
-            <div class="dropdown-menu megamenu" role="menu" data-bs-popper="none">
-
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gvmNav" aria-controls="gvmNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="gvmNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="https://greyvoth.com">Greyvoth</a></li>
+          <li class="nav-item"><a class="nav-link" href="/">GVM</a></li>
+          <li class="nav-item dropdown" id="megamenuParent">
+            <a class="nav-link dropdown-toggle active fw-semibold" href="#" id="tournDropdown" role="button"
+               data-bs-toggle="dropdown"
+               data-bs-auto-close="outside"
+               aria-expanded="false"
+               aria-current="page">
+              SWORDSAYERS
+            </a>
+            <div class="dropdown-menu megamenu" id="swordsMegamenu" aria-labelledby="tournDropdown">
               <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
                       <span>Sever League</span>
                     </button>
                   </h2>
@@ -66,15 +55,15 @@
                           <div class="col-megamenu">
                             <h4 class="title">BOUND 16</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/sever.html">First Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/1/1.html">Grandle V. Robe Knight</a></li>
-                              <li><a href="/swordsayers/rounds/1/2.html">Pond V. Delila Gida</a></li>
-                              <li><a href="/swordsayers/rounds/1/3.html">Volcanis V. Shana</a></li>
-                              <li><a href="/swordsayers/rounds/1/4.html">Sparrow V. Kendo</a></li>
-                              <li><a href="/swordsayers/rounds/1/5.html">Flower V. Mac Knight</a></li>
-                              <li><a href="/swordsayers/rounds/1/6.html">Lit V. Lunar Knight</a></li>
-                              <li><a href="/swordsayers/rounds/1/7.html">Yosh Direside V. Mouse</a></li>
-                              <li><a href="/swordsayers/rounds/1/8.html">Seth Gate V. Franker</a></li>
+                              <li><a href="../swordsayers/rounds/sever.html">First Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/1/1.html">Grandle V. Robe Knight</a></li>
+                              <li><a href="../swordsayers/rounds/1/2.html">Pond V. Delila Gida</a></li>
+                              <li><a href="../swordsayers/rounds/1/3.html">Volcanis V. Shana</a></li>
+                              <li><a href="../swordsayers/rounds/1/4.html">Sparrow V. Kendo</a></li>
+                              <li><a href="../swordsayers/rounds/1/5.html">Flower V. Mac Knight</a></li>
+                              <li><a href="../swordsayers/rounds/1/6.html">Lit V. Lunar Knight</a></li>
+                              <li><a href="../swordsayers/rounds/1/7.html">Yosh Direside V. Mouse</a></li>
+                              <li><a href="../swordsayers/rounds/1/8.html">Seth Gate V. Franker</a></li>
                             </ul>
                           </div>
                         </div>
@@ -82,11 +71,11 @@
                           <div class="col-megamenu">
                             <h4 class="title">ARDENT 8</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/sever2.html">Second Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/1/1a.html">Grandle V. Pond</a></li>
-                              <li><a href="/swordsayers/rounds/1/2a.html">Shana V. The Ripper</a></li>
-                              <li><a href="/swordsayers/rounds/1/3a.html">Flower V. Lunar Knight</a></li>
-                              <li><a href="/swordsayers/rounds/1/4a.html">Yosh V. Seth</a></li>
+                              <li><a href="../swordsayers/rounds/sever2.html">Second Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/1/1a.html">Grandle V. Pond</a></li>
+                              <li><a href="../swordsayers/rounds/1/2a.html">Shana V. The Ripper</a></li>
+                              <li><a href="../swordsayers/rounds/1/3a.html">Flower V. Lunar Knight</a></li>
+                              <li><a href="../swordsayers/rounds/1/4a.html">Yosh V. Seth</a></li>
                             </ul>
                           </div>
                         </div>
@@ -94,9 +83,9 @@
                           <div class="col-megamenu">
                             <h4 class="title">BRAVE 4</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/sever3.html">Third Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/1/1b.html">Grandle V. The Ripper</a></li>
-                              <li><a href="/swordsayers/rounds/1/2b.html">Yosh V. Flower</a></li>
+                              <li><a href="../swordsayers/rounds/sever3.html">Third Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/1/1b.html">Grandle V. The Ripper</a></li>
+                              <li><a href="../swordsayers/rounds/1/2b.html">Yosh V. Flower</a></li>
                             </ul>
                           </div>
                         </div>
@@ -112,10 +101,9 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                       <span>Rigor League</span>
                     </button>
                   </h2>
@@ -126,15 +114,15 @@
                           <div class="col-megamenu">
                             <h4 class="title">BOUND 16</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/rigor.html">First Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/2/1.html">Ignis V. Stormheart</a></li>
-                              <li><a href="/swordsayers/rounds/2/2.html">Demoni V. Tyree Toth</a></li>
-                              <li><a href="/swordsayers/rounds/2/3.html">Quint V. Bruno Moon</a></li>
-                              <li><a href="/swordsayers/rounds/2/4.html">Bastion V. Fara</a></li>
-                              <li><a href="/swordsayers/rounds/2/5.html">Samson V. Voorhies</a></li>
-                              <li><a href="/swordsayers/rounds/2/6.html">Eln-Delila V. Tesha</a></li>
-                              <li><a href="/swordsayers/rounds/2/7.html">Sordin V. Christopher</a></li>
-                              <li><a href="/swordsayers/rounds/2/8.html">Lunar V. Maxither</a></li>
+                              <li><a href="../swordsayers/rounds/rigor.html">First Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/2/1.html">Ignis V. Stormheart</a></li>
+                              <li><a href="../swordsayers/rounds/2/2.html">Demoni V. Tyree Toth</a></li>
+                              <li><a href="../swordsayers/rounds/2/3.html">Quint V. Bruno Moon</a></li>
+                              <li><a href="../swordsayers/rounds/2/4.html">Bastion V. Fara</a></li>
+                              <li><a href="../swordsayers/rounds/2/5.html">Samson V. Voorhies</a></li>
+                              <li><a href="../swordsayers/rounds/2/6.html">Eln-Delila V. Tesha</a></li>
+                              <li><a href="../swordsayers/rounds/2/7.html">Sordin V. Christopher</a></li>
+                              <li><a href="../swordsayers/rounds/2/8.html">Lunar V. Maxither</a></li>
                             </ul>
                           </div>
                         </div>
@@ -142,11 +130,11 @@
                           <div class="col-megamenu">
                             <h4 class="title">ARDENT 8</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/rigor2.html">Second Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/2/1a.html">Ignis V. Demoni</a></li>
-                              <li><a href="/swordsayers/rounds/2/2a.html">Bastion V. Bruno</a></li>
-                              <li><a href="/swordsayers/rounds/2/3a.html">Samson V. Delila</a></li>
-                              <li><a href="/swordsayers/rounds/2/4a.html">Chris V. Maxither</a></li>
+                              <li><a href="../swordsayers/rounds/rigor2.html">Second Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/2/1a.html">Ignis V. Demoni</a></li>
+                              <li><a href="../swordsayers/rounds/2/2a.html">Bastion V. Bruno</a></li>
+                              <li><a href="../swordsayers/rounds/2/3a.html">Samson V. Delila</a></li>
+                              <li><a href="../swordsayers/rounds/2/4a.html">Chris V. Maxither</a></li>
                             </ul>
                           </div>
                         </div>
@@ -154,9 +142,9 @@
                           <div class="col-megamenu">
                             <h4 class="title">BRAVE 4</h4>
                             <ul class="list-unstyled">
-                              <li><a href="/swordsayers/rounds/rigor3.html">Third Rounds</a></li>
-                              <li><a href="/swordsayers/rounds/2/1b.html">Ignis V. Bruno</a></li>
-                              <li><a href="/swordsayers/rounds/2/2b.html">Maxi V. Delila Gida</a></li>
+                              <li><a href="../swordsayers/rounds/rigor3.html">Third Rounds</a></li>
+                              <li><a href="../swordsayers/rounds/2/1b.html">Ignis V. Bruno</a></li>
+                              <li><a href="../swordsayers/rounds/2/2b.html">Maxi V. Delila Gida</a></li>
                             </ul>
                           </div>
                         </div>
@@ -172,10 +160,9 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                       <span>Final Match</span>
                     </button>
                   </h2>
@@ -183,544 +170,307 @@
                     <div class="accordion-body">TBD</div>
                   </div>
                 </div>
-
               </div>
             </div>
           </li>
-
-        </li>
-
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-  </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
-<div class="container-fluid nill">
+<div class="container-fluid">
 
-  <div class="col-xs-12">
-    <h1>
-      <span class="swordsayer"><img src="../img/SwordS-logo.png" alt="The SwordSayers Tournament Logo"></span>
-    </h1>
-    <p class="text-center">A World Wide Battle to Crown the Final King or Queen of our Lifetime.</p>
-  </div>
+  <h1 class="mb-4">
+    <span class="swordsayer"><img src="../img/SwordS-logo.png" alt="The SwordSayers Tournament Logo"></span>
+  </h1>
+  <p class="text-center">A World Wide Battle to Crown the Final King or Queen of our Lifetime.</p>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab" aria-controls="rules" aria-selected="true">Rules</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="match-tab" data-bs-toggle="tab" data-bs-target="#match" type="button" role="tab" aria-controls="match" aria-selected="false">Matchups</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="chars-tab" data-bs-toggle="tab" data-bs-target="#chars" type="button" role="tab" aria-controls="chars" aria-selected="false">Characters</button>
-  </li>
-</ul>
-
-<div id="portfolio" class="tab-content portfolio">
-  <div id="rules" class="container-fluid tab-pane"><br>
-    <h2>SwordSayers Rules</h2>
-
-    <p class="col-sm-12 col-md-8 offset-md-2"><span class="rls">The SwordSayers:</span> Anyone who picks up a weapon or balls their fists to fight for the Gold and Glory. The Prizes if you are lucky enough to make it to the end are both promising and life altering. Enter all who are skilled enough to claim victory.
-Many deadly duels await.</p>
-
-    <div class="container">
-      <ul class="trules">
-        <li><span>1. Entrance Requirement:</span> Fighters must have achieved a significant level of prowess by either defeating a Final Boss or 100 Lord level opponents.</li>
-        <li><span>2. Tier Equality:</span> Fighters cannot exceed the tier of their opponent, unless the opponent has the capability to exceed it themselves. This ensures a fair and balanced match.</li>
-        <li><span>3. Limited Lethality:</span> Each fighter is permitted one kill per tournament. Any subsequent kills will result in immediate stoppage and inspection and may lead to disqualification. Kills do not include total eradication, extermination, or obliteration.</li>
-        <li><span>4. No Holding Back:</span> If a fighter purposefully holds back in their confrontation, neither participant will advance. This rule encourages full commitment and intensity in each bout.</li>
-        <li><span>5. No Interference:</span> Any interference during a bout will lead to an immediate stoppage and inspection and may lead to disqualification(s). The fight will restart once the commotion has been cleared. </li>
-      </ul>
-    </div>
-
-    <h2>SwordSayers Prizes</h2>
-
-    <p class="col-sm-12 col-md-8 offset-md-2"><span class="rls">The Spoils:</span> Everyone who has made it to the SwordSayers Ardent Eight are guaranteed a prize even if they don’t make it to the Finals, win and become a Final Boss.</p>
-
-    <div class="container">
-      <ul class="trules">
-        <li><span>1. Grand Prize:</span> Final Boss coronation for whoever wins everything. This person will get the land, money and responsibilities that any Final Boss would. Their rule of the free world would begin after the AllKing's reign ends.</li>
-
-        <li><span>2. Runner Up:</span> A Lordship promotion. This comes with some influence, land and money as well. Once the Newest Final Boss becomes King, this person would then become a the current Final Boss.</li>
-        <li><span>3. Lesser Prize One:</span> Mentorship at the Mastery Swordfighting Acadamy. Build the best weapons and armor. Train with some of the best fighters in the world.</li>
-        <li><span>4. Lesser Prize Two:</span> Weaponry Package of some of the items showcased during the Tournament.</li>
-        <li><span>5. Lesser Prize Three:</span> A moderate cash prize.</li>
-      </ul>
-    </div>
-
-    <div class="row nill">
-      <div class="container-fluid nill gong">
-        <div class="row col-xs-12 d-flex justify-content-around mb-3">
-          <div class="col-lg-3 col-xs-12 ang">
-            <h3>GVM Poster 1</h3>
-            <img src="/swordsayers/img/SwordSayers_Poster_sm_3.png" class="img-fluid" alt="GVM Poster">
-          </div>
-          <div class="col-lg-3 col-xs-12 ang">
-            <h3>GVM Poster 2</h3>
-            <img src="/swordsayers/img/SwordSayers_Poster_sm_1.png" class="img-fluid" alt="GVM Poster">
-          </div>
-          <div class="col-lg-3 col-xs-12 ang">
-            <h3>GVM Poster 3</h3>
-            <img src="/swordsayers/img/SwordSayers_Poster_sm_2.png" class="img-fluid" alt="GVM Poster">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="match" class="container-fluid tab-pane show"><br>
-
-    <h2>Full Brackets</h2>
-
-    <ul class="nav nav-tabs alter" id="myTab2" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="sever-tab" data-bs-toggle="tab" data-bs-target="#sever" type="button" role="tab" aria-controls="sever" aria-selected="true">Sever League</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="rigor-tab" data-bs-toggle="tab" data-bs-target="#rigor" type="button" role="tab" aria-controls="rigor" aria-selected="false">Rigor League</button>
-      </li>
-    </ul>
-
-    <div class="tab-content alter">
-      <div id="sever" class="container-fluid tab-pane active show"><br>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-4">
-
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <h2>Bound Sixteen Bracket</h2>
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/SwordSayers_brackets_full-ALL-L.png" class="img-fluid" alt="Left Bracket">
-              <div class="portfolio-info">
-                <h4>Sever League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/SwordSayers_brackets_full-ALL-L.png" data-gall="portfolioGallery0" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-12 margo">
-            <h2>SwordS Sever Promo</h2>
-            <iframe class="nuke" width="100%" height="305" src="https://www.youtube.com/embed/BKUgKqsSK6w?si=01TIzilAJxwrfOnn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-
-        </div>
-
-        <h2>Sever League - Bound Sixteen Matchups</h2>
-        <div class="row nill mb-4">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-3">
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/1.html">
-                <h3>Grandle V. Robe Knight</h3>
-                <img src="/swordsayers/img/GrandleVRobe.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/2.html">
-                <h3>Pond V. Delila Gida</h3>
-                <img src="/swordsayers/img/PondVDelila.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/3.html">
-                <h3>Volcanis V. Shana</h3>
-                <img src="/swordsayers/img/VolcanisVShana.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/4.html">
-                <h3>Sparrow V. Kendo</h3>
-                <img src="/swordsayers/img/SparrowVKendo.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/5.html">
-                <h3>Mac Knight V. Flower</h3>
-                <img src="/swordsayers/img/Macabre_KnightVFlower.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/6.html">
-                <h3>Lit Knight V. Lunar Knight</h3>
-                <img src="/swordsayers/img/LitVLunar.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/7.html">
-                <h3>Yosh V. Mouse</h3>
-                <img src="/swordsayers/img/YoshVMouse.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/1/8.html">
-                <h3>Seth V. Franker</h3>
-                <img src="/swordsayers/img/FrankerVSeth.png" class="img-fluid" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Sever League - Bound Sixteen Results</h2>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-5">
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/sever-bracket-16-results.png" class="img-fluid" alt="Left Bracket">
-              <div class="portfolio-info">
-                <h4>Sever League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/sever-bracket-16-results.png" data-gall="portfolioGallery0" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Sever League - Ardent Eight Matchups</h2>
-        <div class="row nill">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-4">
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Grandle V. Pond</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Grandle-Pond.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/2.html">
-                <h3>The Ripper V. Shana</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Ripper-Shana.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Flower V. Lunar Knight</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Flow-LunarKnight.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Seth V. Yosh</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Seth-Yosh.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Sever League - Ardent Eight Results</h2>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-5">
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/sever-bracket-8-results.png" class="img-fluid" alt="Left Bracket">
-              <div class="portfolio-info">
-                <h4>Sever League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/sever-bracket-8-results.png" data-gall="portfolioGallery0" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Sever League - Brave Four Matchups</h2>
-
-        <div class="row nill">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-4">
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Grandle V. The Ripper</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Grandle-Pond.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/2.html">
-                <h3>Yosh V. Flower</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Ripper-Shana.png" class="img-fluid" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div id="rigor" class="container-fluid tab-pane"><br>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-4">
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <h2>Bound Sixteen Bracket</h2>
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/SwordSayers_brackets_full-ALL-R.png" class="img-fluid" alt="Right Bracket">
-              <div class="portfolio-info">
-                <h4>Rigor League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/SwordSayers_brackets_full-ALL-R.png" data-gall="portfolioGallery" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 margo">
-            <h2>SwordS Rigor Promo</h2>
-            <iframe class="nuke" width="100%" height="305" src="https://www.youtube.com/embed/cFNwQwHzRUM?si=P_K5vs5ZmMZbQogE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <h2>Rigor League - Bound Sixteen Matchups</h2>
-
-        <div class="row nill mb-4">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-4">
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/1.html">
-                <h3>Ignis V. Stormheart</h3>
-                <img src="/swordsayers/img/IgnisVStormheart.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/2.html">
-                <h3>Demoni V. Toth</h3>
-                <img src="/swordsayers/img/DemoniVToth.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/3.html">
-                <h3>Quint V. Bruno</h3>
-                <img src="/swordsayers/img/QuintVBruno.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/4.html">
-                <h3>Bastion V. Fara</h3>
-                <img src="/swordsayers/img/BastionVFara.png" class="img-fluid" alt="">
-                </a>
-              </div>
-
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/5.html">
-                <h3>Samson V. Voorhies</h3>
-                <img src="/swordsayers/img/SamsonVVoorhies.png" class="img-fluid" alt="">
-                </a>
-              </div>
-
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/6.html">
-                <h3>Eln-Delila V. Tesha</h3>
-                <img src="/swordsayers/img/TeshaVEln-Delila.png" class="img-fluid" alt="">
-                </a>
-              </div>
-
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/7.html">
-                <h3>Chris V. Sordin</h3>
-                <img src="/swordsayers/img/ChrisVSordin.png" class="img-fluid" alt="">
-                </a>
-              </div>
-
-              <div class="col-lg-3 col-xs-12 ang">
-                <a href="/swordsayers/rounds/2/8.html">
-                <h3>Lars V. Maxither</h3>
-                <img src="/swordsayers/img/LarsVMaxither.png" class="img-fluid" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Rigor League - Bound Sixteen Results</h2>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-5">
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/rigor-bracket-16-results.png" class="img-fluid" alt="Left Bracket">
-              <div class="portfolio-info">
-                <h4>Rigor League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/rigor-bracket-16-results.png" data-gall="portfolioGallery0" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Rigor League - Ardent Eight Matchups</h2>
-        <div class="row nill">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-4">
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Ignis V. Demoni</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Ignis-Demoni.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Bruno V. Bastion</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Bruno-Bastion.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Delila V. Samson</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Delila-Samson.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Maxither V. Chris</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Maxither-Chris.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Rigor League - Ardent Eight Results</h2>
-
-        <div class="row col-xs-12 d-flex justify-content-around mb-5">
-          <div class="col-lg-6 col-md-12 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="/swordsayers/img/rigorr-bracket-8-results.png" class="img-fluid" alt="Left Bracket">
-              <div class="portfolio-info">
-                <h4>Rigor League</h4>
-              </div>
-              <div class="portfolio-links">
-                <a href="/swordsayers/img/rigorr-bracket-8-results.png" data-gall="portfolioGallery0" class="venobox" title="GVM"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Rigor League - Brave Four Matchups</h2>
-        <div class="row nill">
-          <div class="container-fluid nill gong">
-            <div class="row col-xs-12 d-flex justify-content-around mb-4">
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Ignis V. Bruno</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Ignis-Demoni.png" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-3 col-xs-12 ang">
-                <h3>Maxither V. Delila</h3>
-                <img src="/swordsayers/img/2/GVM-Round-2-v-Maxither-Chris.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div id="chars" class="container-fluid active tab-pane"><br>
-
-  <h2>All Fighters</h2>
-
-  <ul id="portfolio-flters">
-    <li data-filter="*" class="filter-active">All Cities</li>
-    <li data-filter=".filter-ab" class="">Abya Yala</li>
-    <li data-filter=".filter-lords" class="">Lords</li>
-    <li data-filter=".filter-kreis" class="">Kreis</li>
-    <li data-filter=".filter-ottom" class="">Ottom</li>
-    <li data-filter=".filter-hanor" class="">Hanor</li>
-    <li data-filter=".filter-grad" class="">Gradiis</li>
-    <li data-filter=".filter-u" class="">Unknown</li>
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab" aria-controls="rules" aria-selected="false">Rules</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="match-tab" data-bs-toggle="tab" data-bs-target="#match" type="button" role="tab" aria-controls="match" aria-selected="false">Matchups</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="chars-tab" data-bs-toggle="tab" data-bs-target="#chars" type="button" role="tab" aria-controls="chars" aria-selected="true">Characters</button>
+    </li>
   </ul>
 
-  <section>
-    <div class="container-fluid">
-      <div class="row portfolio-container">
+  <div id="portfolio" class="tab-content mb-4">
 
-        <div ng-controller="GvmController" class="row mast_wrap row_flex">
-
-          <div ng-repeat="ofighter in ofighters" ng-class-odd="'odd'" class="col-sm-12 col-md-6 col-lg-4 flx mast_wrap {{ ofighter.name }} {{ ofighter.house }} portfolio-item filter-{{ ofighter.filter }}">
-            <div class="panel_wrap nill flx">
-              <div class="row nill d-flex justify-content-around mb-3">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 nill">
-                  <div class="ovart"></div>
-                  <img class="nill" alt="{{ ofighter.name }} - GVM" src="{{ ofighter.img }}">
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 small_nill">
-                  <div class="h3 hd">{{ ofighter.fullname }}
-                    <span class="sub">"{{ ofighter.job }}"</span>
-                  </div>
-                  <ul class="flex_el">
-                    <li>House: {{ ofighter.house }}</li>
-                    <li>Origin: <a href="{{ ofighter.city }}" data-gall="portfolioGallery{{ ofighter.gallery }}" class="venobox vbox-item" title="GVM Weapon">{{ ofighter.cityname }}</a></li>
-                    <li>Style: {{ ofighter.style }}</li>
-                    <li>Personality: {{ ofighter.personality }}</li>
-                    <li>VS. Shot: <a href="{{ ofighter.actionshotlink }}" data-gall="portfolioGallery{{ ofighter.gallery }}" class="venobox vbox-item" title="GVM"> {{ ofighter.actionshot }}</a></li>
-                    <li>More: <a href="{{ ofighter.bio }}" title="GVM"> {{ ofighter.name }}'s Bio</a></li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <div id="rules" class="container-fluid tab-pane"><br>
+      <h2>SwordSayers Rules</h2>
+      <p class="col-sm-12 col-md-8 offset-md-2"><span>The SwordSayers:</span> Anyone who picks up a weapon or balls their fists to fight for the Gold and Glory. The Prizes if you are lucky enough to make it to the end are both promising and life altering. Enter all who are skilled enough to claim victory. Many deadly duels await.</p>
+      <div class="container">
+        <ul>
+          <li><span>1. Entrance Requirement:</span> Fighters must have achieved a significant level of prowess by either defeating a Final Boss or 100 Lord level opponents.</li>
+          <li><span>2. Tier Equality:</span> Fighters cannot exceed the tier of their opponent, unless the opponent has the capability to exceed it themselves. This ensures a fair and balanced match.</li>
+          <li><span>3. Limited Lethality:</span> Each fighter is permitted one kill per tournament. Any subsequent kills will result in immediate stoppage and inspection and may lead to disqualification. Kills do not include total eradication, extermination, or obliteration.</li>
+          <li><span>4. No Holding Back:</span> If a fighter purposefully holds back in their confrontation, neither participant will advance. This rule encourages full commitment and intensity in each bout.</li>
+          <li><span>5. No Interference:</span> Any interference during a bout will lead to an immediate stoppage and inspection and may lead to disqualification(s). The fight will restart once the commotion has been cleared.</li>
+        </ul>
+      </div>
+      <h2>SwordSayers Prizes</h2>
+      <p class="col-sm-12 col-md-8 offset-md-2"><span>The Spoils:</span> Everyone who has made it to the SwordSayers Ardent Eight are guaranteed a prize even if they don't make it to the Finals, win and become a Final Boss.</p>
+      <div class="container">
+        <ul>
+          <li><span>1. Grand Prize:</span> Final Boss coronation for whoever wins everything. This person will get the land, money and responsibilities that any Final Boss would. Their rule of the free world would begin after the AllKing's reign ends.</li>
+          <li><span>2. Runner Up:</span> A Lordship promotion. This comes with some influence, land and money as well. Once the Newest Final Boss becomes King, this person would then become a the current Final Boss.</li>
+          <li><span>3. Lesser Prize One:</span> Mentorship at the Mastery Swordfighting Acadamy. Build the best weapons and armor. Train with some of the best fighters in the world.</li>
+          <li><span>4. Lesser Prize Two:</span> Weaponry Package of some of the items showcased during the Tournament.</li>
+          <li><span>5. Lesser Prize Three:</span> A moderate cash prize.</li>
+        </ul>
+      </div>
+      <div class="row d-flex justify-content-around mb-3">
+        <div class="col-lg-3 col-12"><h3>GVM Poster 1</h3><img src="img/SwordSayers_Poster_sm_3.png" class="img-fluid" alt="GVM Poster"></div>
+        <div class="col-lg-3 col-12"><h3>GVM Poster 2</h3><img src="img/SwordSayers_Poster_sm_1.png" class="img-fluid" alt="GVM Poster"></div>
+        <div class="col-lg-3 col-12"><h3>GVM Poster 3</h3><img src="img/SwordSayers_Poster_sm_2.png" class="img-fluid" alt="GVM Poster"></div>
       </div>
     </div>
 
-  </section>
+    <div id="match" class="container-fluid tab-pane show"><br>
+      <h2>Full Brackets</h2>
+      <ul class="nav nav-tabs" id="myTab2" role="tablist">
+        <li class="nav-item" role="presentation"><button class="nav-link active" id="sever-tab" data-bs-toggle="tab" data-bs-target="#sever" type="button" role="tab" aria-controls="sever" aria-selected="true">Sever League</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="rigor-tab" data-bs-toggle="tab" data-bs-target="#rigor" type="button" role="tab" aria-controls="rigor" aria-selected="false">Rigor League</button></li>
+      </ul>
+      <div class="tab-content">
 
-</div>
-</div>
+        <div id="sever" class="container-fluid tab-pane active show"><br>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-6 col-md-12">
+              <h2>Bound Sixteen Bracket</h2>
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/SwordSayers_brackets_full-ALL-L.png" data-title="Sever League — Bound 16 Bracket">
+                <img src="img/SwordSayers_brackets_full-ALL-L.png" class="img-fluid" alt="Left Bracket">
+              </button>
+              <h4>Sever League</h4>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <h2>SwordS Sever Promo</h2>
+              <iframe width="100%" height="305" src="https://www.youtube.com/embed/BKUgKqsSK6w?si=01TIzilAJxwrfOnn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <h2>Sever League - Bound Sixteen Matchups</h2>
+          <div class="row d-flex justify-content-around mb-3">
+            <div class="col-lg-3 col-12"><a href="rounds/1/1.html"><h3>Grandle V. Robe Knight</h3><img src="img/GrandleVRobe.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/2.html"><h3>Pond V. Delila Gida</h3><img src="img/PondVDelila.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/3.html"><h3>Volcanis V. Shana</h3><img src="img/VolcanisVShana.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/4.html"><h3>Sparrow V. Kendo</h3><img src="img/SparrowVKendo.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/5.html"><h3>Mac Knight V. Flower</h3><img src="img/Macabre_KnightVFlower.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/6.html"><h3>Lit Knight V. Lunar Knight</h3><img src="img/LitVLunar.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/7.html"><h3>Yosh V. Mouse</h3><img src="img/YoshVMouse.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/1/8.html"><h3>Seth V. Franker</h3><img src="img/FrankerVSeth.png" class="img-fluid" alt=""></a></div>
+          </div>
+
+          <h2>Sever League - Bound Sixteen Results</h2>
+          <div class="row d-flex justify-content-around mb-5">
+            <div class="col-lg-6 col-md-12">
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/sever-bracket-16-results.png" data-title="Sever League — Bound 16 Results">
+                <img src="img/sever-bracket-16-results.png" class="img-fluid" alt="Sever Bound 16 Results">
+              </button>
+              <h4>Sever League</h4>
+            </div>
+          </div>
+
+          <h2>Sever League - Ardent Eight Matchups</h2>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-3 col-12"><h3>Grandle V. Pond</h3><img src="img/GrandleVRobe.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/2.html"><h3>The Ripper V. Shana</h3><img src="img/2/GVM-Round-2-v-Ripper-Shana.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><h3>Flower V. Lunar Knight</h3><img src="img/2/GVM-Round-2-v-Flow-LunarKnight.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><h3>Seth V. Yosh</h3><img src="img/2/GVM-Round-2-v-Seth-Yosh.png" class="img-fluid" alt=""></div>
+          </div>
+
+          <h2>Sever League - Ardent Eight Results</h2>
+          <div class="row d-flex justify-content-around mb-5">
+            <div class="col-lg-6 col-md-12">
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/sever-bracket-8-results.png" data-title="Sever League — Ardent 8 Results">
+                <img src="img/sever-bracket-8-results.png" class="img-fluid" alt="Sever Ardent 8 Results">
+              </button>
+              <h4>Sever League</h4>
+            </div>
+          </div>
+
+          <h2>Sever League - Brave Four Matchups</h2>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-3 col-12"><h3>Grandle V. The Ripper</h3><img src="img/2/GVM-Round-2-v-Grandle-Pond.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/2.html"><h3>Yosh V. Flower</h3><img src="img/2/GVM-Round-2-v-Ripper-Shana.png" class="img-fluid" alt=""></a></div>
+          </div>
+        </div>
+
+        <div id="rigor" class="container-fluid tab-pane"><br>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-6 col-md-12">
+              <h2>Bound Sixteen Bracket</h2>
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/SwordSayers_brackets_full-ALL-R.png" data-title="Rigor League — Bound 16 Bracket">
+                <img src="img/SwordSayers_brackets_full-ALL-R.png" class="img-fluid" alt="Right Bracket">
+              </button>
+              <h4>Rigor League</h4>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <h2>SwordS Rigor Promo</h2>
+              <iframe width="100%" height="305" src="https://www.youtube.com/embed/cFNwQwHzRUM?si=P_K5vs5ZmMZbQogE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <h2>Rigor League - Bound Sixteen Matchups</h2>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-3 col-12"><a href="rounds/2/1.html"><h3>Ignis V. Stormheart</h3><img src="img/IgnisVStormheart.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/2.html"><h3>Demoni V. Toth</h3><img src="img/DemoniVToth.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/3.html"><h3>Quint V. Bruno</h3><img src="img/QuintVBruno.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/4.html"><h3>Bastion V. Fara</h3><img src="img/BastionVFara.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/5.html"><h3>Samson V. Voorhies</h3><img src="img/SamsonVVoorhies.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/6.html"><h3>Eln-Delila V. Tesha</h3><img src="img/TeshaVEln-Delila.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/7.html"><h3>Chris V. Sordin</h3><img src="img/ChrisVSordin.png" class="img-fluid" alt=""></a></div>
+            <div class="col-lg-3 col-12"><a href="rounds/2/8.html"><h3>Lars V. Maxither</h3><img src="img/LarsVMaxither.png" class="img-fluid" alt=""></a></div>
+          </div>
+
+          <h2>Rigor League - Bound Sixteen Results</h2>
+          <div class="row d-flex justify-content-around mb-5">
+            <div class="col-lg-6 col-md-12">
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/rigor-bracket-16-results.png" data-title="Rigor League — Bound 16 Results">
+                <img src="img/rigor-bracket-16-results.png" class="img-fluid" alt="Rigor Bound 16 Results">
+              </button>
+              <h4>Rigor League</h4>
+            </div>
+          </div>
+
+          <h2>Rigor League - Ardent Eight Matchups</h2>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-3 col-12"><h3>Ignis V. Demoni</h3><img src="img/2/GVM-Round-2-v-Ignis-Demoni.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><h3>Bruno V. Bastion</h3><img src="img/2/GVM-Round-2-v-Bruno-Bastion.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><h3>Delila V. Samson</h3><img src="img/2/GVM-Round-2-v-Delila-Samson.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><h3>Maxither V. Chris</h3><img src="img/2/GVM-Round-2-v-Maxither-Chris.png" class="img-fluid" alt=""></div>
+          </div>
+
+          <h2>Rigor League - Ardent Eight Results</h2>
+          <div class="row d-flex justify-content-around mb-5">
+            <div class="col-lg-6 col-md-12">
+              <button type="button" class="p-0 border-0 bg-transparent d-block w-100 bracket-open" data-img="img/rigor-bracket-8-results.png" data-title="Rigor League — Ardent 8 Results">
+                <img src="img/rigor-bracket-8-results.png" class="img-fluid" alt="Rigor Ardent 8 Results">
+              </button>
+              <h4>Rigor League</h4>
+            </div>
+          </div>
+
+          <h2>Rigor League - Brave Four Matchups</h2>
+          <div class="row d-flex justify-content-around mb-4">
+            <div class="col-lg-3 col-12"><h3>Ignis V. Bruno</h3><img src="img/2/GVM-Round-2-v-Ignis-Demoni.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-3 col-12"><h3>Maxither V. Delila</h3><img src="img/2/GVM-Round-2-v-Maxither-Chris.png" class="img-fluid" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="chars" class="container-fluid active tab-pane show"><br>
+      <h2>All Fighters</h2>
+      <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" id="castFilters" aria-label="Cast filters">
+        <button type="button" class="btn btn-cta-outline active" data-filter="all" aria-pressed="true">All Cities</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="ab" aria-pressed="false">Abya Yala</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="lords" aria-pressed="false">Lords</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="kreis" aria-pressed="false">Kreis</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="ottom" aria-pressed="false">Ottom</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="hanor" aria-pressed="false">Hanor</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="grad" aria-pressed="false">Gradiis</button>
+        <button type="button" class="btn btn-cta-outline" data-filter="unknown" aria-pressed="false">Unknown</button>
+      </div>
+      <div id="castGrid" class="row g-3 mb-4"></div>
+    </div>
+
+  </div>
 </div>
 
-<section id="contact" class="contact section-bg">
+<div class="container-full deep py-4">
   <div class="container">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Thank you so much for visiting my page. I look forward to collaborating with you to make great things!</p>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-md-6">
-        <div class="contact-about">
-          <h2>Find Me</h2>
-          <p>Below are the usual ways.</p>
-    <div class="social-links">
-			<a href="https://www.youtube.com/user/riotgear2007" class="youtube" target="blank">My YouTube</a>
-			<a href="https://www.instagram.com/greyvoth" class="instagram" target="blank">My InstaGram</a>
-			<a href="https://www.linkedin.com/pub/keith-jeter/15/326/1a6" class="linkedin" target="blank">My LinkedIn</a>
-		
-    </div>
-        </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-lg-4">
+        <article class="card h-100 shadow-sm">
+          <div class="bg-light">
+            <img src="https://greyvoth.com/A25/godsvmencover.png" alt="Gods V. Men: The SwordSayers Compendium cover (Print)" class="img-fluid" loading="lazy" decoding="async">
+          </div>
+          <div class="card-body text-center">
+            <h2 class="h5 mb-3">The SwordSayers Compendium<br><span class="text-muted">(Print)</span></h2>
+            <a href="https://a.co/d/e2XDe4K" target="_blank" rel="noopener noreferrer" class="btn btn-lg w-100 btn-cta-tertiary">Buy on Amazon</a>
+          </div>
+        </article>
       </div>
-      <div class="col-lg-6 col-md-6">
-        <div class="info">
-          <div> <i class="fa-duotone fa-location-check fa-fw"></i>
-            <p>Someplace, USA 90210</p>
+      <div class="col-12 col-lg-4">
+        <article class="card h-100 shadow-sm">
+          <div class="bg-light">
+            <img src="https://greyvoth.com/A25/godsvmencover-2.png" alt="Gods V. Men: The SwordSayers Compendium cover (Digital)" class="img-fluid" loading="lazy" decoding="async">
           </div>
-          <a href="mailto: galnova@gmail.com">
-            <div> <i class="fa-duotone fa-envelope fa-fw"></i>
-              <p>galnova@gmail.com</p>
-            </div>
-          </a>
-          <div> <i class="fa-duotone fa-phone-flip fa-fw"></i>
-            <p>Just email me</p>
+          <div class="card-body text-center">
+            <h2 class="h5 mb-3">The SwordSayers Compendium<br><span class="text-muted">(Digital)</span></h2>
+            <a href="https://www.amazon.com/dp/B0DYGB5WRM" target="_blank" rel="noopener noreferrer" class="btn btn-lg w-100 btn-cta-tertiary">Buy on Amazon</a>
           </div>
-        </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" class="py-4">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h3 mb-2">Contact</h2>
+      <p class="mb-0">Thank you so much for visiting my page. I look forward to collaborating with you to make great things!</p>
+    </div>
+    <div class="row justify-content-center g-3">
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.amazon.com/dp/B0DPVTSXRN" class="btn btn-cta-secondary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">GVM Merch</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.amazon.com/dp/B0DR9K1DTL" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Greyvoth Merch</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.amazon.com/dp/B0F276HNG7" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Drawsesh Merch</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.amazon.com/dp/B0DT93TFLK" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Artbook on Amazon</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.tiktok.com/@greyvoth" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.instagram.com/greyvoth" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <a href="https://www.youtube.com/user/riotgear2007" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">YouTube</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="mb-4" id="footer">
-  <div class="container">
-    <div class="copyright"> &copy; Copyright <strong><span>Greyvoth</span> <span id="year"></span></strong>. All Rights Reserved </div>
+<footer class="pb-4" id="footer">
+  <div class="container text-center">
+    <small>&copy; <span>Greyvoth</span> <span id="year"></span>. All Rights Reserved</small>
   </div>
 </footer>
 
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+<a href="#top" class="btn btn-cta-secondary position-fixed bottom-0 end-0 m-3 d-none" id="backToTop" aria-label="Back to top">↑</a>
 
-<script src="/assets1/vendor/jquery/jquery.min.js"></script>
-<script src="/assets1/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets1/vendor/php-email-form/validate.js"></script>
-<script src="/assets1/vendor/jquery-sticky/jquery.sticky.js"></script>
-<script src="/assets1/vendor/waypoints/jquery.waypoints.min.js"></script>
-<script src="/assets1/vendor/counterup/counterup.min.js"></script>
-<script src="/assets1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/assets1/vendor/venobox/venobox.min.js"></script>
-<script src="https://kit.fontawesome.com/a1b29a2366.js" crossorigin="anonymous"></script>
-<script src="/assets1/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="/assets1/js/main.js"></script>
+<div class="modal fade" id="bracketModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark text-white border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="bracketModalTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0 pb-4">
+        <img id="bracketModalImg" src="" alt="" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+</div>
 
-<script>
-$('.megamenu').on('click', function(event){
-    event.stopPropagation();
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="../js/gvm.js"></script>
+<script src="../js/global.js"></script>
 </body>
 </html>

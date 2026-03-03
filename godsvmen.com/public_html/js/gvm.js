@@ -1,7 +1,10 @@
+// js/gvm.js
+// Data only. No Angular. No comments other than this header.
+
 window.GVM = window.GVM || {};
 
 window.GVM.gallery = [
-  { char: "Group", charArtSize: "9", charArtYear: "2025", charArtName: "gvm_char_norm", charArtGallery: "porfolioGallery90", charArtTitle: "Character Poster" },
+  // { char: "Group", charArtSize: "9", charArtYear: "2025", charArtName: "gvm_char_norm", charArtGallery: "porfolioGallery90", charArtTitle: "Character Poster" },
   { char: "Shana", charArtSize: "4", charArtYear: "2025", charArtName: "Shana-Sitting", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sitting" },
   { char: "Shana", charArtSize: "4", charArtYear: "2025", charArtName: "Shana_Sword", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sword" },
   { char: "Seth", charArtSize: "4", charArtYear: "2025", charArtName: "seth-loyalty", charArtGallery: "porfolioGallery90", charArtTitle: "Seth Loyalty" },
@@ -14,7 +17,7 @@ window.GVM.gallery = [
   { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana_clarity", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Clarity" },
   { char: "Ignis", charArtSize: "3", charArtYear: "2025", charArtName: "Ignisback", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Back" },
   { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "Golden-grandle", charArtGallery: "porfolioGallery90", charArtTitle: "Golden Grandle" },
-  { char: "Grandle", charArtSize: "8", charArtYear: "2025", charArtName: "grandle-ignis-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Ignis Faceoff" },
+  // { char: "Grandle", charArtSize: "8", charArtYear: "2025", charArtName: "grandle-ignis-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Ignis Faceoff" },
   { char: "Ignis", charArtSize: "5", charArtYear: "2025", charArtName: "ignis-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Faceoff" },
   { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "grandle-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Faceoff" },
   { char: "Samson", charArtSize: "3", charArtYear: "2025", charArtName: "samson-loyalty-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Samson Loyalty" },
@@ -24,7 +27,7 @@ window.GVM.gallery = [
   { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-fist-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Fist" },
   { char: "Yosh", charArtSize: "3", charArtYear: "2025", charArtName: "yosh-kendo-ready-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Yosh and Kendo" },
   { char: "Ignis", charArtSize: "3", charArtYear: "2025", charArtName: "ignis-smile-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Smiles" },
-  { char: "Ignis", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-intro-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Enter the Hero" }
+  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-intro-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Enter the Hero" }
 ];
 
 window.GVM.fighters = [
@@ -118,7 +121,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Samson-full.png",
     bio: "https://godsvmen.com/characters/samson.html",
     gallery: "5",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Grandle",
@@ -175,7 +178,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/chris.html",
     gallery: "8",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Seth",
@@ -193,7 +196,7 @@ window.GVM.fighters = [
     actionshot: "Cross Ax Olan",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "9",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Flow",
@@ -231,7 +234,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/ripper.html",
     gallery: "11",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Delila",
@@ -367,7 +370,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/SamsonVVoorhies.png",
     bio: "https://godsvmen.com/characters/samson.html",
     gallery: "5",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Grandle",
@@ -443,7 +446,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/ChrisVSordin.png",
     bio: "https://godsvmen.com/characters/chris.html",
     gallery: "8",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Seth",
@@ -462,7 +465,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/FrankerVSeth.png",
     bio: "https://godsvmen.com/characters/seth.html",
     gallery: "9",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Flow",
@@ -500,7 +503,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/SparrowVKendo.png",
     bio: "https://godsvmen.com/characters/ripper.html",
     gallery: "11",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Delila",
@@ -613,7 +616,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/SparrowVKendo.png",
     bio: "https://godsvmen.com/characters/sparrow.html",
     gallery: "7",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Voorhies",
@@ -689,7 +692,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
     bio: "https://godsvmen.com/characters/demoni.html",
     gallery: "13",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Macabre Soldier",
@@ -765,7 +768,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/IgnisVStormheart.png",
     bio: "https://godsvmen.com/characters/stormheart.html",
     gallery: "13",
-    filter: "u"
+    filter: "unknown"
   },
   {
     name: "Lit",
