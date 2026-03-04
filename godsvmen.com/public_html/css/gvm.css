@@ -102,9 +102,7 @@ body{
 .gvm-header{
   border-bottom:solid 5px var(--gvm-primary);
   background:#ffcea375;
-  background-size:20px 20px;
-  position:relative;
-  background-position:0 0,0 0;
+  padding: 0 16px;
 }
 
 body.gvm{
@@ -317,6 +315,7 @@ h1{
   background:var(--gvm-primary);
   padding:0;
   overflow:hidden;
+  margin-top: 0;
 }
 .gvm .dropdown-menu.megamenu .accordion-item{
   background:transparent;
@@ -364,4 +363,36 @@ h1{
 .gvm .dropdown-menu.megamenu .col-megamenu ul li a:hover{
   color:var(--gvm-gold);
   padding-left:.4rem;
+}
+
+.league-a {
+	text-decoration: none;
+}
+
+.league-a h3 {
+	background: var(--gvm-primary);
+    padding: 15px;
+	font-size: 1em;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+	text-decoration: none;
+}
+
+.beaut {
+	border: solid 12px var(--gvm-primary);
+}
+
+#myTab2 li {
+	width: 50%;
+}
+
+@media (max-width: 600px) {
+	.beaut {
+		border: solid 5px var(--gvm-primary);
+	}
+
+	#myTab li {
+		width: 100%;
+	}
 }
