@@ -1,33 +1,30 @@
-// js/gvm.js
-// Data only. No Angular. No comments other than this header.
-
 window.GVM = window.GVM || {};
 
 window.GVM.gallery = [
   // { char: "Group", charArtSize: "9", charArtYear: "2025", charArtName: "gvm_char_norm", charArtGallery: "porfolioGallery90", charArtTitle: "Character Poster" },
-  { char: "Shana", charArtSize: "4", charArtYear: "2025", charArtName: "Shana-Sitting", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sitting" },
-  { char: "Shana", charArtSize: "4", charArtYear: "2025", charArtName: "Shana_Sword", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sword" },
-  { char: "Seth", charArtSize: "4", charArtYear: "2025", charArtName: "seth-loyalty", charArtGallery: "porfolioGallery90", charArtTitle: "Seth Loyalty" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "shana-grandle-fin", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 1" },
-  { char: "Ripper", charArtSize: "3", charArtYear: "2025", charArtName: "shana-ripper-fin", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 2" },
-  { char: "Ripper", charArtSize: "3", charArtYear: "2025", charArtName: "the_ripper_resting", charArtGallery: "porfolioGallery90", charArtTitle: "The Ripper Resting" },
-  { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana_landing", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Landing" },
-  { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana_defeated", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Defeated" },
-  { char: "Pond", charArtSize: "3", charArtYear: "2025", charArtName: "pond-profile", charArtGallery: "porfolioGallery90", charArtTitle: "The Young God Pond" },
-  { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana_clarity", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Clarity" },
-  { char: "Ignis", charArtSize: "3", charArtYear: "2025", charArtName: "Ignisback", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Back" },
-  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "Golden-grandle", charArtGallery: "porfolioGallery90", charArtTitle: "Golden Grandle" },
-  // { char: "Grandle", charArtSize: "8", charArtYear: "2025", charArtName: "grandle-ignis-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Ignis Faceoff" },
-  { char: "Ignis", charArtSize: "5", charArtYear: "2025", charArtName: "ignis-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Faceoff" },
-  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "grandle-faceoff-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Faceoff" },
-  { char: "Samson", charArtSize: "3", charArtYear: "2025", charArtName: "samson-loyalty-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Samson Loyalty" },
-  { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana-loyalty-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Loyalty" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-loss-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Loss" },
-  { char: "Shana", charArtSize: "3", charArtYear: "2025", charArtName: "shana-cursed-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Shana Cursed" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-fist-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Fist" },
-  { char: "Yosh", charArtSize: "3", charArtYear: "2025", charArtName: "yosh-kendo-ready-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Yosh and Kendo" },
-  { char: "Ignis", charArtSize: "3", charArtYear: "2025", charArtName: "ignis-smile-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Smiles" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-intro-sm", charArtGallery: "porfolioGallery90", charArtTitle: "Enter the Hero" }
+  { char: "Shana",   charArtSize: "4", charArtYear: "2025", charArtName: "Shana-Sitting",          charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sitting" },
+  { char: "Shana",   charArtSize: "4", charArtYear: "2025", charArtName: "Shana_Sword",             charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sword" },
+  { char: "Seth",    charArtSize: "4", charArtYear: "2025", charArtName: "seth-loyalty",            charArtGallery: "porfolioGallery90", charArtTitle: "Seth Loyalty" },
+  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "shana-grandle-fin",       charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 1" },
+  { char: "Ripper",  charArtSize: "3", charArtYear: "2025", charArtName: "shana-ripper-fin",        charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 2" },
+  { char: "Ripper",  charArtSize: "3", charArtYear: "2025", charArtName: "the_ripper_resting",      charArtGallery: "porfolioGallery90", charArtTitle: "The Ripper Resting" },
+  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_landing",           charArtGallery: "porfolioGallery90", charArtTitle: "Shana Landing" },
+  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_defeated",          charArtGallery: "porfolioGallery90", charArtTitle: "Shana Defeated" },
+  { char: "Pond",    charArtSize: "3", charArtYear: "2025", charArtName: "pond-profile",            charArtGallery: "porfolioGallery90", charArtTitle: "The Young God Pond" },
+  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_clarity",           charArtGallery: "porfolioGallery90", charArtTitle: "Shana Clarity" },
+  { char: "Ignis",   charArtSize: "3", charArtYear: "2025", charArtName: "Ignisback",               charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Back" },
+  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "Golden-grandle",          charArtGallery: "porfolioGallery90", charArtTitle: "Golden Grandle" },
+  // { char: "Grandle", charArtSize: "8", charArtYear: "2025", charArtName: "grandle-ignis-faceoff-sm",charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Ignis Faceoff" },
+  { char: "Ignis",   charArtSize: "5", charArtYear: "2025", charArtName: "ignis-faceoff-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Faceoff" },
+  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "grandle-faceoff-sm",      charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Faceoff" },
+  { char: "Samson",  charArtSize: "3", charArtYear: "2025", charArtName: "samson-loyalty-sm",       charArtGallery: "porfolioGallery90", charArtTitle: "Samson Loyalty" },
+  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana-loyalty-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Shana Loyalty" },
+  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-loss-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Loss" },
+  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana-cursed-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Shana Cursed" },
+  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-fist-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Fist" },
+  { char: "Yosh",    charArtSize: "3", charArtYear: "2025", charArtName: "yosh-kendo-ready-sm",     charArtGallery: "porfolioGallery90", charArtTitle: "Yosh and Kendo" },
+  { char: "Ignis",   charArtSize: "3", charArtYear: "2025", charArtName: "ignis-smile-sm",          charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Smiles" },
+  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-intro-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Enter the Hero" }
 ];
 
 window.GVM.fighters = [
@@ -47,7 +44,8 @@ window.GVM.fighters = [
     actionshot: "Bleeding Cut",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "1",
-    filter: "ottom"
+    filter: "ottom",
+    showIndex: true
   },
   {
     name: "Crin",
@@ -65,7 +63,8 @@ window.GVM.fighters = [
     actionshot: "Sword Mastery",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "2",
-    filter: "ab"
+    filter: "ab",
+    showIndex: true
   },
   {
     name: "Lem",
@@ -83,7 +82,8 @@ window.GVM.fighters = [
     actionshot: "Wolf Duo",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "3",
-    filter: "kreis"
+    filter: "kreis",
+    showIndex: true
   },
   {
     name: "Yosh",
@@ -102,7 +102,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Yosh-Full.png",
     bio: "https://godsvmen.com/characters/yosh.html",
     gallery: "4",
-    filter: "ab"
+    filter: "ab",
+    showIndex: true
   },
   {
     name: "Samson",
@@ -121,7 +122,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Samson-full.png",
     bio: "https://godsvmen.com/characters/samson.html",
     gallery: "5",
-    filter: "unknown"
+    filter: "unknown",
+    showIndex: true
   },
   {
     name: "Grandle",
@@ -140,7 +142,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Grandle-full.png",
     bio: "https://godsvmen.com/characters/grandle.html",
     gallery: "6",
-    filter: "ab"
+    filter: "ab",
+    showIndex: true
   },
   {
     name: "Shana",
@@ -159,7 +162,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Shana-full.png",
     bio: "https://godsvmen.com/characters/shana.html",
     gallery: "7",
-    filter: "ab"
+    filter: "ab",
+    showIndex: true
   },
   {
     name: "Christopher",
@@ -178,7 +182,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/chris.html",
     gallery: "8",
-    filter: "unknown"
+    filter: "unknown",
+    showIndex: true
   },
   {
     name: "Seth",
@@ -196,7 +201,8 @@ window.GVM.fighters = [
     actionshot: "Cross Ax Olan",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "9",
-    filter: "unknown"
+    filter: "unknown",
+    showIndex: true
   },
   {
     name: "Flow",
@@ -215,7 +221,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Flower-full.png",
     bio: "https://godsvmen.com/characters/flow.html",
     gallery: "10",
-    filter: "ottom"
+    filter: "ottom",
+    showIndex: true
   },
   {
     name: "Ripper",
@@ -230,11 +237,12 @@ window.GVM.fighters = [
     weaponshot: "https://godsvmen.com/swordsayers/img/kendo-weapon.png",
     special: "Choker",
     personality: "Erradic",
-    actionshot: "Kendo’s Chains",
+    actionshot: "Kendo's Chains",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/ripper.html",
     gallery: "11",
-    filter: "unknown"
+    filter: "unknown",
+    showIndex: true
   },
   {
     name: "Delila",
@@ -253,7 +261,28 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Delila-full.png",
     bio: "https://godsvmen.com/characters/delila.html",
     gallery: "12",
-    filter: "lords"
+    filter: "lords",
+    showIndex: false
+  },
+  {
+    name: "Eln-Delila",
+    fullname: "Eln-Delila",
+    img: "https://godsvmen.com/img/char/eln-delila_gvm_char.png",
+    house: "None",
+    cityname: "Lore, Lords",
+    city: "https://godsvmen.com/assets/lore-GVM.png",
+    job: "Eln Soldier",
+    style: "Big Sword",
+    weapon: "Heartless",
+    weaponshot: "https://godsvmen.com/swordsayers/img/Eln-Delila-full.png",
+    special: "Beguile",
+    personality: "Furious",
+    actionshot: "Rebel's Blade",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/Eln-Delila-full.png",
+    bio: "https://godsvmen.com/characters/eln-delila.html",
+    gallery: "120",
+    filter: "lords",
+    showIndex: false
   },
   {
     name: "Pond",
@@ -272,7 +301,384 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Pond-full.png",
     bio: "https://godsvmen.com/characters/pond.html",
     gallery: "13",
-    filter: "hanor"
+    filter: "hanor",
+    showIndex: true
+  },
+  {
+    name: "Sordin",
+    fullname: "Sordin",
+    img: "https://godsvmen.com/img/char/sordin_gvm_char.png",
+    house: "Hanor",
+    cityname: "Hanor, Heaven's Edge",
+    city: "https://godsvmen.com/assets/hanor-GVM.png",
+    job: "The Plump Knight",
+    style: "Ham Hands",
+    weapon: "Needle Point",
+    weaponshot: "",
+    special: "Hard Castle",
+    personality: "Fortified",
+    actionshot: "Bleak Reaper",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/ChrisVSordin.png",
+    bio: "https://godsvmen.com/characters/sordin.html",
+    gallery: "13",
+    filter: "hanor",
+    showIndex: false
+  },
+  {
+    name: "Demoni",
+    fullname: "Larnx Demoni",
+    img: "https://godsvmen.com/img/char/demoni_gvm_char.png",
+    house: "None",
+    cityname: "Unknown",
+    city: "https://godsvmen.com/assets/unknown-GVM.png",
+    job: "The Demon Lord",
+    style: "Enormous Slices",
+    weapon: "Giant Scythe",
+    weaponshot: "",
+    special: "Dark Hallows",
+    personality: "Fevered",
+    actionshot: "Soul Null",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
+    bio: "https://godsvmen.com/characters/demoni.html",
+    gallery: "13",
+    filter: "unknown",
+    showIndex: false
+  },
+  {
+    name: "Macabre Soldier",
+    fullname: "Macabre Soldier",
+    img: "https://godsvmen.com/img/char/mac_knight_gvm_char.png",
+    house: "Dark",
+    cityname: "Ottom, Guiresphere",
+    city: "https://godsvmen.com/assets/ottom-GVM.png",
+    job: "Gunner",
+    style: "Gunner Swordsmen",
+    weapon: "Dual Swords",
+    weaponshot: "https://godsvmen.com/swordsayers/img/chalstolce-weapon.png",
+    special: "Dark Punishment",
+    personality: "Nervous",
+    actionshot: "Gun Slice",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/Macabre_KnightVFlower.png",
+    bio: "https://godsvmen.com/characters/macabre-knight.html",
+    gallery: "111",
+    filter: "ottom",
+    showIndex: false
+  },
+  {
+    name: "Volcanis",
+    fullname: "Volcanis",
+    img: "https://godsvmen.com/img/char/volcanis_gvm_char.png",
+    house: "Hanor",
+    cityname: "Hanor, Heaven's Edge",
+    city: "https://godsvmen.com/assets/hanor-GVM.png",
+    job: "The Old God",
+    style: "God Palm",
+    weapon: "Flame Edge",
+    weaponshot: "",
+    special: "God Strike",
+    personality: "Manipulative",
+    actionshot: "Heart of Flames",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/VolcanisVShana.png",
+    bio: "https://godsvmen.com/characters/volcanis.html",
+    gallery: "14",
+    filter: "hanor",
+    showIndex: false
+  },
+  {
+    name: "Mouse",
+    fullname: "Ichabod Zanzbo",
+    img: "https://godsvmen.com/img/char/mouse_gvm_char.png",
+    house: "Weber",
+    cityname: "Lore, Lords",
+    city: "https://godsvmen.com/assets/lore-GVM.png",
+    job: "Olan Soldier",
+    style: "Long Bo",
+    weapon: "Bo",
+    weaponshot: "",
+    special: "Striker Shot",
+    personality: "Eager",
+    actionshot: "Bo Strike",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/YoshVMouse.png",
+    bio: "https://godsvmen.com/characters/mouse.html",
+    gallery: "151",
+    filter: "lords",
+    showIndex: false
+  },
+  {
+    name: "Stormheart",
+    fullname: "Stormheart",
+    img: "https://godsvmen.com/img/char/stormheart_gvm_char.png",
+    house: "None",
+    cityname: "Unknown",
+    city: "https://godsvmen.com/assets/unknown-GVM.png",
+    job: "The Far Killer",
+    style: "Time Sword",
+    weapon: "One Handed Saw",
+    weaponshot: "",
+    special: "Tremor Slice",
+    personality: "Dedicated",
+    actionshot: "Seconds",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/IgnisVStormheart.png",
+    bio: "https://godsvmen.com/characters/stormheart.html",
+    gallery: "13",
+    filter: "unknown",
+    showIndex: false
+  },
+  {
+    name: "Lit",
+    fullname: "Lit Knight",
+    img: "https://godsvmen.com/img/char/lit_gvm_char.png",
+    house: "Weber",
+    cityname: "Lore, Lords",
+    city: "https://godsvmen.com/assets/lore-GVM.png",
+    job: "Sword Mage",
+    style: "Magic Sword",
+    weapon: "Sword & Dagger",
+    weaponshot: "",
+    special: "100 Slashes",
+    personality: "Playful",
+    actionshot: "Perfect Pose",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/LitVLunar.png",
+    bio: "https://godsvmen.com/characters/lit-knight.html",
+    gallery: "200",
+    filter: "lords",
+    showIndex: false
+  },
+  {
+    name: "Wolf Soldier",
+    fullname: "Lunar Solider",
+    img: "https://godsvmen.com/img/char/wolf_knight_gvm_char.png",
+    house: "Wolf",
+    cityname: "Lune, Kreis",
+    city: "https://godsvmen.com/assets/lune-GVM.png",
+    job: "Werewolf",
+    style: "Hard Claws",
+    weapon: "Claw Hook",
+    weaponshot: "https://godsvmen.com/swordsayers/img/lem-weapon.png",
+    special: "Chronos Punch",
+    personality: "Angry",
+    actionshot: "Were Dive",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/LitVLunar.png",
+    bio: "https://godsvmen.com/characters/lunar-knight.html",
+    gallery: "3",
+    filter: "kreis",
+    showIndex: false
+  },
+  {
+    name: "Lars",
+    fullname: "Lars",
+    img: "https://godsvmen.com/img/char/lars_gvm_char.png",
+    house: "Wolf",
+    cityname: "Lune, Kreis",
+    city: "https://godsvmen.com/assets/lune-GVM.png",
+    job: "Werewolf",
+    style: "Hard Claws",
+    weapon: "Claw Hook",
+    weaponshot: "https://godsvmen.com/swordsayers/img/lem-weapon.png",
+    special: "Chronos Punch",
+    personality: "Angry",
+    actionshot: "Were Dive",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/LarsVMaxither.png",
+    bio: "https://godsvmen.com/characters/lars.html",
+    gallery: "3",
+    filter: "kreis",
+    showIndex: false
+  },
+  {
+    name: "Fara",
+    fullname: "Fara Fontaine",
+    img: "https://godsvmen.com/img/char/fara_gvm_char.png",
+    house: "Goth",
+    cityname: "Vortex, Gradiis",
+    city: "https://godsvmen.com/assets/vortex-GVM.png",
+    job: "Celebrity Fighter",
+    style: "Star Smash",
+    weapon: "Diamond Claws",
+    weaponshot: "https://godsvmen.com/swordsayers/img/fara-weapon.png",
+    special: "Mincer",
+    personality: "Glam",
+    actionshot: "Super Smasher",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
+    bio: "https://godsvmen.com/characters/fara.html",
+    gallery: "669",
+    filter: "gradis",
+    showIndex: false
+  },
+  {
+    name: "Quint",
+    fullname: "Quint",
+    img: "https://godsvmen.com/img/char/quint_gvm_char.png",
+    house: "None",
+    cityname: "Lune, Kreis",
+    city: "https://godsvmen.com/assets/lune-GVM.png",
+    job: "Relaxed Fighter",
+    style: "Hard Hitting",
+    weapon: "Fists and Feet",
+    special: "Zu Kicks",
+    personality: "Relaxed",
+    actionshot: "Round House",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
+    bio: "https://godsvmen.com/characters/quint.html",
+    gallery: "333",
+    filter: "kreis",
+    showIndex: false
+  },
+  {
+    name: "Tesha",
+    fullname: "Tesha",
+    img: "https://godsvmen.com/img/char/tesha_gvm_char.png",
+    house: "None",
+    cityname: "Lune, Kreis",
+    city: "https://godsvmen.com/assets/lune-GVM.png",
+    job: "Mad Merchant",
+    style: "Items",
+    weapon: "Hammer and Feet",
+    special: "Discount",
+    personality: "Angry",
+    actionshot: "Hammer Time",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/TeshaVEln-Delila.png",
+    bio: "https://godsvmen.com/characters/tesha.html",
+    gallery: "330",
+    filter: "kreis",
+    showIndex: false
+  },
+  {
+    name: "Bastion",
+    fullname: "Bastion",
+    img: "https://godsvmen.com/img/char/bastion_gvm_char.png",
+    house: "None",
+    cityname: "Lune, Kreis",
+    city: "https://godsvmen.com/assets/lune-GVM.png",
+    job: "Lion Exile",
+    style: "Cutting",
+    weapon: "Sword and Claws",
+    special: "100 Slashes",
+    personality: "Still",
+    actionshot: "Claw Strike",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
+    bio: "https://godsvmen.com/characters/bastion.html",
+    gallery: "333",
+    filter: "kreis",
+    showIndex: false
+  },
+  {
+    name: "Bruno",
+    fullname: "Bruno Moon",
+    img: "https://godsvmen.com/img/char/bruno_gvm_char.png",
+    house: "Goth",
+    cityname: "Vortex, Gradiis",
+    city: "https://godsvmen.com/assets/vortex-GVM.png",
+    job: "Goth Leader",
+    style: "Earth Breaker",
+    weapon: "Demons",
+    special: "Massive",
+    personality: "Obsessed",
+    actionshot: "Evil Surge",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
+    bio: "https://godsvmen.com/characters/bruno.html",
+    gallery: "660",
+    filter: "gradis",
+    showIndex: false
+  },
+  {
+    name: "Franker",
+    fullname: "Franker Moon",
+    img: "https://godsvmen.com/img/char/franker_gvm_char.png",
+    house: "Goth",
+    cityname: "Vortex, Gradiis",
+    city: "https://godsvmen.com/assets/vortex-GVM.png",
+    job: "Swift Gutter",
+    style: "Sword Breaker",
+    weapon: "Long Ax",
+    weaponshot: "https://godsvmen.com/swordsayers/img/grandle-weapon.png",
+    special: "Thrice Cut",
+    personality: "Motivated",
+    actionshot: "Ax Fury",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/FrankerVSeth.png",
+    bio: "https://godsvmen.com/characters/franker.html",
+    gallery: "665",
+    filter: "gradis",
+    showIndex: false
+  },
+  {
+    name: "Tyree",
+    fullname: "Tyree Toth",
+    img: "https://godsvmen.com/img/char/toth_gvm_char.png",
+    house: "Goth",
+    cityname: "Vortex, Gradiis",
+    city: "https://godsvmen.com/assets/vortex-GVM.png",
+    job: "Demon Hunter",
+    style: "Large Smash",
+    weapon: "Big Hammer",
+    weaponshot: "https://godsvmen.com/swordsayers/img/grandle-weapon.png",
+    special: "Masher",
+    personality: "Serious",
+    actionshot: "Super Masher",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
+    bio: "https://godsvmen.com/characters/toth.html",
+    gallery: "664",
+    filter: "gradis",
+    showIndex: false
+  },
+  {
+    name: "Sparrow",
+    fullname: "Sparrow Wilkerson",
+    img: "https://godsvmen.com/img/char/sparrow_gvm_char.png",
+    house: "None",
+    cityname: "Abya Yala, Jupiter",
+    city: "https://godsvmen.com/assets/unknown-GVM.png",
+    job: "Demon Hunter",
+    style: "Brute",
+    weapon: "Holis",
+    weaponshot: "https://godsvmen.com/swordsayers/img/shana-weapon.png",
+    special: "Demon Rig",
+    personality: "Unmoving",
+    actionshot: "Sparrow's Wing",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/SparrowVKendo.png",
+    bio: "https://godsvmen.com/characters/sparrow.html",
+    gallery: "7",
+    filter: "unknown",
+    showIndex: false
+  },
+  {
+    name: "Voorhies",
+    fullname: "Voorhies Direside",
+    img: "https://godsvmen.com/img/char/voorhies_gvm_char.png",
+    house: "Mastery",
+    cityname: "Abya Yala, Jupiter",
+    city: "https://godsvmen.com/assets/jupiter-GVM.png",
+    job: "Mastery Disciple",
+    style: "Carver",
+    weapon: "Red Sword",
+    weaponshot: "https://godsvmen.com/swordsayers/img/voorhies-weapon.png",
+    special: "Robe Final",
+    personality: "Sleek",
+    actionshot: "Blood Drainer",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/SamsonVVoorhies.png",
+    bio: "https://godsvmen.com/characters/voorhies.html",
+    gallery: "7",
+    filter: "ab",
+    showIndex: false
+  },
+  {
+    name: "Robe",
+    fullname: "Robe Knight",
+    img: "https://godsvmen.com/img/char/robe_knight_gvm_char.png",
+    house: "Robe",
+    cityname: "Abya Yala, Jupiter",
+    city: "https://godsvmen.com/assets/jupiter-GVM.png",
+    job: "Robe Swordsman",
+    style: "Slicer",
+    weapon: "Dual Swords",
+    weaponshot: "https://godsvmen.com/swordsayers/img/grandle-weapon.png",
+    special: "Last Fury",
+    personality: "Confident",
+    actionshot: "Robe Decider",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/GrandleVRobe.png",
+    bio: "https://godsvmen.com/characters/robe.html",
+    gallery: "6",
+    filter: "ab",
+    showIndex: false
   },
   {
     name: "Ignis",
@@ -288,10 +694,31 @@ window.GVM.fighters = [
     special: "Morne",
     personality: "Calculating",
     actionshot: "Demonic Punch",
-    actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/IgnisVStormheart.png",
     bio: "https://godsvmen.com/characters/ignis.html",
     gallery: "155",
-    filter: "lords"
+    filter: "lords",
+    showIndex: true
+  },
+  {
+    name: "Maxither",
+    fullname: "Maxither",
+    img: "https://godsvmen.com/img/char/maxither_gvm_char.png",
+    house: "Hanor",
+    cityname: "Hanor, Heaven's Edge",
+    city: "https://godsvmen.com/assets/hanor-GVM.png",
+    job: "The Chosen God",
+    style: "God Fury",
+    weapon: "Flame Splitter",
+    weaponshot: "",
+    special: "God STagger",
+    personality: "Confidient",
+    actionshot: "Heart of Fury",
+    actionshotlink: "https://godsvmen.com/swordsayers/img/LarsVMaxither.png",
+    bio: "https://godsvmen.com/characters/maxither.html",
+    gallery: "14",
+    filter: "hanor",
+    showIndex: false
   },
   {
     name: "Taur",
@@ -310,7 +737,8 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/taur.html",
     gallery: "166",
-    filter: "lords"
+    filter: "lords",
+    showIndex: true
   },
   {
     name: "Sol",
@@ -329,9 +757,15 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/sol.html",
     gallery: "17",
-    filter: "lords"
+    filter: "lords",
+    showIndex: true
   }
 ];
+
+
+// ─── OFIGHTERS ───────────────────────────────────────────────────────────────
+// Tournament bracket / opponent fighters used by the swordsayers page only.
+// showIndex is not used here — these never appear on the index page.
 
 window.GVM.ofighters = [
   {
@@ -499,7 +933,7 @@ window.GVM.ofighters = [
     weaponshot: "https://godsvmen.com/swordsayers/img/kendo-weapon.png",
     special: "Choker",
     personality: "Erradic",
-    actionshot: "Kendo’s Chains",
+    actionshot: "Kendo's Chains",
     actionshotlink: "https://godsvmen.com/swordsayers/img/SparrowVKendo.png",
     bio: "https://godsvmen.com/characters/ripper.html",
     gallery: "11",
@@ -559,7 +993,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
     bio: "https://godsvmen.com/characters/bruno.html",
     gallery: "660",
-    filter: "grad"
+    filter: "gradis"
   },
   {
     name: "Franker",
@@ -578,7 +1012,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/FrankerVSeth.png",
     bio: "https://godsvmen.com/characters/franker.html",
     gallery: "665",
-    filter: "grad"
+    filter: "gradis"
   },
   {
     name: "Tyree",
@@ -597,7 +1031,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
     bio: "https://godsvmen.com/characters/toth.html",
     gallery: "664",
-    filter: "grad"
+    filter: "gradis"
   },
   {
     name: "Sparrow",
@@ -806,7 +1240,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LitVLunar.png",
     bio: "https://godsvmen.com/characters/lunar-knight.html",
     gallery: "3",
-    filter: "kreis sold"
+    filter: "kreis"
   },
   {
     name: "Lars",
@@ -825,7 +1259,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LarsVMaxither.png",
     bio: "https://godsvmen.com/characters/lars.html",
     gallery: "3",
-    filter: "kreis sold"
+    filter: "kreis"
   },
   {
     name: "Fara",
@@ -844,7 +1278,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
     bio: "https://godsvmen.com/characters/fara.html",
     gallery: "669",
-    filter: "grad"
+    filter: "gradis"
   },
   {
     name: "Quint",
@@ -862,7 +1296,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
     bio: "https://godsvmen.com/characters/quint.html",
     gallery: "333",
-    filter: "kreis sold"
+    filter: "kreis"
   },
   {
     name: "Tesha",
@@ -880,7 +1314,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/TeshaVEln-Delila.png",
     bio: "https://godsvmen.com/characters/tesha.html",
     gallery: "330",
-    filter: "kreis sold"
+    filter: "kreis"
   },
   {
     name: "Bastion",
@@ -898,7 +1332,7 @@ window.GVM.ofighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
     bio: "https://godsvmen.com/characters/bastion.html",
     gallery: "333",
-    filter: "kreis sold"
+    filter: "kreis"
   },
   {
     name: "Ignis",
