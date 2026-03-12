@@ -29,6 +29,14 @@
   const FILTER_BTN_CLASS = "btn btn-outline-secondary";
   const BIO_BTN_CLASS = "btn btn-sm btn-outline-secondary w-100";
 
+  // Detect which page we're on.
+  // The swordsayers page has id="bracketModal" or body data-page="swordsayers".
+  // Fallback: check if the URL path contains /swordsayers/.
+  const isSwordsayersPage = () =>
+    !!document.getElementById("bracketModal") ||
+    document.body.dataset.page === "swordsayers" ||
+    window.location.pathname.indexOf("/swordsayers") !== -1;
+
   const initGallery = () => {
     const filtersEl = $("#galleryFilters");
     const gridEl = $("#galleryGrid");
@@ -125,9 +133,19 @@
     if (!filtersEl || !gridEl) return;
     if (gridEl.children.length > 0) return;
 
-    const data = (window.GVM && Array.isArray(window.GVM.ofighters) && window.GVM.ofighters.length)
-      ? window.GVM.ofighters
-      : ((window.GVM && Array.isArray(window.GVM.fighters)) ? window.GVM.fighters : []);
+    const allFighters = (window.GVM && Array.isArray(window.GVM.fighters)) ? window.GVM.fighters : [];
+
+    let data;
+    if (isSwordsayersPage()) {
+      // Swordsayers: use ofighters if available (tournament roster), otherwise all fighters
+      data = (window.GVM && Array.isArray(window.GVM.ofighters) && window.GVM.ofighters.length)
+        ? window.GVM.ofighters
+        : allFighters;
+    } else {
+      // Index page: use fighters filtered to showIndex === true
+      data = allFighters.filter(f => f.showIndex === true);
+    }
+
     if (!data.length) return;
 
     const isLiFilter = filtersEl.tagName === "UL" || filtersEl.tagName === "OL";
@@ -164,11 +182,11 @@
             <h3 class="h5 mb-1">${escHtml(title)}</h3>
             ${subtitle ? `<p class="mb-2 text-muted small">${escHtml(subtitle)}</p>` : ""}
             <ul class="list-unstyled mb-0 small">
-              ${it.job        ? `<li><strong>Job:</strong> ${escHtml(it.job)}</li>` : ""}
-              ${it.style      ? `<li><strong>Style:</strong> ${escHtml(it.style)}</li>` : ""}
-              ${it.weapon     ? `<li><strong>Weapon:</strong> ${escHtml(it.weapon)}</li>` : ""}
-              ${it.special    ? `<li><strong>Special:</strong> ${escHtml(it.special)}</li>` : ""}
-              ${it.personality? `<li><strong>Personality:</strong> ${escHtml(it.personality)}</li>` : ""}
+              ${it.job         ? `<li><strong>Job:</strong> ${escHtml(it.job)}</li>` : ""}
+              ${it.style       ? `<li><strong>Style:</strong> ${escHtml(it.style)}</li>` : ""}
+              ${it.weapon      ? `<li><strong>Weapon:</strong> ${escHtml(it.weapon)}</li>` : ""}
+              ${it.special     ? `<li><strong>Special:</strong> ${escHtml(it.special)}</li>` : ""}
+              ${it.personality ? `<li><strong>Personality:</strong> ${escHtml(it.personality)}</li>` : ""}
             </ul>
             ${it.bio ? `<div class="mt-3"><a class="${BIO_BTN_CLASS}" href="${escHtml(it.bio)}">${escHtml(it.name)}'s Bio</a></div>` : ""}
           </div>
