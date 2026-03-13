@@ -161,7 +161,7 @@ body.gvm {
 }
 
 @media (max-width: 600px) {
-  .gvm .gvm-logo { width: 260px; }
+  .gvm .gvm-logo { width: 240px; }
 }
 
 .gvm .navbar-nav {
