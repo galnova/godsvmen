@@ -1,0 +1,20 @@
+# Claude
+.claude/
+CLAUDE.md
+
+# Transformation scripts (not part of the site)
+*.py
+*.sh
+*.pl
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node
+node_modules/
+
+# Logs
+*.log

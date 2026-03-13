@@ -314,7 +314,31 @@
     }, { passive: true });
   };
 
+  const initCharToggle = () => {
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".nuest");
+      if (!btn) return;
+      const card = btn.closest(".char_wrap") || btn.parentElement;
+      const show = card.querySelector(".t_show");
+      const hidd = card.querySelector(".t_hidd");
+      const expanded = btn.classList.contains("expanded");
+      if (show) show.style.display = expanded ? "block" : "none";
+      if (hidd) hidd.style.display = expanded ? "none" : "block";
+      btn.classList.toggle("expanded");
+      btn.classList.toggle("bx-caret-down", expanded);
+      btn.classList.toggle("bx-caret-up", !expanded);
+    });
+  };
+
+  const initContact = () => {
+    const el = document.getElementById("site-contact");
+    if (!el || !window.GVM || !window.GVM.contact) return;
+    el.outerHTML = window.GVM.contact;
+  };
+
   const boot = () => {
+    initContact();
+    initCharToggle();
     initGallery();
     initCast();
     initWorldModal();
