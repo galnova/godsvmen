@@ -615,7 +615,7 @@ window.GVM.fighters = [
     personality: "Serious",
     actionshot: "Super Masher",
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
-    bio: "https://godsvmen.com/characters/toth.html",
+    bio: "https://godsvmen.com/characters/tyree.html",
     gallery: "664",
     filter: "gradis",
     showIndex: false
@@ -1029,7 +1029,7 @@ window.GVM.ofighters = [
     personality: "Serious",
     actionshot: "Super Masher",
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
-    bio: "https://godsvmen.com/characters/toth.html",
+    bio: "https://godsvmen.com/characters/tyree.html",
     gallery: "664",
     filter: "gradis"
   },
