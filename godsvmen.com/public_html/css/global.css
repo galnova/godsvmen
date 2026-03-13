@@ -57,13 +57,16 @@ main {
 
 h1 {
   text-align: center;
-  padding: 10px 10px 0;
-  padding-top: 20px;
+  padding: 20px 10px 0;
   margin-top: 0;
 }
 
 .tab-pane h2 {
   margin-bottom: 20px;
+}
+
+.tab-content>.tab-pane {
+  padding: 0!important;
 }
 
 .deep {
@@ -131,7 +134,12 @@ h1 {
 }
 
 #backToTop {
-  z-index: 10000;
+    z-index: 10000;
+    border-radius: 50%;
+    padding: 0px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 body.gvm {
@@ -276,6 +284,16 @@ body.gvm {
   #myTab li { width: 100%; }
 }
 
+.navbar-toggler {
+  border: solid 2px var(--gvm-primary);
+  background: var(--gvm-primary);
+  opacity: 1 !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 .gvm .dropdown-item { color: var(--gvm-white); }
 
 .gvm .dropdown-item:focus,
@@ -332,17 +350,25 @@ body.gvm {
   border: 0;
 }
 
+@media (min-width: 992px) {
+  .gvm .dropdown-menu.megamenu .accordion-button { padding-right: 34px !important; }
+}
+
 .gvm .dropdown-menu.megamenu .accordion-button:not(.collapsed) {
   background: rgba(0, 0, 0, .4);
   color: var(--gvm-gold);
   box-shadow: none;
 }
 
-.gvm .dropdown-menu.megamenu .accordion-button::after { filter: invert(1); }
+.gvm .dropdown-menu.megamenu .accordion-button::after,
+.gvm .dropdown-menu.megamenu .accordion-button:not(.collapsed)::after {
+  filter: invert(1);
+}
 
 .gvm .dropdown-menu.megamenu .accordion-body {
   background: rgba(0, 0, 0, .15);
   padding: 1.25rem 2rem;
+  color: #fff;
 }
 
 .gvm .dropdown-menu.megamenu .col-megamenu .title {
@@ -452,6 +478,9 @@ body.gvm {
   #castGrid img { animation: none; }
 }
 
+.card-body li {
+  line-height: 28px;
+}
 
 /* -- Tournament -- */
 
@@ -862,7 +891,10 @@ ul.flex_el { float: left; }
 .trules li { background: aliceblue; margin-bottom: 10px; padding: 20px; }
 
 .trules li span,
-.rls { color: #9C1C1E; }
+.rls {
+  color: #9C1C1E;
+  font-weight: bold;
+}
 
 .tourny hr {
   margin: 50px 0;
@@ -952,30 +984,6 @@ ul.flex_el { float: left; }
 
 /* -- Character Bio Pages -- */
 
-.char_page .portfolio-info h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  margin-bottom: .5rem;
-}
-
-.char_page .portfolio-info ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-.char_page .portfolio-info ul li {
-  padding: .35rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, .08);
-  font-size: .95rem;
-}
-
-.char_page .card.char {
-  border: solid 2px var(--gvm-primary);
-}
-
 .char_page .move_wrap h3 {
   font-size: .95rem;
   padding: .4rem .6rem;
@@ -1004,17 +1012,26 @@ ul.flex_el { float: left; }
 .char-hero h1 {
   padding: 0;
   color: var(--gvm-gold);
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: 2rem;
   letter-spacing: .03em;
   border-bottom: 1px solid rgba(255,200,100,.2);
-  padding-bottom: .75rem;
+  padding-bottom: .55rem;
   margin-bottom: 1.5rem;
 }
+
+.char-hero .portfolio-info {
+    padding: 42px;
+    border: solid 2px var(--gvm-gold);
+    border-bottom: solid 17px var(--gvm-gold);
+    background: #000;
+    border-radius: .375rem;
+}
+
 .char-hero .portfolio-info h3 {
   text-transform: uppercase;
   font-size: .7rem;
   letter-spacing: .14em;
-  color: rgba(255,200,100,.85);
+  color: rgba(255,200,100);
   margin-bottom: .75rem;
 }
 .char-hero .portfolio-info ul {
@@ -1028,7 +1045,7 @@ ul.flex_el { float: left; }
 .char-hero .portfolio-info ul li {
   border: none;
   padding: .45rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid #ffffff75;
   font-size: .88rem;
 }
 .char-hero .portfolio-info ul li strong {
@@ -1052,7 +1069,7 @@ ul.flex_el { float: left; }
   color: var(--gvm-primary);
   border-bottom: 2px solid var(--gvm-primary);
   padding-bottom: .35rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 .char-bio .bio-text { color: #333; line-height: 1.8; font-size: .95rem; }
 .char-bio .card.char {
@@ -1077,5 +1094,9 @@ ul.flex_el { float: left; }
 .char-bio .progress { height: 5px; background: #dedede; border-radius: 2px; margin-bottom: .6rem; }
 .char-bio .progress-bar { background: var(--gvm-primary); border-radius: 2px; width: var(--bar-w, 0%); }
 .char-bio .char-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 767.98px) {
+  .char-bio .row.g-5 { --bs-gutter-y: 1rem !important; }
+}
 
 /* -- /Character Hero / Bio Template -- */
