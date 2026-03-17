@@ -1006,34 +1006,40 @@ ul.flex_el { float: left; }
 /* -- Character Hero / Bio Template -- */
 
 .char-hero {
-  background: linear-gradient(155deg, var(--gvm-ink) 55%, #3d1a12 100%);
+  background: transparent;
+  /* background: linear-gradient(155deg, var(--gvm-ink) 55%, #3d1a12 100%); */
   color: #fff;
 }
 .char-hero h1 {
   padding: 0;
-  color: var(--gvm-gold);
+  text-align: center;
+  color: var(--gvm-primary);
   font-size: 2rem;
   letter-spacing: .03em;
-  border-bottom: 1px solid rgba(255,200,100,.2);
+  /* border-bottom: 2px solid var(--gvm-primary); */
   padding-bottom: .55rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .char-hero .portfolio-info {
-    padding: 42px;
-    border: solid 2px var(--gvm-gold);
+    padding: 20px;
+    border: solid 5px var(--gvm-gold);
     border-bottom: solid 17px var(--gvm-gold);
+    border-top: none;
+    border-left: 0;
+    border-right: 0;
     background: #000;
-    border-radius: .375rem;
+    /* border-radius: .375rem; */
 }
 
 .char-hero .portfolio-info h3 {
   text-transform: uppercase;
-  font-size: .7rem;
+  font-size: 1.25rem;
   letter-spacing: .14em;
-  color: rgba(255,200,100);
+  color: #fff;
   margin-bottom: .75rem;
 }
+
 .char-hero .portfolio-info ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1042,26 +1048,28 @@ ul.flex_el { float: left; }
   list-style: none;
   margin: 0;
 }
+
 .char-hero .portfolio-info ul li {
   border: none;
   padding: .45rem 0;
-  border-bottom: 1px solid #ffffff75;
+  border-bottom: 1px solid #ffcea375;
   font-size: .88rem;
 }
+
 .char-hero .portfolio-info ul li strong {
   display: block;
-  font-size: .65rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: var(--gvm-gold);
   margin-bottom: .15rem;
 }
-.char-hero .portfolio-info ul li a { color: #fff; text-decoration: none; }
+.char-hero .portfolio-info ul li a { color: #fff; text-decoration: underline; }
 .char-hero .portfolio-info ul li a:hover { color: var(--gvm-gold); }
 
-.char-bio { background: #fff; }
-.char-bio .bio-heading {
-  display: inline-block;
+.char-hero .bio-heading {
+  display: block;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: .12em;
   font-size: 1.5rem;
@@ -1069,34 +1077,38 @@ ul.flex_el { float: left; }
   color: var(--gvm-primary);
   border-bottom: 2px solid var(--gvm-primary);
   padding-bottom: .35rem;
-  /* margin-bottom: 1rem; */
 }
-.char-bio .bio-text { color: #333; line-height: 1.8; font-size: .95rem; }
-.char-bio .card.char {
-  border: 2px solid var(--gvm-primary);
-  border-radius: .375rem;
+
+.char-hero .bio-text { 
+  color: var(--gvm-primary);
+  line-height: 1.8;
+  font-size: .95rem;
+  text-align: center;
+}
+
+.card.char {
+  border: 5px solid var(--gvm-primary);
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(113,33,33,.18);
 }
-.char-bio .power-header {
-  background: var(--gvm-primary);
-  color: #fff;
-  padding: .6rem 1rem;
-  font-size: .75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .14em;
+.power-header {
+    background: var(--gvm-primary);
+    color: #fff;
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
 }
-.char-bio .char-desc { font-size: .88rem; color: #555; margin-bottom: .85rem; padding-bottom: .6rem; border-bottom: 1px solid #f2f2f2; }
-.char-bio .stat-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .2rem; }
-.char-bio .stat-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: #555; }
-.char-bio .stat-pct { font-size: .75rem; font-weight: 700; color: var(--gvm-primary); }
-.char-bio .progress { height: 5px; background: #dedede; border-radius: 2px; margin-bottom: .6rem; }
-.char-bio .progress-bar { background: var(--gvm-primary); border-radius: 2px; width: var(--bar-w, 0%); }
-.char-bio .char-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-@media (max-width: 767.98px) {
-  .char-bio .row.g-5 { --bs-gutter-y: 1rem !important; }
-}
+.char-desc { font-size: .88rem; color: #555; margin-bottom: .85rem; padding-bottom: .6rem; border-bottom: 1px solid #f2f2f2; }
+.stat-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .2rem; }
+.stat-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: #555; }
+.stat-pct { font-size: .75rem; font-weight: 700; color: var(--gvm-primary); }
+.progress { height: 5px; background: #dedede; border-radius: 2px; margin-bottom: .6rem; }
+.progress-bar { background: var(--gvm-primary); border-radius: 2px; width: var(--bar-w, 0%); }
+.char-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* -- /Character Hero / Bio Template -- */
