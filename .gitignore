@@ -2,6 +2,14 @@
 .claude/
 CLAUDE.md
 
+# Dreamweaver
+**/dwsync.xml
+**/_notes/
+**/settings.json
+
+# Webstats
+**/webstats/
+
 # Transformation scripts (not part of the site)
 *.py
 *.sh
