@@ -14,7 +14,7 @@
     // Row 0 — cells 0–8
     null,
     { slug: 'volcanis',      name: 'Volcanis',        house: 'Hanor',   job: 'The Old God',       bio: 'characters/volcanis.html' },
-    { slug: 'lunar-knight',  name: 'Lunar Knight',    house: 'Wolf',    job: 'Wolf King' },
+    { slug: 'lunar-knight',  name: 'Lunar Knight',    house: 'Wolf',    job: 'Wolf King',         bio: 'characters/lunar-knight.html' },
     { slug: 'mouse',         name: 'Mouse',           house: 'Weber',   job: 'Olan Soldier',      bio: 'characters/mouse.html' },
     { slug: 'fara',          name: 'Fara',            house: 'Goth',    job: 'Celebrity Fighter', bio: 'characters/fara.html' },
     { slug: 'quint',         name: 'Quint',           house: 'None',    job: 'Relaxed Fighter',   bio: 'characters/quint.html' },
@@ -25,10 +25,10 @@
     { slug: 'ragnow',        name: 'Ragnow',          house: 'None',    job: '' },
     { slug: 'ifeatu',        name: 'Ifeatu',          house: 'None',    job: '' },
     { slug: 'zonovin',       name: 'Zonovin',         house: 'None',    job: '' },
-    { slug: 'lem',           name: 'Lem',             house: 'Wolf',    job: 'Wolf King' },
+    { slug: 'lem',           name: 'Lem',             house: 'Wolf',    job: 'Wolf King',         bio: 'characters/lem.html' },
     { slug: 'chalstolce',    name: 'Chalstolce',      house: 'Dark',    job: 'Macabre King' },
     { slug: 'wolf_knight',   name: 'Wolf',            house: 'Wolf',    job: 'Werewolf',          bio: 'characters/lunar-knight.html' },
-    { slug: 'zigg',          name: 'Zigg',            house: 'None',    job: '' },
+    { slug: 'zigg',          name: 'Zigg',            house: 'None',    job: 'Protector' },
     { slug: 'taur',          name: 'Taur',            house: 'Weber',   job: 'Weber Queen',       bio: 'characters/taur.html' },
     { slug: 'sol',           name: 'Sol',             house: 'Weber',   job: 'The AllKing',       bio: 'characters/sol.html' },
     // Row 2 — cells 18–26
@@ -48,9 +48,9 @@
     { slug: 'bastion',       name: 'Bastion',         house: 'None',    job: 'Lion Exile',        bio: 'characters/bastion.html' },
     { slug: 'robe_knight',   name: 'Robe Knight',     house: 'Robe',    job: 'Robe Swordsman',    bio: 'characters/robe.html' },
     { slug: 'tesha',         name: 'Tesha',           house: 'None',    job: 'Mad Merchant',      bio: 'characters/tesha.html' },
-    { slug: 'karras',        name: 'Karras',          house: 'None',    job: '' },
-    { slug: 'backus',        name: 'Backus',          house: 'None',    job: '' },
-    { slug: 'baldischwiler', name: 'Baldischwiler',   house: 'None',    job: '' },
+    { slug: 'karras',        name: 'Karras',          house: 'None',    job: 'Cat Cutter' },
+    { slug: 'backus',        name: 'Backus',          house: 'None',    job: 'Cat Brute' },
+    { slug: 'baldischwiler', name: 'Baldischwiler',   house: 'None',    job: 'Cat Tactician' },
     // Row 4 — cells 36–44
     { slug: 'bruno',         name: 'Bruno',           house: 'Goth',    job: 'Goth Leader',       bio: 'characters/bruno.html' },
     { slug: 'stormheart',    name: 'Stormheart',      house: 'None',    job: 'The Far Killer',    bio: 'characters/stormheart.html' },
@@ -81,7 +81,10 @@
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
   let grid, banner, previewImg, previewName, previewHouse,
-      previewJob, previewBio, previewPh, voteBtn, undoBtn, voteResults;
+      previewJob, previewBio, previewPh, voteBtn, undoBtn, voteResults,
+      voteConfirmModal, voteModalName, voteConfirmBtn;
+
+  let pendingVoteChar = null;
 
   /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -106,7 +109,7 @@
       previewName.textContent  = 'Who do you like?';
       previewHouse.textContent = '';
       previewJob.textContent   = '';
-      previewBio.setAttribute('aria-hidden', 'true');
+      if (previewBio) previewBio.setAttribute('aria-hidden', 'true');
       if (!hasVoted) {
         voteBtn.disabled     = true;
         voteBtn.textContent  = 'Hover over a fighter';
@@ -126,11 +129,13 @@
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
 
-    if (char.bio) {
-      previewBio.href = char.bio;
-      previewBio.removeAttribute('aria-hidden');
-    } else {
-      previewBio.setAttribute('aria-hidden', 'true');
+    if (previewBio) {
+      if (char.bio) {
+        previewBio.href = char.bio;
+        previewBio.removeAttribute('aria-hidden');
+      } else {
+        previewBio.setAttribute('aria-hidden', 'true');
+      }
     }
 
     if (!hasVoted) {
@@ -139,6 +144,15 @@
     } else {
       voteBtn.textContent = myVoteSlug === char.slug ? '✓ Your Vote' : 'Already Voted';
     }
+  }
+
+  /* ── Confirm modal ───────────────────────────────────────────── */
+
+  function showConfirmModal(char) {
+    if (hasVoted || !char) return;
+    pendingVoteChar = char;
+    voteModalName.textContent = char.name;
+    voteConfirmModal.show();
   }
 
   /* ── Vote submission ─────────────────────────────────────────── */
@@ -289,11 +303,11 @@
           cell.classList.add('cs-cell--voted');
         }
 
-        cell.addEventListener('click', function () { castVote(char); });
+        cell.addEventListener('click', function () { showConfirmModal(char); });
         cell.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            castVote(char);
+            showConfirmModal(char);
           }
         });
       }
@@ -328,9 +342,12 @@
     previewJob   = document.getElementById('previewJob');
     previewBio   = document.getElementById('previewBio');
     previewPh    = document.getElementById('previewPlaceholder');
-    voteBtn      = document.getElementById('voteBtn');
-    undoBtn      = document.getElementById('undoBtn');
-    voteResults  = document.getElementById('voteResults');
+    voteBtn          = document.getElementById('voteBtn');
+    undoBtn          = document.getElementById('undoBtn');
+    voteResults      = document.getElementById('voteResults');
+    voteModalName    = document.getElementById('voteModalName');
+    voteConfirmBtn   = document.getElementById('voteConfirmBtn');
+    voteConfirmModal = new bootstrap.Modal(document.getElementById('voteConfirmModal'));
 
     previewImg.addEventListener('error', function () {
       previewImg.classList.add('cs-preview__img--hidden');
@@ -351,7 +368,12 @@
     }
 
     voteBtn.addEventListener('click', function () {
-      if (hoveredChar && !hasVoted) castVote(hoveredChar);
+      if (hoveredChar && !hasVoted) showConfirmModal(hoveredChar);
+    });
+
+    voteConfirmBtn.addEventListener('click', function () {
+      voteConfirmModal.hide();
+      if (pendingVoteChar) castVote(pendingVoteChar);
     });
 
     undoBtn.addEventListener('click', undoVote);

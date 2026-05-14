@@ -518,6 +518,59 @@ body.gvm.cs-body {
   .cs-preview__name { font-size: 0.85rem; }
 }
 
+/* ── Vote confirm modal ─────────────────────────────────────── */
+
+.cs-modal {
+  background: var(--gvm-ink);
+  border: 2px solid var(--gvm-tertiary);
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(214, 164, 58, 0.25);
+}
+
+.cs-modal__prompt {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 206, 163, 0.5);
+  margin: 0;
+}
+
+.cs-modal__name {
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gvm-gold);
+  margin: 0.4rem 0 0;
+  line-height: 1.2;
+}
+
+.cs-modal__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.cs-modal__actions .cs-vote-btn {
+  margin: 0;
+  width: 100%;
+}
+
+.cs-modal__cancel {
+  background: transparent;
+  border: none;
+  color: rgba(255, 206, 163, 0.4);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.cs-modal__cancel:hover { color: rgba(255, 206, 163, 0.7); }
+
 @media (prefers-reduced-motion: reduce) {
   .cs-cell,
   .cs-turn-banner,

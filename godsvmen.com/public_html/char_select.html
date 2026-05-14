@@ -101,6 +101,21 @@
     </section>
   </main>
 
+  <div class="modal fade" id="voteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content cs-modal">
+        <div class="modal-body text-center p-4">
+          <p class="cs-modal__prompt">Cast your vote for</p>
+          <p class="cs-modal__name" id="voteModalName">---</p>
+          <div class="cs-modal__actions">
+            <button class="cs-vote-btn" id="voteConfirmBtn">Vote</button>
+            <button class="cs-modal__cancel" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmVqGUvFMcK3U7Q5DkqzBV8pSBC" crossorigin="anonymous"></script>
   <script src="js/gvm.js"></script>
   <script src="js/global.js"></script>
