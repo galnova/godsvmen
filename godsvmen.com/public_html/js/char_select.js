@@ -204,12 +204,12 @@
         myVoteSlug = null;
         localStorage.removeItem('gvm_vote_slug');
 
-        banner.textContent   = 'Hover a fighter — click to cast your vote';
+        banner.textContent   = 'Hover over a fighter — click to cast your vote';
         banner.dataset.state = 'idle';
 
         undoBtn.hidden = true;
         voteBtn.disabled = true;
-        voteBtn.textContent = 'Hover a fighter';
+        voteBtn.textContent = 'Hover over a fighter';
         voteBtn.classList.remove('cs-vote-btn--voted');
 
         grid.querySelectorAll('.cs-cell--voted').forEach(function (cell) {
