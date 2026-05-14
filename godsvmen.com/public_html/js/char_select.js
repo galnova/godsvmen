@@ -109,8 +109,8 @@
 
     if (!char) {
       previewImg.src = '';
-      previewImg.classList.add('cs-panel__img--hidden');
-      previewPh.classList.remove('cs-panel__placeholder--hidden');
+      previewImg.classList.add('cs-preview__img--hidden');
+      previewPh.classList.remove('cs-preview__placeholder--hidden');
       previewName.textContent  = '---';
       previewHouse.textContent = '';
       previewJob.textContent   = '';
@@ -124,8 +124,8 @@
 
     previewImg.src = imgPath(char.slug);
     previewImg.alt = char.name;
-    previewImg.classList.remove('cs-panel__img--hidden');
-    previewPh.classList.add('cs-panel__placeholder--hidden');
+    previewImg.classList.remove('cs-preview__img--hidden');
+    previewPh.classList.add('cs-preview__placeholder--hidden');
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
