@@ -182,7 +182,7 @@ body.gvm.cs-body {
 }
 
 /* Character name label (revealed on hover) */
-.cs-cell__label {
+.cs-cell_label {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -204,7 +204,7 @@ body.gvm.cs-body {
   z-index: 3;
 }
 
-.cs-cell:hover .cs-cell__label {
+.cs-cell:hover .cs-cell_label {
   opacity: 1;
 }
 
@@ -244,7 +244,7 @@ body.gvm.cs-body {
   min-height: 26rem;
 }
 
-.cs-preview__portrait {
+.cs-preview_portrait {
   position: relative;
   width: 200px;
   height: 200px;
@@ -258,16 +258,16 @@ body.gvm.cs-body {
   box-shadow: 0 0 30px rgba(214, 164, 58, 0.2);
 }
 
-.cs-preview__info {
+.cs-preview_info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
   width: 100%;
-  min-height: 4.5rem;
+  min-height: 2rem;
 }
 
-.cs-preview__placeholder {
+.cs-preview_placeholder {
   font-size: 4rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.08);
@@ -275,15 +275,15 @@ body.gvm.cs-body {
   line-height: 1;
 }
 
-.cs-preview__placeholder--hidden { display: none; }
+.cs-preview_placeholder--hidden { display: none; }
 
-.cs-preview__placeholder--sprite {
+.cs-preview_placeholder--sprite {
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
 }
 
-.cs-preview__img {
+.cs-preview_img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -294,9 +294,9 @@ body.gvm.cs-body {
   transition: opacity 0.25s ease;
 }
 
-.cs-preview__img--hidden { display: none; }
+.cs-preview_img--hidden { display: none; }
 
-.cs-preview__name {
+.cs-preview_name {
   font-size: 1rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -307,7 +307,7 @@ body.gvm.cs-body {
   min-height: 1.4em;
 }
 
-.cs-preview__house {
+.cs-preview_house {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -315,14 +315,14 @@ body.gvm.cs-body {
   margin: 0;
 }
 
-.cs-preview__job {
+.cs-preview_job {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
   margin: 0;
 }
 
-.cs-preview__bio {
+.cs-preview_bio {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -334,8 +334,8 @@ body.gvm.cs-body {
   margin-top: 0.15rem;
 }
 
-.cs-preview__bio[aria-hidden="true"] { display: none; }
-.cs-preview__bio:hover { opacity: 0.7; }
+.cs-preview_bio[aria-hidden="true"] { display: none; }
+.cs-preview_bio:hover { opacity: 0.7; }
 
 /* ── Vote button ────────────────────────────────────────────── */
 
@@ -411,9 +411,9 @@ body.gvm.cs-body {
 /* ── Results panel ──────────────────────────────────────────── */
 
 .cs-results {
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto 2.5rem;
+  width: 180px;
+  flex-shrink: 0;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   border: 2px solid rgba(214, 164, 58, 0.4);
@@ -422,9 +422,10 @@ body.gvm.cs-body {
   backdrop-filter: blur(8px);
   padding: 0.75rem 0.65rem;
   overflow-y: auto;
+  max-height: 26rem;
 }
 
-.cs-results__title {
+.cs-results_title {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -434,7 +435,7 @@ body.gvm.cs-body {
   font-weight: 900;
 }
 
-.cs-results__empty {
+.cs-results_empty {
   font-size: 0.68rem;
   color: rgba(255, 206, 163, 0.35);
   text-align: center;
@@ -447,7 +448,7 @@ body.gvm.cs-body {
   margin-bottom: 0.6rem;
 }
 
-.vote-bar__header {
+.vote-bar_header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -455,7 +456,7 @@ body.gvm.cs-body {
   margin-bottom: 0.2rem;
 }
 
-.vote-bar__name {
+.vote-bar_name {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -465,34 +466,34 @@ body.gvm.cs-body {
   text-overflow: ellipsis;
 }
 
-.vote-bar__pct {
+.vote-bar_pct {
   font-size: 0.58rem;
   color: var(--gvm-gold);
   flex-shrink: 0;
 }
 
-.vote-bar__track {
+.vote-bar_track {
   height: 3px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
 }
 
-.vote-bar__fill {
+.vote-bar_fill {
   height: 100%;
   background: var(--gvm-tertiary);
   border-radius: 2px;
   transition: width 0.6s ease;
 }
 
-.vote-bar--mine .vote-bar__name { color: var(--gvm-gold); font-weight: 700; }
-.vote-bar--mine .vote-bar__fill { background: var(--gvm-secondary); }
+.vote-bar--mine .vote-bar_name { color: var(--gvm-gold); font-weight: 700; }
+.vote-bar--mine .vote-bar_fill { background: var(--gvm-secondary); }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
   .cs-preview { width: 160px; min-height: 20rem; }
-  .cs-preview__portrait { width: 160px; height: 160px; }
+  .cs-preview_portrait { width: 160px; height: 160px; }
   .cs-vote-btn { width: 160px; }
   .cs-undo-btn { width: 160px; }
 }
@@ -500,15 +501,18 @@ body.gvm.cs-body {
 @media (max-width: 767px) {
   .cs-stage { padding: 1rem 0.75rem 1.5rem; }
 
+  .cs-above { flex-direction: column; align-items: center; }
+  .cs-results { width: 100%; max-width: 340px; max-height: none; }
+
   .cs-preview { width: 140px; min-height: 20rem; }
-  .cs-preview__portrait { width: 140px; height: 140px; }
+  .cs-preview_portrait { width: 140px; height: 140px; }
   .cs-vote-btn { width: 140px; }
   .cs-undo-btn { width: 140px; margin-bottom: 24px;}
 }
 
 @media (max-width: 480px) {
-  .cs-preview__job { display: none; }
-  .cs-preview__name { font-size: 0.85rem; }
+  .cs-preview_job { display: none; }
+  .cs-preview_name { font-size: 0.85rem; }
 }
 
 /* ── Vote confirm modal ─────────────────────────────────────── */
@@ -520,7 +524,7 @@ body.gvm.cs-body {
   box-shadow: 0 0 40px rgba(214, 164, 58, 0.25);
 }
 
-.cs-modal__prompt {
+.cs-modal_prompt {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -528,7 +532,7 @@ body.gvm.cs-body {
   margin: 0;
 }
 
-.cs-modal__name {
+.cs-modal_name {
   font-size: 1.3rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -538,7 +542,7 @@ body.gvm.cs-body {
   line-height: 1.2;
 }
 
-.cs-modal__actions {
+.cs-modal_actions {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -546,12 +550,12 @@ body.gvm.cs-body {
   margin-top: 1.25rem;
 }
 
-.cs-modal__actions .cs-vote-btn {
+.cs-modal_actions .cs-vote-btn {
   margin: 0;
   width: 100%;
 }
 
-.cs-modal__cancel {
+.cs-modal_cancel {
   background: transparent;
   border: none;
   color: rgba(255, 206, 163, 0.4);
@@ -562,7 +566,7 @@ body.gvm.cs-body {
   padding: 0.25rem;
 }
 
-.cs-modal__cancel:hover { color: rgba(255, 206, 163, 0.7); }
+.cs-modal_cancel:hover { color: rgba(255, 206, 163, 0.7); }
 
 @media (prefers-reduced-motion: reduce) {
   .cs-cell { transition: none; animation: none; }

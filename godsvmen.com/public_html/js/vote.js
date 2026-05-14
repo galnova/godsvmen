@@ -14,7 +14,7 @@
     // Row 0 — cells 0–8
     null,
     { slug: 'volcanis',      name: 'Volcanis',        house: 'Hanor',   job: 'The Old God',       bio: 'characters/volcanis.html' },
-    { slug: 'lunar-knight',  name: 'Lunar Knight',    house: 'Wolf',    job: 'Wolf King',         bio: 'characters/lunar-knight.html' },
+    { slug: 'lunar-knight',  name: 'Lunar Knight',    house: 'Wolf',    job: 'Wolf King',         bio: 'characters/lunar-knight.html', img: 'wolf_knight' },
     { slug: 'mouse',         name: 'Mouse',           house: 'Weber',   job: 'Olan Soldier',      bio: 'characters/mouse.html' },
     { slug: 'fara',          name: 'Fara',            house: 'Goth',    job: 'Celebrity Fighter', bio: 'characters/fara.html' },
     { slug: 'quint',         name: 'Quint',           house: 'None',    job: 'Relaxed Fighter',   bio: 'characters/quint.html' },
@@ -88,8 +88,8 @@
 
   /* ── Helpers ─────────────────────────────────────────────────── */
 
-  function imgPath(slug) {
-    return 'img/char/' + slug + '_gvm_char.png';
+  function imgPath(char) {
+    return 'img/char/' + (char.img || char.slug) + '_gvm_char.png';
   }
 
   function houseLabel(house) {
@@ -104,9 +104,9 @@
 
     if (!char) {
       previewImg.src = '';
-      previewImg.classList.add('cs-preview__img--hidden');
-      previewPh.classList.remove('cs-preview__placeholder--hidden');
-      previewPh.classList.remove('cs-preview__placeholder--sprite');
+      previewImg.classList.add('cs-preview_img--hidden');
+      previewPh.classList.remove('cs-preview_placeholder--hidden');
+      previewPh.classList.remove('cs-preview_placeholder--sprite');
       previewPh.style.backgroundImage    = '';
       previewPh.style.backgroundSize     = '';
       previewPh.style.backgroundPosition = '';
@@ -121,30 +121,30 @@
       return;
     }
 
-    previewImg.classList.add('cs-preview__img--hidden');
-    previewPh.classList.remove('cs-preview__placeholder--hidden');
+    previewImg.classList.add('cs-preview_img--hidden');
+    previewPh.classList.remove('cs-preview_placeholder--hidden');
     previewImg.alt = char.name;
     previewImg.onload = function () {
-      previewImg.classList.remove('cs-preview__img--hidden');
-      previewPh.classList.add('cs-preview__placeholder--hidden');
+      previewImg.classList.remove('cs-preview_img--hidden');
+      previewPh.classList.add('cs-preview_placeholder--hidden');
     };
     previewImg.onerror = function () {
-      previewImg.classList.add('cs-preview__img--hidden');
+      previewImg.classList.add('cs-preview_img--hidden');
       const idx = ROSTER.indexOf(char);
       if (idx >= 0) {
         const col  = idx % COLS;
         const row  = Math.floor(idx / COLS);
         const posX = COLS > 1 ? (col / (COLS - 1)) * 100 : 0;
         const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
-        previewPh.classList.add('cs-preview__placeholder--sprite');
+        previewPh.classList.add('cs-preview_placeholder--sprite');
         previewPh.style.backgroundImage    = "url('img/gvm_char_select.png')";
         previewPh.style.backgroundSize     = (COLS * 100) + '% ' + (ROWS * 100) + '%';
         previewPh.style.backgroundPosition = posX + '% ' + posY + '%';
         previewPh.textContent = '';
       }
-      previewPh.classList.remove('cs-preview__placeholder--hidden');
+      previewPh.classList.remove('cs-preview_placeholder--hidden');
     };
-    previewImg.src = imgPath(char.slug);
+    previewImg.src = imgPath(char);
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
@@ -261,7 +261,7 @@
       const data = await res.json();
 
       if (!data.length) {
-        voteResults.innerHTML = '<p class="cs-results__empty">No votes yet — be first!</p>';
+        voteResults.innerHTML = '<p class="cs-results_empty">No votes yet — be first!</p>';
         return;
       }
 
@@ -272,17 +272,17 @@
         const pct   = Math.round((r.votes / total) * 100);
         const mine  = r.character_slug === myVoteSlug;
         return '<div class="vote-bar' + (mine ? ' vote-bar--mine' : '') + '">' +
-          '<div class="vote-bar__header">' +
-            '<span class="vote-bar__name">' + (i + 1) + '. ' + name + '</span>' +
-            '<span class="vote-bar__pct">' + pct + '%</span>' +
+          '<div class="vote-bar_header">' +
+            '<span class="vote-bar_name">' + (i + 1) + '. ' + name + '</span>' +
+            '<span class="vote-bar_pct">' + pct + '%</span>' +
           '</div>' +
-          '<div class="vote-bar__track">' +
-            '<div class="vote-bar__fill" style="width:' + pct + '%"></div>' +
+          '<div class="vote-bar_track">' +
+            '<div class="vote-bar_fill" style="width:' + pct + '%"></div>' +
           '</div>' +
         '</div>';
       }).join('');
     } catch (e) {
-      voteResults.innerHTML = '<p class="cs-results__empty">Could not load results.</p>';
+      voteResults.innerHTML = '<p class="cs-results_empty">Could not load results.</p>';
     }
   }
 
@@ -331,12 +331,9 @@
         if (isMystery) return;
         updatePreview(char);
       });
-      cell.addEventListener('mouseleave', function () {
-        updatePreview(null);
-      });
 
       const label = document.createElement('span');
-      label.className   = 'cs-cell__label';
+      label.className   = 'cs-cell_label';
       label.textContent = char ? char.name : '';
       cell.appendChild(label);
 

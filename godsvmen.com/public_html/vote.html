@@ -62,38 +62,38 @@
 
       <div class="cs-heading">
         <h1 class="cs-title">Fan Vote</h1>
-        <p class="cs-subtitle">Who do you want drawn next?</p>
+        <p class="cs-subtitle">Who do you want me to draw next?</p>
       </div>
 
       <div class="cs-banner" id="csBanner" data-state="idle">
-        Choose a fighter — click to cast your vote
+        Choose a fighter and cast your vote
       </div>
 
       <div class="cs-above">
 
         <div class="cs-preview" id="previewPanel">
-          <div class="cs-preview__portrait">
-            <div class="cs-preview__placeholder" id="previewPlaceholder">?</div>
-            <img class="cs-preview__img cs-preview__img--hidden" id="previewImg" src="" alt="">
+          <div class="cs-preview_portrait">
+            <div class="cs-preview_placeholder" id="previewPlaceholder">?</div>
+            <img class="cs-preview_img cs-preview_img--hidden" id="previewImg" src="" alt="">
           </div>
-          <div class="cs-preview__info">
-            <p class="cs-preview__name" id="previewName">Who will you vote for?</p>
-            <p class="cs-preview__house" id="previewHouse"></p>
-            <p class="cs-preview__job" id="previewJob"></p>
-            <!-- <a class="cs-preview__bio" id="previewBio" href="#" target="_blank" aria-hidden="true">View Bio</a> -->
+          <div class="cs-preview_info">
+            <p class="cs-preview_name" id="previewName">Who will you vote for?</p>
+            <p class="cs-preview_house" id="previewHouse"></p>
+            <p class="cs-preview_job" id="previewJob"></p>
+            <!-- <a class="cs-preview_bio" id="previewBio" href="#" target="_blank" aria-hidden="true">View Bio</a> -->
           </div>
-          <button class="cs-vote-btn" id="voteBtn" disabled>Hover over a fighter</button>
+          <button class="cs-vote-btn" id="voteBtn" disabled>Choose a fighter</button>
           <button class="cs-undo-btn" id="undoBtn" hidden>Change your vote</button>
         </div>
 
-      </div>
+        <aside class="cs-results" id="resultsPanel" aria-label="Vote Results">
+          <h2 class="cs-results_title">Rankings</h2>
+          <div class="cs-results_list" id="voteResults">
+            <p class="cs-results_empty">No votes yet — be first!</p>
+          </div>
+        </aside>
 
-      <aside class="cs-results" id="resultsPanel" aria-label="Vote Results">
-        <h2 class="cs-results__title">Rankings</h2>
-        <div class="cs-results__list" id="voteResults">
-          <p class="cs-results__empty">No votes yet — be first!</p>
-        </div>
-      </aside>
+      </div>
 
       <div class="cs-grid-wrap">
         <div class="cs-grid" id="csGrid" role="grid" aria-label="Character Vote Grid"></div>
@@ -105,11 +105,11 @@
     <div class="modal-dialog modal-dialog-centered modal-sm">
       <div class="modal-content cs-modal">
         <div class="modal-body text-center p-4">
-          <p class="cs-modal__prompt">Cast your vote for</p>
-          <p class="cs-modal__name" id="voteModalName">---</p>
-          <div class="cs-modal__actions">
+          <p class="cs-modal_prompt">Cast your vote for</p>
+          <p class="cs-modal_name" id="voteModalName">---</p>
+          <div class="cs-modal_actions">
             <button class="cs-vote-btn" id="voteConfirmBtn">Vote</button>
-            <button class="cs-modal__cancel" data-bs-dismiss="modal">Cancel</button>
+            <button class="cs-modal_cancel" data-bs-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
