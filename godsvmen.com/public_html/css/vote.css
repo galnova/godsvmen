@@ -503,7 +503,7 @@ body.gvm.cs-body {
   .cs-preview { width: 140px; min-height: 20rem; }
   .cs-preview__portrait { width: 140px; height: 140px; }
   .cs-vote-btn { width: 140px; }
-  .cs-undo-btn { width: 140px; }
+  .cs-undo-btn { width: 140px; margin-bottom: 24px;}
 }
 
 @media (max-width: 480px) {
