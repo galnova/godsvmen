@@ -177,6 +177,7 @@
         banner.dataset.state = 'voted';
         voteBtn.disabled     = true;
         voteBtn.classList.add('cs-vote-btn--voted');
+        undoBtn.hidden = false;
       }
     } catch (e) {
       banner.textContent = 'Could not submit vote — try again.';
