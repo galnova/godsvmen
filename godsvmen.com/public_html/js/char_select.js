@@ -151,8 +151,12 @@
   function showConfirmModal(char) {
     if (hasVoted || !char) return;
     pendingVoteChar = char;
-    voteModalName.textContent = char.name;
-    voteConfirmModal.show();
+    if (voteConfirmModal && voteModalName) {
+      voteModalName.textContent = char.name;
+      voteConfirmModal.show();
+    } else {
+      castVote(char);
+    }
   }
 
   /* ── Vote submission ─────────────────────────────────────────── */
@@ -347,7 +351,12 @@
     voteResults      = document.getElementById('voteResults');
     voteModalName    = document.getElementById('voteModalName');
     voteConfirmBtn   = document.getElementById('voteConfirmBtn');
-    voteConfirmModal = new bootstrap.Modal(document.getElementById('voteConfirmModal'));
+    try {
+      const modalEl = document.getElementById('voteConfirmModal');
+      voteConfirmModal = modalEl ? new bootstrap.Modal(modalEl) : null;
+    } catch (e) {
+      voteConfirmModal = null;
+    }
 
     previewImg.addEventListener('error', function () {
       previewImg.classList.add('cs-preview__img--hidden');
@@ -371,10 +380,12 @@
       if (hoveredChar && !hasVoted) showConfirmModal(hoveredChar);
     });
 
-    voteConfirmBtn.addEventListener('click', function () {
-      voteConfirmModal.hide();
-      if (pendingVoteChar) castVote(pendingVoteChar);
-    });
+    if (voteConfirmBtn) {
+      voteConfirmBtn.addEventListener('click', function () {
+        if (voteConfirmModal) voteConfirmModal.hide();
+        if (pendingVoteChar) castVote(pendingVoteChar);
+      });
+    }
 
     undoBtn.addEventListener('click', undoVote);
   });
