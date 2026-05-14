@@ -252,6 +252,8 @@ body.gvm.cs-body {
   text-align: center;
   gap: 0.25rem;
   flex-shrink: 0;
+  width: 200px;
+  min-height: 22rem;
 }
 
 .cs-preview__portrait {
@@ -398,6 +400,13 @@ body.gvm.cs-body {
   flex-shrink: 0;
 }
 
+/* Keep space reserved even when hidden so layout doesn't jump */
+.cs-undo-btn[hidden] {
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .cs-undo-btn:hover {
   color: rgba(255, 206, 163, 0.9);
   border-color: rgba(255, 206, 163, 0.5);
@@ -485,6 +494,7 @@ body.gvm.cs-body {
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
+  .cs-preview { width: 160px; min-height: 20rem; }
   .cs-preview__portrait { width: 160px; height: 160px; }
   .cs-vote-btn { width: 160px; }
   .cs-undo-btn { width: 160px; }
@@ -498,6 +508,7 @@ body.gvm.cs-body {
     justify-content: center;
   }
 
+  .cs-preview { width: 140px; min-height: 18rem; }
   .cs-preview__portrait { width: 140px; height: 140px; }
   .cs-vote-btn { width: 140px; }
   .cs-undo-btn { width: 140px; }
