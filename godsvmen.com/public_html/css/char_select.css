@@ -94,9 +94,9 @@ body.gvm.cs-body {
 }
 
 .cs-banner[data-state="voted"] {
-  background: rgba(28, 97, 114, 0.12);
-  color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(28, 97, 114, 0.35);
+  background: rgb(213 122 69);
+  color:#fff;
+  /* border: 1px solid rgba(28, 97, 114, 0.35); */
   box-shadow: none;
   font-weight: 600;
 }
@@ -259,7 +259,7 @@ body.gvm.cs-body {
   border: 2px solid var(--gvm-tertiary);
   border-radius: 4px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(183 61 61 / 60%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -284,6 +284,12 @@ body.gvm.cs-body {
 }
 
 .cs-preview__placeholder--hidden { display: none; }
+
+.cs-preview__placeholder--sprite {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+}
 
 .cs-preview__img {
   position: absolute;
@@ -359,10 +365,10 @@ body.gvm.cs-body {
   flex-shrink: 0;
 }
 
-.cs-vote-btn:hover:not(:disabled) {
+/* .cs-vote-btn:hover:not(:disabled) {
   opacity: 0.85;
   transform: translateY(-1px);
-}
+} */
 
 .cs-vote-btn:disabled {
   opacity: 0.35;
