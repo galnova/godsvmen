@@ -108,7 +108,7 @@ body.gvm.cs-body {
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  /* margin-bottom: 1.25rem; */
 }
 
 /* ── Character grid ─────────────────────────────────────────── */
@@ -272,7 +272,7 @@ body.gvm.cs-body {
   align-items: center;
   gap: 0.2rem;
   width: 100%;
-  min-height: 8rem;
+  min-height: 4.5rem;
 }
 
 .cs-preview__placeholder {
@@ -498,7 +498,7 @@ body.gvm.cs-body {
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .cs-preview { width: 160px; min-height: 24rem; }
+  .cs-preview { width: 160px; min-height: 20rem; }
   .cs-preview__portrait { width: 160px; height: 160px; }
   .cs-vote-btn { width: 160px; }
   .cs-undo-btn { width: 160px; }
@@ -507,7 +507,7 @@ body.gvm.cs-body {
 @media (max-width: 767px) {
   .cs-stage { padding: 1rem 0.75rem 1.5rem; }
 
-  .cs-preview { width: 140px; min-height: 22rem; }
+  .cs-preview { width: 140px; min-height: 20rem; }
   .cs-preview__portrait { width: 140px; height: 140px; }
   .cs-vote-btn { width: 140px; }
   .cs-undo-btn { width: 140px; }
