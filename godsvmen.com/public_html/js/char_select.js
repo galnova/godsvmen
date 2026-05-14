@@ -106,6 +106,11 @@
       previewImg.src = '';
       previewImg.classList.add('cs-preview__img--hidden');
       previewPh.classList.remove('cs-preview__placeholder--hidden');
+      previewPh.classList.remove('cs-preview__placeholder--sprite');
+      previewPh.style.backgroundImage    = '';
+      previewPh.style.backgroundSize     = '';
+      previewPh.style.backgroundPosition = '';
+      previewPh.textContent = '?';
       previewName.textContent  = 'Who do you like?';
       previewHouse.textContent = '';
       previewJob.textContent   = '';
@@ -123,6 +128,22 @@
     previewImg.onload = function () {
       previewImg.classList.remove('cs-preview__img--hidden');
       previewPh.classList.add('cs-preview__placeholder--hidden');
+    };
+    previewImg.onerror = function () {
+      previewImg.classList.add('cs-preview__img--hidden');
+      const idx = ROSTER.indexOf(char);
+      if (idx >= 0) {
+        const col  = idx % COLS;
+        const row  = Math.floor(idx / COLS);
+        const posX = COLS > 1 ? (col / (COLS - 1)) * 100 : 0;
+        const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
+        previewPh.classList.add('cs-preview__placeholder--sprite');
+        previewPh.style.backgroundImage    = "url('img/gvm_char_select.png')";
+        previewPh.style.backgroundSize     = (COLS * 100) + '% ' + (ROWS * 100) + '%';
+        previewPh.style.backgroundPosition = posX + '% ' + posY + '%';
+        previewPh.textContent = '';
+      }
+      previewPh.classList.remove('cs-preview__placeholder--hidden');
     };
     previewImg.src = imgPath(char.slug);
     previewName.textContent  = char.name;
@@ -357,11 +378,6 @@
     } catch (e) {
       voteConfirmModal = null;
     }
-
-    previewImg.addEventListener('error', function () {
-      previewImg.classList.add('cs-preview__img--hidden');
-      previewPh.classList.remove('cs-preview__placeholder--hidden');
-    });
 
     buildGrid();
     loadResults();
