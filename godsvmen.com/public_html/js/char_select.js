@@ -14,7 +14,7 @@
     // Row 0 — cells 0–8
     null,
     { slug: 'volcanis',      name: 'Volcanis',        house: 'Hanor',   job: 'The Old God',       bio: 'characters/volcanis.html' },
-    { slug: 'lem',           name: 'Lem',             house: 'Wolf',    job: 'Wolf King' },
+    { slug: 'lunar-knight',  name: 'Lunar Knight',    house: 'Wolf',    job: 'Wolf King' },
     { slug: 'mouse',         name: 'Mouse',           house: 'Weber',   job: 'Olan Soldier',      bio: 'characters/mouse.html' },
     { slug: 'fara',          name: 'Fara',            house: 'Goth',    job: 'Celebrity Fighter', bio: 'characters/fara.html' },
     { slug: 'quint',         name: 'Quint',           house: 'None',    job: 'Relaxed Fighter',   bio: 'characters/quint.html' },
