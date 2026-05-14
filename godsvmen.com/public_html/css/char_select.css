@@ -94,15 +94,11 @@ body.gvm.cs-body {
 }
 
 .cs-banner[data-state="voted"] {
-  background: var(--gvm-secondary);
-  color: var(--gvm-white);
-  box-shadow: 0 0 24px rgba(28, 97, 114, 0.7);
-  animation: cs-pulse-voted 1.5s ease 3;
-}
-
-@keyframes cs-pulse-voted {
-  0%, 100% { box-shadow: 0 0 18px rgba(28, 97, 114, 0.55); }
-  50%       { box-shadow: 0 0 38px rgba(28, 97, 114, 1); }
+  background: rgba(28, 97, 114, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(28, 97, 114, 0.35);
+  box-shadow: none;
+  font-weight: 600;
 }
 
 /* ── Above-grid row ─────────────────────────────────────────── */
@@ -375,9 +371,12 @@ body.gvm.cs-body {
 }
 
 .cs-vote-btn--voted {
-  background: var(--gvm-secondary);
-  color: #fff;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 400;
   opacity: 1 !important;
+  cursor: default;
 }
 
 /* ── Undo button ────────────────────────────────────────────── */
@@ -385,18 +384,18 @@ body.gvm.cs-body {
 .cs-undo-btn {
   display: block;
   width: 200px;
-  margin: 0.3rem auto 0;
-  padding: 0.4rem 0.5rem;
+  margin: 0.4rem auto 0;
+  padding: 0.55rem 0.5rem;
   background: transparent;
-  color: rgba(255, 206, 163, 0.6);
-  border: 1px solid rgba(255, 206, 163, 0.25);
+  color: var(--gvm-tertiary);
+  border: 1px solid var(--gvm-tertiary);
   border-radius: 3px;
-  font-weight: 700;
-  font-size: 0.62rem;
+  font-weight: 900;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   flex-shrink: 0;
 }
 
@@ -408,8 +407,9 @@ body.gvm.cs-body {
 }
 
 .cs-undo-btn:hover {
-  color: rgba(255, 206, 163, 0.9);
-  border-color: rgba(255, 206, 163, 0.5);
+  background: rgba(214, 164, 58, 0.12);
+  color: var(--gvm-gold);
+  border-color: var(--gvm-gold);
 }
 
 /* ── Results panel ──────────────────────────────────────────── */
@@ -417,7 +417,7 @@ body.gvm.cs-body {
 .cs-results {
   width: 100%;
   max-width: 440px;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 2.5rem;
   display: flex;
   flex-direction: column;
   border: 2px solid rgba(214, 164, 58, 0.4);
