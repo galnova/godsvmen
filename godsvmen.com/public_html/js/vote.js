@@ -81,7 +81,7 @@
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
   let grid, banner, previewImg, previewName, previewHouse,
-      previewJob, previewBio, previewPh, voteBtn, undoBtn, voteResults,
+      previewJob, previewPh, voteBtn, undoBtn, voteResults,
       voteConfirmModal, voteModalName, voteConfirmBtn;
 
   let pendingVoteChar = null;
@@ -114,7 +114,6 @@
       previewName.textContent  = 'Who do you like?';
       previewHouse.textContent = '';
       previewJob.textContent   = '';
-      if (previewBio) previewBio.setAttribute('aria-hidden', 'true');
       if (!hasVoted) {
         voteBtn.disabled     = true;
         voteBtn.textContent  = 'Hover over a fighter';
@@ -149,15 +148,6 @@
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
-
-    if (previewBio) {
-      if (char.bio) {
-        previewBio.href = char.bio;
-        previewBio.removeAttribute('aria-hidden');
-      } else {
-        previewBio.setAttribute('aria-hidden', 'true');
-      }
-    }
 
     if (!hasVoted) {
       voteBtn.disabled    = false;
@@ -314,7 +304,7 @@
       const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
       cell.style.backgroundPosition = posX + '% ' + posY + '%';
 
-      const isMystery = !char || char.locked;
+      const isMystery = !char;
 
       if (isMystery) {
         cell.classList.add('cs-cell--mystery');
@@ -365,7 +355,6 @@
     previewName  = document.getElementById('previewName');
     previewHouse = document.getElementById('previewHouse');
     previewJob   = document.getElementById('previewJob');
-    previewBio   = document.getElementById('previewBio');
     previewPh    = document.getElementById('previewPlaceholder');
     voteBtn          = document.getElementById('voteBtn');
     undoBtn          = document.getElementById('undoBtn');

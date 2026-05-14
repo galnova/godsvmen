@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Character Select — char_select.css
+   Fan Vote — vote.css
    Depends on global.css for CSS custom properties
    ═══════════════════════════════════════════════════════════════ */
 
@@ -95,8 +95,7 @@ body.gvm.cs-body {
 
 .cs-banner[data-state="voted"] {
   background: rgb(213 122 69);
-  color:#fff;
-  /* border: 1px solid rgba(28, 97, 114, 0.35); */
+  color: #fff;
   box-shadow: none;
   font-weight: 600;
 }
@@ -108,7 +107,6 @@ body.gvm.cs-body {
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: center;
-  /* margin-bottom: 1.25rem; */
 }
 
 /* ── Character grid ─────────────────────────────────────────── */
@@ -180,12 +178,6 @@ body.gvm.cs-body {
   content: '';
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.25);
   z-index: 3;
 }
 
@@ -365,11 +357,6 @@ body.gvm.cs-body {
   flex-shrink: 0;
 }
 
-/* .cs-vote-btn:hover:not(:disabled) {
-  opacity: 0.85;
-  transform: translateY(-1px);
-} */
-
 .cs-vote-btn:disabled {
   opacity: 0.35;
   cursor: default;
@@ -378,10 +365,10 @@ body.gvm.cs-body {
 
 .cs-vote-btn--voted {
   background: transparent;
-  color: rgba(255, 255, 255, 0.22);
+  color: #fff;
   border: none;
-  font-size: 0.6rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   letter-spacing: 0.15em;
   padding: 0.2rem 0;
   opacity: 1 !important;
@@ -578,9 +565,5 @@ body.gvm.cs-body {
 .cs-modal__cancel:hover { color: rgba(255, 206, 163, 0.7); }
 
 @media (prefers-reduced-motion: reduce) {
-  .cs-cell,
-  .cs-turn-banner,
-  .cs-panel,
-  .cs-panel__img { transition: none; animation: none; }
-  @keyframes cs-pulse-gold { from, to { box-shadow: none; } }
+  .cs-cell { transition: none; animation: none; }
 }
