@@ -103,21 +103,25 @@
       previewImg.src = '';
       previewImg.classList.add('cs-preview__img--hidden');
       previewPh.classList.remove('cs-preview__placeholder--hidden');
-      previewName.textContent  = '---';
+      previewName.textContent  = 'Who do you like?';
       previewHouse.textContent = '';
       previewJob.textContent   = '';
       previewBio.setAttribute('aria-hidden', 'true');
       if (!hasVoted) {
         voteBtn.disabled     = true;
-        voteBtn.textContent  = 'Hover a fighter';
+        voteBtn.textContent  = 'Hover over a fighter';
       }
       return;
     }
 
-    previewImg.src = imgPath(char.slug);
+    previewImg.classList.add('cs-preview__img--hidden');
+    previewPh.classList.remove('cs-preview__placeholder--hidden');
     previewImg.alt = char.name;
-    previewImg.classList.remove('cs-preview__img--hidden');
-    previewPh.classList.add('cs-preview__placeholder--hidden');
+    previewImg.onload = function () {
+      previewImg.classList.remove('cs-preview__img--hidden');
+      previewPh.classList.add('cs-preview__placeholder--hidden');
+    };
+    previewImg.src = imgPath(char.slug);
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
@@ -327,6 +331,11 @@
     voteBtn      = document.getElementById('voteBtn');
     undoBtn      = document.getElementById('undoBtn');
     voteResults  = document.getElementById('voteResults');
+
+    previewImg.addEventListener('error', function () {
+      previewImg.classList.add('cs-preview__img--hidden');
+      previewPh.classList.remove('cs-preview__placeholder--hidden');
+    });
 
     buildGrid();
     loadResults();

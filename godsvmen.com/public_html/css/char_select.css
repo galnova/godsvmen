@@ -372,9 +372,12 @@ body.gvm.cs-body {
 
 .cs-vote-btn--voted {
   background: transparent;
-  color: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.22);
+  border: none;
+  font-size: 0.6rem;
   font-weight: 400;
+  letter-spacing: 0.15em;
+  padding: 0.2rem 0;
   opacity: 1 !important;
   cursor: default;
 }
