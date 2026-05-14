@@ -3,7 +3,7 @@ export async function onRequest(context) {
 
   const cors = {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
 
@@ -42,6 +42,24 @@ export async function onRequest(context) {
         status: 409, headers: { ...cors, 'Content-Type': 'application/json' }
       });
     }
+  }
+
+  if (request.method === 'DELETE') {
+    const { voter_id } = await request.json();
+
+    if (!voter_id) {
+      return new Response(JSON.stringify({ error: 'missing_fields' }), {
+        status: 400, headers: { ...cors, 'Content-Type': 'application/json' }
+      });
+    }
+
+    await env.DB.prepare(
+      'DELETE FROM character_votes WHERE voter_id = ?'
+    ).bind(voter_id).run();
+
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { ...cors, 'Content-Type': 'application/json' }
+    });
   }
 
   return new Response('Method not allowed', { status: 405 });

@@ -81,7 +81,7 @@
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
   let grid, banner, previewImg, previewName, previewHouse,
-      previewJob, previewBio, previewPh, voteBtn, voteResults;
+      previewJob, previewBio, previewPh, voteBtn, undoBtn, voteResults;
 
   /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -161,6 +161,7 @@
         voteBtn.disabled = true;
         voteBtn.textContent = '✓ Voted!';
         voteBtn.classList.add('cs-vote-btn--voted');
+        undoBtn.hidden = false;
 
         /* Mark the voted cell */
         grid.querySelectorAll('.cs-cell').forEach(function (cell, i) {
@@ -179,6 +180,42 @@
       }
     } catch (e) {
       banner.textContent = 'Could not submit vote — try again.';
+    }
+  }
+
+  /* ── Undo vote ───────────────────────────────────────────────── */
+
+  async function undoVote() {
+    try {
+      const res  = await fetch('/api/vote', {
+        method:  'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ voter_id: voterId })
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        hasVoted   = false;
+        myVoteSlug = null;
+        localStorage.removeItem('gvm_vote_slug');
+
+        banner.textContent   = 'Hover a fighter — click to cast your vote';
+        banner.dataset.state = 'idle';
+
+        undoBtn.hidden = true;
+        voteBtn.disabled = true;
+        voteBtn.textContent = 'Hover a fighter';
+        voteBtn.classList.remove('cs-vote-btn--voted');
+
+        grid.querySelectorAll('.cs-cell--voted').forEach(function (cell) {
+          cell.classList.remove('cs-cell--voted');
+        });
+
+        if (hoveredChar) updatePreview(hoveredChar);
+        loadResults();
+      }
+    } catch (e) {
+      banner.textContent = 'Could not undo vote — try again.';
     }
   }
 
@@ -287,6 +324,7 @@
     previewBio   = document.getElementById('previewBio');
     previewPh    = document.getElementById('previewPlaceholder');
     voteBtn      = document.getElementById('voteBtn');
+    undoBtn      = document.getElementById('undoBtn');
     voteResults  = document.getElementById('voteResults');
 
     buildGrid();
@@ -299,11 +337,14 @@
       voteBtn.disabled     = true;
       voteBtn.textContent  = '✓ Voted!';
       voteBtn.classList.add('cs-vote-btn--voted');
+      undoBtn.hidden = false;
     }
 
     voteBtn.addEventListener('click', function () {
       if (hoveredChar && !hasVoted) castVote(hoveredChar);
     });
+
+    undoBtn.addEventListener('click', undoVote);
   });
 
 }());
