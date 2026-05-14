@@ -63,30 +63,33 @@
     null
   ];
 
-  /* ── State ───────────────────────────────────────────────────── */
-  let turn     = 1;
-  let p1Char   = null;
-  let p2Char   = null;
-  let p1CellEl = null;
-  let p2CellEl = null;
+  /* ── Voter identity ─────────────────────────────────────────── */
+
+  let voterId = localStorage.getItem('gvm_voter_id');
+  if (!voterId) {
+    voterId = crypto.randomUUID();
+    localStorage.setItem('gvm_voter_id', voterId);
+  }
+
+  let hasVoted   = !!localStorage.getItem('gvm_vote_slug');
+  let myVoteSlug = localStorage.getItem('gvm_vote_slug');
+  let hoveredChar = null;
+
+  /* slug → display name lookup */
+  const slugToName = {};
+  ROSTER.forEach(function (c) { if (c) slugToName[c.slug] = c.name; });
 
   /* ── DOM refs ────────────────────────────────────────────────── */
-  const grid       = document.getElementById('csGrid');
-  const turnBanner = document.getElementById('csTurnBanner');
-  const p1Panel    = document.getElementById('p1Panel');
-  const p2Panel    = document.getElementById('p2Panel');
-  const p1Img      = document.getElementById('p1Img');
-  const p2Img      = document.getElementById('p2Img');
-  const p1Name     = document.getElementById('p1Name');
-  const p2Name     = document.getElementById('p2Name');
-  const p1House    = document.getElementById('p1House');
-  const p2House    = document.getElementById('p2House');
-  const p1Job      = document.getElementById('p1Job');
-  const p2Job      = document.getElementById('p2Job');
-  const p1Bio      = document.getElementById('p1Bio');
-  const p2Bio      = document.getElementById('p2Bio');
-  const p1Ph       = document.getElementById('p1Placeholder');
-  const p2Ph       = document.getElementById('p2Placeholder');
+  const grid        = document.getElementById('csGrid');
+  const banner      = document.getElementById('csBanner');
+  const previewImg  = document.getElementById('previewImg');
+  const previewName = document.getElementById('previewName');
+  const previewHouse = document.getElementById('previewHouse');
+  const previewJob  = document.getElementById('previewJob');
+  const previewBio  = document.getElementById('previewBio');
+  const previewPh   = document.getElementById('previewPlaceholder');
+  const voteBtn     = document.getElementById('voteBtn');
+  const voteResults = document.getElementById('voteResults');
 
   /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -99,92 +102,125 @@
     return 'House ' + house;
   }
 
-  function updatePanel(player, char) {
-    const img   = player === 1 ? p1Img   : p2Img;
-    const name  = player === 1 ? p1Name  : p2Name;
-    const house = player === 1 ? p1House : p2House;
-    const job   = player === 1 ? p1Job   : p2Job;
-    const bio   = player === 1 ? p1Bio   : p2Bio;
-    const ph    = player === 1 ? p1Ph    : p2Ph;
-    const panel = player === 1 ? p1Panel : p2Panel;
+  /* ── Preview panel ───────────────────────────────────────────── */
+
+  function updatePreview(char) {
+    hoveredChar = char;
 
     if (!char) {
-      img.src = '';
-      img.alt = '';
-      img.classList.add('cs-panel__img--hidden');
-      ph.classList.remove('cs-panel__placeholder--hidden');
-      name.textContent  = '---';
-      house.textContent = '';
-      job.textContent   = '';
-      bio.setAttribute('aria-hidden', 'true');
-      panel.classList.remove('cs-panel--active');
+      previewImg.src = '';
+      previewImg.classList.add('cs-panel__img--hidden');
+      previewPh.classList.remove('cs-panel__placeholder--hidden');
+      previewName.textContent  = '---';
+      previewHouse.textContent = '';
+      previewJob.textContent   = '';
+      previewBio.setAttribute('aria-hidden', 'true');
+      if (!hasVoted) {
+        voteBtn.disabled     = true;
+        voteBtn.textContent  = 'Hover a fighter';
+      }
       return;
     }
 
-    img.src = imgPath(char.slug);
-    img.alt = char.name;
-    img.classList.remove('cs-panel__img--hidden');
-    ph.classList.add('cs-panel__placeholder--hidden');
-    name.textContent  = char.name;
-    house.textContent = houseLabel(char.house);
-    job.textContent   = char.job || '';
-    panel.classList.add('cs-panel--active');
+    previewImg.src = imgPath(char.slug);
+    previewImg.alt = char.name;
+    previewImg.classList.remove('cs-panel__img--hidden');
+    previewPh.classList.add('cs-panel__placeholder--hidden');
+    previewName.textContent  = char.name;
+    previewHouse.textContent = houseLabel(char.house);
+    previewJob.textContent   = char.job || '';
 
     if (char.bio) {
-      bio.href = char.bio;
-      bio.removeAttribute('aria-hidden');
+      previewBio.href = char.bio;
+      previewBio.removeAttribute('aria-hidden');
     } else {
-      bio.setAttribute('aria-hidden', 'true');
+      previewBio.setAttribute('aria-hidden', 'true');
+    }
+
+    if (!hasVoted) {
+      voteBtn.disabled    = false;
+      voteBtn.textContent = 'Vote for ' + char.name;
+    } else {
+      voteBtn.textContent = myVoteSlug === char.slug ? '✓ Your Vote' : 'Already Voted';
     }
   }
 
-  function updateTurnBanner() {
-    if (p1Char && p2Char) {
-      turnBanner.textContent  = p1Char.name + '  VS  ' + p2Char.name;
-      turnBanner.dataset.turn = 'ready';
-    } else if (turn === 1) {
-      turnBanner.textContent  = 'Player 1 — Select Fighter';
-      turnBanner.dataset.turn = 'p1';
-    } else {
-      turnBanner.textContent  = 'Player 2 — Select Fighter';
-      turnBanner.dataset.turn = 'p2';
+  /* ── Vote submission ─────────────────────────────────────────── */
+
+  async function castVote(char) {
+    if (hasVoted || !char) return;
+
+    try {
+      const res  = await fetch('/api/vote', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ character_slug: char.slug, voter_id: voterId })
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        hasVoted   = true;
+        myVoteSlug = char.slug;
+        localStorage.setItem('gvm_vote_slug', char.slug);
+
+        banner.textContent  = 'You voted for ' + char.name + '!';
+        banner.dataset.state = 'voted';
+
+        voteBtn.disabled = true;
+        voteBtn.textContent = '✓ Voted!';
+        voteBtn.classList.add('cs-vote-btn--voted');
+
+        /* Mark the voted cell */
+        grid.querySelectorAll('.cs-cell').forEach(function (cell, i) {
+          if (ROSTER[i] && ROSTER[i].slug === char.slug) {
+            cell.classList.add('cs-cell--voted');
+          }
+        });
+
+        loadResults();
+      } else if (data.error === 'already_voted') {
+        hasVoted = true;
+        banner.textContent   = 'You already voted!';
+        banner.dataset.state = 'voted';
+        voteBtn.disabled     = true;
+        voteBtn.classList.add('cs-vote-btn--voted');
+      }
+    } catch (e) {
+      banner.textContent = 'Could not submit vote — try again.';
     }
   }
 
-  /* ── Click handler ───────────────────────────────────────────── */
+  /* ── Results leaderboard ─────────────────────────────────────── */
 
-  function handleClick(cellEl, char) {
-    if (!char) return;
+  async function loadResults() {
+    try {
+      const res  = await fetch('/api/vote');
+      const data = await res.json();
 
-    if (turn === 1) {
-      if (p1CellEl) p1CellEl.classList.remove('cs-cell--p1');
-      p1Char   = char;
-      p1CellEl = cellEl;
-      cellEl.classList.add('cs-cell--p1');
-      updatePanel(1, char);
-      turn = 2;
-    } else {
-      if (p2CellEl) p2CellEl.classList.remove('cs-cell--p2');
-      p2Char   = char;
-      p2CellEl = cellEl;
-      cellEl.classList.add('cs-cell--p2');
-      updatePanel(2, char);
-      turn = 1;
+      if (!data.length) {
+        voteResults.innerHTML = '<p class="cs-results__empty">No votes yet — be first!</p>';
+        return;
+      }
+
+      const total = data.reduce(function (sum, r) { return sum + r.votes; }, 0);
+
+      voteResults.innerHTML = data.slice(0, 10).map(function (r, i) {
+        const name  = slugToName[r.character_slug] || r.character_slug;
+        const pct   = Math.round((r.votes / total) * 100);
+        const mine  = r.character_slug === myVoteSlug;
+        return '<div class="vote-bar' + (mine ? ' vote-bar--mine' : '') + '">' +
+          '<div class="vote-bar__header">' +
+            '<span class="vote-bar__name">' + (i + 1) + '. ' + name + '</span>' +
+            '<span class="vote-bar__pct">' + pct + '%</span>' +
+          '</div>' +
+          '<div class="vote-bar__track">' +
+            '<div class="vote-bar__fill" style="width:' + pct + '%"></div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    } catch (e) {
+      voteResults.innerHTML = '<p class="cs-results__empty">Could not load results.</p>';
     }
-
-    updateTurnBanner();
-  }
-
-  /* ── Hover handlers ──────────────────────────────────────────── */
-
-  function handleEnter(char) {
-    if (!char) return;
-    updatePanel(turn, char);
-  }
-
-  function handleLeave() {
-    const locked = turn === 1 ? p1Char : p2Char;
-    updatePanel(turn, locked);
   }
 
   /* ── Grid builder ────────────────────────────────────────────── */
@@ -201,11 +237,6 @@
       cell.className = 'cs-cell';
       cell.setAttribute('role', 'gridcell');
 
-      /* Background slice — maps cell (col, row) to the correct
-         region of gvm_char_select.png using percentage positioning.
-         background-size: 900% 500% makes the whole image 9× wide
-         and 5× tall relative to each cell, then we shift by the
-         percentage that aligns this cell's portion. */
       const posX = COLS > 1 ? (col / (COLS - 1)) * 100 : 0;
       const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
       cell.style.backgroundPosition = posX + '% ' + posY + '%';
@@ -219,22 +250,27 @@
       } else {
         cell.setAttribute('aria-label', char.name);
         cell.setAttribute('tabindex', '0');
-        cell.addEventListener('click', () => handleClick(cell, char));
+
+        if (myVoteSlug && char.slug === myVoteSlug) {
+          cell.classList.add('cs-cell--voted');
+        }
+
+        cell.addEventListener('click', function () { castVote(char); });
         cell.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            handleClick(cell, char);
+            castVote(char);
           }
         });
       }
 
-      /* All cells get hover listeners so mystery cells don't break
-         pointer-event hit-testing on their neighbours. */
       cell.addEventListener('mouseenter', function () {
         if (isMystery) return;
-        handleEnter(char);
+        updatePreview(char);
       });
-      cell.addEventListener('mouseleave', handleLeave);
+      cell.addEventListener('mouseleave', function () {
+        updatePreview(null);
+      });
 
       const label = document.createElement('span');
       label.className   = 'cs-cell__label';
@@ -251,7 +287,20 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     buildGrid();
-    updateTurnBanner();
+    loadResults();
+
+    if (hasVoted) {
+      const votedName = slugToName[myVoteSlug] || myVoteSlug;
+      banner.textContent   = 'You voted for ' + votedName + '. Thanks!';
+      banner.dataset.state = 'voted';
+      voteBtn.disabled     = true;
+      voteBtn.textContent  = '✓ Voted!';
+      voteBtn.classList.add('cs-vote-btn--voted');
+    }
+
+    voteBtn.addEventListener('click', function () {
+      if (hoveredChar && !hasVoted) castVote(hoveredChar);
+    });
   });
 
 }());

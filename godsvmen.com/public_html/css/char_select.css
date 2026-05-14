@@ -72,9 +72,9 @@ body.gvm.cs-body {
   margin: 0.35rem 0 0;
 }
 
-/* ── Turn banner ────────────────────────────────────────────── */
+/* ── Vote banner ────────────────────────────────────────────── */
 
-.cs-turn-banner {
+.cs-banner {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -83,32 +83,26 @@ body.gvm.cs-body {
   padding: 0.45rem 1.5rem;
   margin: 0 auto 1.25rem;
   border-radius: 3px;
-  max-width: 380px;
+  max-width: 440px;
   transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cs-turn-banner[data-turn="p1"] {
-  background: var(--gvm-primary);
-  color: var(--gvm-white);
-  box-shadow: 0 0 18px rgba(113, 33, 33, 0.55);
+.cs-banner[data-state="idle"] {
+  background: rgba(214, 164, 58, 0.15);
+  color: var(--gvm-tertiary);
+  border: 1px solid rgba(214, 164, 58, 0.3);
 }
 
-.cs-turn-banner[data-turn="p2"] {
+.cs-banner[data-state="voted"] {
   background: var(--gvm-secondary);
   color: var(--gvm-white);
-  box-shadow: 0 0 18px rgba(28, 97, 114, 0.55);
+  box-shadow: 0 0 24px rgba(28, 97, 114, 0.7);
+  animation: cs-pulse-voted 1.5s ease 3;
 }
 
-.cs-turn-banner[data-turn="ready"] {
-  background: var(--gvm-tertiary);
-  color: var(--gvm-ink);
-  box-shadow: 0 0 24px rgba(214, 164, 58, 0.8);
-  animation: cs-pulse-gold 1.5s ease infinite;
-}
-
-@keyframes cs-pulse-gold {
-  0%, 100% { box-shadow: 0 0 18px rgba(214, 164, 58, 0.65); }
-  50%       { box-shadow: 0 0 38px rgba(214, 164, 58, 1); }
+@keyframes cs-pulse-voted {
+  0%, 100% { box-shadow: 0 0 18px rgba(28, 97, 114, 0.55); }
+  50%       { box-shadow: 0 0 38px rgba(28, 97, 114, 1); }
 }
 
 /* ── Arena layout ───────────────────────────────────────────── */
@@ -229,61 +223,30 @@ body.gvm.cs-body {
   opacity: 1;
 }
 
-/* ── Selected states ────────────────────────────────────────── */
+/* ── Voted cell state ───────────────────────────────────────── */
 
-.cs-cell--p1 {
-  outline: 2px solid var(--gvm-primary);
-  box-shadow: inset 0 0 0 2px var(--gvm-primary), 0 0 14px rgba(113, 33, 33, 0.75);
-  z-index: 4;
-}
-
-.cs-cell--p1::after {
-  content: 'P1';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  background: var(--gvm-primary);
-  color: #fff;
-  font-size: 0.42rem;
-  font-weight: 900;
-  padding: 1px 3px;
-  letter-spacing: 0.06em;
-  z-index: 5;
-  line-height: 1.5;
-  pointer-events: none;
-}
-
-.cs-cell--p2 {
+.cs-cell--voted {
   outline: 2px solid var(--gvm-secondary);
   box-shadow: inset 0 0 0 2px var(--gvm-secondary), 0 0 14px rgba(28, 97, 114, 0.75);
   z-index: 4;
 }
 
-.cs-cell--p2::after {
-  content: 'P2';
+.cs-cell--voted::after {
+  content: '✓';
   position: absolute;
   top: 2px;
   right: 2px;
   background: var(--gvm-secondary);
   color: #fff;
-  font-size: 0.42rem;
+  font-size: 0.5rem;
   font-weight: 900;
   padding: 1px 3px;
-  letter-spacing: 0.06em;
   z-index: 5;
   line-height: 1.5;
   pointer-events: none;
 }
 
-/* Same character selected by both */
-.cs-cell--p1.cs-cell--p2 {
-  outline: 2px solid var(--gvm-tertiary);
-  box-shadow:
-    inset 0 0 0 2px var(--gvm-tertiary),
-    0 0 18px rgba(214, 164, 58, 0.75);
-}
-
-/* ── Player panels ──────────────────────────────────────────── */
+/* ── Preview panel ──────────────────────────────────────────── */
 
 .cs-panel {
   width: 158px;
@@ -298,32 +261,17 @@ body.gvm.cs-body {
   transition: box-shadow 0.3s ease;
 }
 
-.cs-panel--p1 {
-  border-color: var(--gvm-primary);
-  box-shadow: 0 0 22px rgba(113, 33, 33, 0.35), inset 0 0 30px rgba(113, 33, 33, 0.08);
-}
-
-.cs-panel--p1.cs-panel--active {
-  box-shadow: 0 0 32px rgba(113, 33, 33, 0.65), inset 0 0 40px rgba(113, 33, 33, 0.12);
-}
-
-.cs-panel--p2 {
-  border-color: var(--gvm-secondary);
-  box-shadow: 0 0 22px rgba(28, 97, 114, 0.35), inset 0 0 30px rgba(28, 97, 114, 0.08);
-}
-
-.cs-panel--p2.cs-panel--active {
-  box-shadow: 0 0 32px rgba(28, 97, 114, 0.65), inset 0 0 40px rgba(28, 97, 114, 0.12);
+.cs-panel--preview {
+  border-color: var(--gvm-tertiary);
+  box-shadow: 0 0 22px rgba(214, 164, 58, 0.25), inset 0 0 30px rgba(214, 164, 58, 0.04);
 }
 
 /* Panel header */
 .cs-panel__header {
   padding: 0.4rem;
   text-align: center;
+  background: rgba(214, 164, 58, 0.15);
 }
-
-.cs-panel--p1 .cs-panel__header { background: var(--gvm-primary); }
-.cs-panel--p2 .cs-panel__header { background: var(--gvm-secondary); }
 
 .cs-panel__badge {
   font-size: 0.8rem;
@@ -432,20 +380,135 @@ body.gvm.cs-body {
 }
 
 .cs-panel__bio[aria-hidden="true"] { display: none; }
-
-.cs-panel--p1 .cs-panel__bio { color: var(--gvm-gold); border-color: var(--gvm-gold); }
-.cs-panel--p2 .cs-panel__bio { color: var(--gvm-gold-soft); border-color: var(--gvm-gold-soft); }
-
+.cs-panel__bio { color: var(--gvm-gold); border-color: var(--gvm-gold); }
 .cs-panel__bio:hover { opacity: 0.7; }
+
+/* ── Vote button ────────────────────────────────────────────── */
+
+.cs-vote-btn {
+  display: block;
+  width: calc(100% - 1.3rem);
+  margin: 0.5rem auto 0.75rem;
+  padding: 0.55rem 0.5rem;
+  background: var(--gvm-tertiary);
+  color: var(--gvm-ink);
+  border: none;
+  border-radius: 3px;
+  font-weight: 900;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease, background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cs-vote-btn:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.cs-vote-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+}
+
+.cs-vote-btn--voted {
+  background: var(--gvm-secondary);
+  color: #fff;
+  opacity: 1 !important;
+}
+
+/* ── Results panel ──────────────────────────────────────────── */
+
+.cs-results {
+  width: 170px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(214, 164, 58, 0.4);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 0.65rem;
+  overflow-y: auto;
+}
+
+.cs-results__title {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--gvm-tertiary);
+  margin: 0 0 0.8rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.cs-results__empty {
+  font-size: 0.68rem;
+  color: rgba(255, 206, 163, 0.35);
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Vote bars */
+.vote-bar {
+  margin-bottom: 0.6rem;
+}
+
+.vote-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.vote-bar__name {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vote-bar__pct {
+  font-size: 0.58rem;
+  color: var(--gvm-gold);
+  flex-shrink: 0;
+}
+
+.vote-bar__track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vote-bar__fill {
+  height: 100%;
+  background: var(--gvm-tertiary);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.vote-bar--mine .vote-bar__name { color: var(--gvm-gold); font-weight: 700; }
+.vote-bar--mine .vote-bar__fill { background: var(--gvm-secondary); }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
   .cs-panel { width: 136px; }
+  .cs-results { width: 150px; }
 }
 
 @media (max-width: 900px) {
-  .cs-panel { width: 120px; }
+  .cs-panel { width: 115px; }
+  .cs-results { width: 130px; }
   .cs-panel__name { font-size: 0.75rem; }
 }
 
@@ -453,75 +516,32 @@ body.gvm.cs-body {
   .cs-stage { padding: 1rem 0.75rem 1.5rem; }
 
   .cs-arena {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .cs-grid-wrap { order: -1; }
-
-  .cs-panel {
-    flex-direction: row;
-    width: 100%;
-    border-radius: 4px;
-  }
-
-  .cs-panel__header {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    padding: 0.5rem 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .cs-panel__badge { letter-spacing: 0; font-size: 0.9rem; }
-
-  .cs-panel__portrait-wrap {
-    width: 90px;
-    flex-shrink: 0;
-    aspect-ratio: 1 / 1;
-  }
-
-  .cs-panel--p1 .cs-panel__portrait-wrap {
-    border-bottom: none;
-    border-right: 2px solid var(--gvm-primary);
-  }
-
-  .cs-panel--p2 .cs-panel__portrait-wrap {
-    border-bottom: none;
-    border-right: 2px solid var(--gvm-secondary);
-  }
-
-  .cs-panel--p2 .cs-panel__img {
-    transform: none;
-  }
-
-  /* Stack panels side by side on mobile */
-  .cs-arena {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
+    gap: 0.75rem;
   }
 
   .cs-grid-wrap {
     grid-column: 1 / -1;
     grid-row: 1;
-    order: 0;
   }
 
-  .cs-panel--p1 {
+  .cs-panel--preview {
     grid-column: 1;
     grid-row: 2;
+    width: 100%;
   }
 
-  .cs-panel--p2 {
+  .cs-results {
     grid-column: 2;
     grid-row: 2;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .cs-panel__portrait-wrap { width: 70px; }
+  .cs-panel__portrait-wrap { aspect-ratio: 4 / 3; }
   .cs-panel__name { font-size: 0.7rem; }
   .cs-panel__job { display: none; }
 }

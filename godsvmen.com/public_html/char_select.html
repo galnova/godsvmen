@@ -58,49 +58,41 @@
     <section class="cs-stage">
 
       <div class="cs-heading">
-        <h1 class="cs-title">Character Select</h1>
-        <p class="cs-subtitle">Choose your fighter. Enter the Forever Fight.</p>
+        <h1 class="cs-title">Fan Vote</h1>
+        <p class="cs-subtitle">Who do you want drawn next?</p>
       </div>
 
-      <div class="cs-turn-banner" id="csTurnBanner" data-turn="p1">
-        Player 1 — Select Fighter
+      <div class="cs-banner" id="csBanner" data-state="idle">
+        Hover a fighter — click to cast your vote
       </div>
 
       <div class="cs-arena">
 
-        <aside class="cs-panel cs-panel--p1" id="p1Panel" aria-label="Player 1">
+        <aside class="cs-panel cs-panel--preview" id="previewPanel" aria-label="Character Preview">
           <div class="cs-panel__header">
-            <span class="cs-panel__badge">P1</span>
+            <span class="cs-panel__badge">?</span>
           </div>
           <div class="cs-panel__portrait-wrap">
-            <div class="cs-panel__placeholder" id="p1Placeholder">?</div>
-            <img class="cs-panel__img cs-panel__img--hidden" id="p1Img" src="" alt="">
+            <div class="cs-panel__placeholder" id="previewPlaceholder">?</div>
+            <img class="cs-panel__img cs-panel__img--hidden" id="previewImg" src="" alt="">
           </div>
           <div class="cs-panel__info">
-            <p class="cs-panel__name" id="p1Name">---</p>
-            <p class="cs-panel__house" id="p1House"></p>
-            <p class="cs-panel__job" id="p1Job"></p>
-            <a class="cs-panel__bio" id="p1Bio" href="#" target="_blank" aria-hidden="true">View Bio</a>
+            <p class="cs-panel__name" id="previewName">---</p>
+            <p class="cs-panel__house" id="previewHouse"></p>
+            <p class="cs-panel__job" id="previewJob"></p>
+            <a class="cs-panel__bio" id="previewBio" href="#" target="_blank" aria-hidden="true">View Bio</a>
           </div>
+          <button class="cs-vote-btn" id="voteBtn" disabled>Hover a fighter</button>
         </aside>
 
         <div class="cs-grid-wrap">
-          <div class="cs-grid" id="csGrid" role="grid" aria-label="Character Select Grid"></div>
+          <div class="cs-grid" id="csGrid" role="grid" aria-label="Character Vote Grid"></div>
         </div>
 
-        <aside class="cs-panel cs-panel--p2" id="p2Panel" aria-label="Player 2">
-          <div class="cs-panel__header">
-            <span class="cs-panel__badge">P2</span>
-          </div>
-          <div class="cs-panel__portrait-wrap">
-            <div class="cs-panel__placeholder" id="p2Placeholder">?</div>
-            <img class="cs-panel__img cs-panel__img--hidden" id="p2Img" src="" alt="">
-          </div>
-          <div class="cs-panel__info">
-            <p class="cs-panel__name" id="p2Name">---</p>
-            <p class="cs-panel__house" id="p2House"></p>
-            <p class="cs-panel__job" id="p2Job"></p>
-            <a class="cs-panel__bio" id="p2Bio" href="#" target="_blank" aria-hidden="true">View Bio</a>
+        <aside class="cs-results" id="resultsPanel" aria-label="Vote Results">
+          <h2 class="cs-results__title">Rankings</h2>
+          <div class="cs-results__list" id="voteResults">
+            <p class="cs-results__empty">No votes yet — be first!</p>
           </div>
         </aside>
 
