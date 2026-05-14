@@ -79,17 +79,9 @@
   const slugToName = {};
   ROSTER.forEach(function (c) { if (c) slugToName[c.slug] = c.name; });
 
-  /* ── DOM refs ────────────────────────────────────────────────── */
-  const grid        = document.getElementById('csGrid');
-  const banner      = document.getElementById('csBanner');
-  const previewImg  = document.getElementById('previewImg');
-  const previewName = document.getElementById('previewName');
-  const previewHouse = document.getElementById('previewHouse');
-  const previewJob  = document.getElementById('previewJob');
-  const previewBio  = document.getElementById('previewBio');
-  const previewPh   = document.getElementById('previewPlaceholder');
-  const voteBtn     = document.getElementById('voteBtn');
-  const voteResults = document.getElementById('voteResults');
+  /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
+  let grid, banner, previewImg, previewName, previewHouse,
+      previewJob, previewBio, previewPh, voteBtn, voteResults;
 
   /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -286,6 +278,17 @@
   /* ── Init ────────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
+    grid         = document.getElementById('csGrid');
+    banner       = document.getElementById('csBanner');
+    previewImg   = document.getElementById('previewImg');
+    previewName  = document.getElementById('previewName');
+    previewHouse = document.getElementById('previewHouse');
+    previewJob   = document.getElementById('previewJob');
+    previewBio   = document.getElementById('previewBio');
+    previewPh    = document.getElementById('previewPlaceholder');
+    voteBtn      = document.getElementById('voteBtn');
+    voteResults  = document.getElementById('voteResults');
+
     buildGrid();
     loadResults();
 
