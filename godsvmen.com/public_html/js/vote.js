@@ -123,6 +123,11 @@
 
     previewImg.classList.add('cs-preview_img--hidden');
     previewPh.classList.remove('cs-preview_placeholder--hidden');
+    previewPh.classList.remove('cs-preview_placeholder--sprite');
+    previewPh.style.backgroundImage    = '';
+    previewPh.style.backgroundSize     = '';
+    previewPh.style.backgroundPosition = '';
+    previewPh.textContent = '?';
     previewImg.alt = char.name;
     previewImg.onload = function () {
       previewImg.classList.remove('cs-preview_img--hidden');
