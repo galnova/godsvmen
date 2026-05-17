@@ -113,13 +113,13 @@
         previewPh.style.backgroundSize     = '';
         previewPh.style.backgroundPosition = '';
         previewPh.textContent = '?';
-        previewName.textContent  = 'Who do you like?';
+        previewName.textContent  = 'Click a fighter';
         previewHouse.textContent = '';
         previewJob.textContent   = '';
       }
       if (!hasVoted) {
         voteBtn.disabled     = true;
-        voteBtn.textContent  = 'Hover over a fighter';
+        voteBtn.textContent  = 'Choose a fighter';
       }
       return;
     }
@@ -275,7 +275,7 @@
 
         unlockPreview();
         voteBtn.disabled = true;
-        voteBtn.textContent = 'Hover over a fighter';
+        voteBtn.textContent = 'Choose a fighter';
         voteBtn.classList.remove('cs-vote-btn--voted');
 
         grid.querySelectorAll('.cs-cell--voted').forEach(function (cell) {
@@ -363,11 +363,6 @@
           }
         });
       }
-
-      cell.addEventListener('mouseenter', function () {
-        if (isMystery) return;
-        updatePreview(char);
-      });
 
       const label = document.createElement('span');
       label.className   = 'cs-cell_label';
