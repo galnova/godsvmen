@@ -241,7 +241,7 @@ body.gvm.cs-body {
   gap: 0.25rem;
   flex-shrink: 0;
   width: 200px;
-  min-height: 26rem;
+  min-height: 21rem;
 }
 
 .cs-preview_portrait {
@@ -341,8 +341,8 @@ body.gvm.cs-body {
 
 .cs-vote-btn {
   display: block;
-  width: 200px;
-  margin: 0.5rem auto 0;
+  width: 100%;
+  margin-top: 0.5rem;
   padding: 0.55rem 0.5rem;
   background: var(--gvm-tertiary);
   color: var(--gvm-ink);
@@ -379,8 +379,8 @@ body.gvm.cs-body {
 
 .cs-undo-btn {
   display: block;
-  width: 200px;
-  margin: 0.4rem auto 0;
+  width: 100%;
+  margin-top: 0.4rem;
   padding: 0.55rem 0.5rem;
   background: transparent;
   color: var(--gvm-tertiary);
@@ -521,11 +521,8 @@ body.gvm.cs-body {
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .cs-preview { width: 160px; min-height: 20rem; }
+  .cs-preview { width: 160px; }
   .cs-preview_portrait { width: 160px; height: 160px; }
-  .cs-vote-btn { width: 160px; }
-  .cs-undo-btn { width: 140px; }
-  .cs-vote-lock { width: 160px; }
 }
 
 @media (max-width: 767px) {
@@ -534,10 +531,9 @@ body.gvm.cs-body {
   .cs-above { flex-direction: column; align-items: center; }
   .cs-results { width: 100%; max-width: 100%; margin-bottom: 24px;max-height: none; }
 
-  .cs-preview { width: 140px; min-height: 20rem; }
+  .cs-preview { width: 140px; }
   .cs-preview_portrait { width: 140px; height: 140px; }
-  .cs-vote-btn { width: 140px; }
-  .cs-undo-btn { width: 140px; margin-bottom: 24px;}
+  .cs-undo-btn { margin-bottom: 24px; }
 }
 
 @media (max-width: 480px) {
