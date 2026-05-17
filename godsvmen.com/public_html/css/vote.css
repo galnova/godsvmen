@@ -502,7 +502,7 @@ body.gvm.cs-body {
   .cs-stage { padding: 1rem 0.75rem 1.5rem; }
 
   .cs-above { flex-direction: column; align-items: center; }
-  .cs-results { width: 100%; max-width: 340px; max-height: none; }
+  .cs-results { width: 100%; max-width: 100%; margin-bottom: 24px;max-height: none; }
 
   .cs-preview { width: 140px; min-height: 20rem; }
   .cs-preview_portrait { width: 140px; height: 140px; }
