@@ -81,7 +81,7 @@
   ROSTER.forEach(function (c) { if (c) slugToName[c.slug] = c.name; });
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
-  let grid, banner, previewImg, previewName, previewHouse,
+  let grid, gridSpinner, banner, previewImg, previewName, previewHouse,
       previewJob, previewPh, previewPortrait, voteBtn, undoBtn,
       lockPanel, voteResults, voteConfirmModal, voteModalName, voteConfirmBtn;
 
@@ -379,6 +379,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     grid         = document.getElementById('csGrid');
+    gridSpinner  = document.getElementById('gridSpinner');
     banner       = document.getElementById('csBanner');
     previewImg   = document.getElementById('previewImg');
     previewName  = document.getElementById('previewName');
@@ -400,6 +401,13 @@
     }
 
     buildGrid();
+    grid.classList.add('cs-grid--loading');
+    var sprite = new Image();
+    sprite.onload = sprite.onerror = function () {
+      gridSpinner.hidden = true;
+      grid.classList.remove('cs-grid--loading');
+    };
+    sprite.src = 'img/gvm_char_select.png';
     loadResults();
 
     if (hasVoted) {

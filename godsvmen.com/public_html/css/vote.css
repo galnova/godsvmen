@@ -502,6 +502,34 @@ body.gvm.cs-body {
 .vote-bar--mine .vote-bar_name { color: var(--gvm-gold); font-weight: 700; }
 .vote-bar--mine .vote-bar_fill { background: var(--gvm-secondary); }
 
+/* ── Grid spinner ───────────────────────────────────────────── */
+
+.cs-grid-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  width: 100%;
+}
+
+.cs-grid-spinner::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(214, 164, 58, 0.15);
+  border-top-color: var(--gvm-tertiary);
+  border-radius: 50%;
+  animation: cs-spin 0.8s linear infinite;
+}
+
+@keyframes cs-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cs-grid-spinner[hidden] { display: none; }
+
+.cs-grid--loading { display: none; }
+
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
