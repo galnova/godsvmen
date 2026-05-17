@@ -416,13 +416,6 @@ body.gvm.cs-body {
   gap: 0.4rem;
 }
 
-.cs-vote-lock_label {
-  font-size: 0.55rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--gvm-tertiary);
-}
-
 .cs-preview_portrait--locked {
   border-color: var(--gvm-secondary);
   box-shadow: 0 0 30px rgba(28, 97, 114, 0.35);
