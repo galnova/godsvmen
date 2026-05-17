@@ -82,7 +82,7 @@
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
   let grid, gridSpinner, banner, previewImg, previewName, previewHouse,
-      previewJob, previewPh, previewPortrait, voteBtn, undoBtn,
+      previewJob, previewPh, previewPortrait, undoBtn,
       lockPanel, voteResults, voteConfirmModal, voteModalName, voteConfirmBtn;
 
   let pendingVoteChar = null;
@@ -116,10 +116,6 @@
         previewName.textContent  = 'Click a fighter';
         previewHouse.textContent = '';
         previewJob.textContent   = '';
-      }
-      if (!hasVoted) {
-        voteBtn.disabled     = true;
-        voteBtn.textContent  = 'Choose a fighter';
       }
       return;
     }
@@ -159,13 +155,6 @@
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
-
-    if (!hasVoted) {
-      voteBtn.disabled    = false;
-      voteBtn.textContent = 'Vote for ' + char.name;
-    } else {
-      voteBtn.textContent = myVoteSlug === char.slug ? '✓ Your Vote' : 'Already Voted';
-    }
   }
 
   /* ── Lock preview to voted character ────────────────────────── */
@@ -229,8 +218,6 @@
         banner.textContent  = 'You voted for ' + char.name + '!';
         banner.dataset.state = 'voted';
 
-        voteBtn.disabled = true;
-        voteBtn.classList.add('cs-vote-btn--voted');
         lockToChar(char);
 
         /* Mark the voted cell */
@@ -245,8 +232,6 @@
         hasVoted = true;
         banner.textContent   = 'You already voted!';
         banner.dataset.state = 'voted';
-        voteBtn.disabled     = true;
-        voteBtn.classList.add('cs-vote-btn--voted');
         lockToChar(char);
       }
     } catch (e) {
@@ -274,9 +259,6 @@
         banner.dataset.state = 'idle';
 
         unlockPreview();
-        voteBtn.disabled = true;
-        voteBtn.textContent = 'Choose a fighter';
-        voteBtn.classList.remove('cs-vote-btn--voted');
 
         grid.querySelectorAll('.cs-cell--voted').forEach(function (cell) {
           cell.classList.remove('cs-cell--voted');
@@ -387,7 +369,6 @@
     previewJob   = document.getElementById('previewJob');
     previewPh       = document.getElementById('previewPlaceholder');
     previewPortrait = document.querySelector('.cs-preview_portrait');
-    voteBtn         = document.getElementById('voteBtn');
     undoBtn         = document.getElementById('undoBtn');
     lockPanel       = document.getElementById('voteLockPanel');
     voteResults      = document.getElementById('voteResults');
@@ -415,15 +396,9 @@
       const votedChar = ROSTER.find(function (c) { return c && c.slug === myVoteSlug; });
       banner.textContent   = 'You voted for ' + votedName + '. Thanks!';
       banner.dataset.state = 'voted';
-      voteBtn.disabled     = true;
-      voteBtn.classList.add('cs-vote-btn--voted');
       if (votedChar) lockToChar(votedChar);
       else lockPanel.hidden = false;
     }
-
-    voteBtn.addEventListener('click', function () {
-      if (hoveredChar && !hasVoted) showConfirmModal(hoveredChar);
-    });
 
     if (voteConfirmBtn) {
       voteConfirmBtn.addEventListener('click', function () {
