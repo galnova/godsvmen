@@ -83,7 +83,10 @@
             <!-- <a class="cs-preview_bio" id="previewBio" href="#" target="_blank" aria-hidden="true">View Bio</a> -->
           </div>
           <button class="cs-vote-btn" id="voteBtn" disabled>Choose a fighter</button>
-          <button class="cs-undo-btn" id="undoBtn" hidden>Change your vote</button>
+          <div class="cs-vote-lock" id="voteLockPanel" hidden>
+            <span class="cs-vote-lock_label">Your vote is locked in</span>
+            <button class="cs-undo-btn" id="undoBtn">Change your vote</button>
+          </div>
         </div>
 
         <aside class="cs-results" id="resultsPanel" aria-label="Vote Results">

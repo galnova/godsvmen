@@ -74,6 +74,7 @@
   let hasVoted   = !!localStorage.getItem('gvm_vote_slug');
   let myVoteSlug = localStorage.getItem('gvm_vote_slug');
   let hoveredChar = null;
+  let locked      = false;
 
   /* slug → display name lookup */
   const slugToName = {};
@@ -81,8 +82,8 @@
 
   /* ── DOM refs (assigned in DOMContentLoaded) ────────────────── */
   let grid, banner, previewImg, previewName, previewHouse,
-      previewJob, previewPh, voteBtn, undoBtn, voteResults,
-      voteConfirmModal, voteModalName, voteConfirmBtn;
+      previewJob, previewPh, previewPortrait, voteBtn, undoBtn,
+      lockPanel, voteResults, voteConfirmModal, voteModalName, voteConfirmBtn;
 
   let pendingVoteChar = null;
 
@@ -103,17 +104,19 @@
     hoveredChar = char;
 
     if (!char) {
-      previewImg.src = '';
-      previewImg.classList.add('cs-preview_img--hidden');
-      previewPh.classList.remove('cs-preview_placeholder--hidden');
-      previewPh.classList.remove('cs-preview_placeholder--sprite');
-      previewPh.style.backgroundImage    = '';
-      previewPh.style.backgroundSize     = '';
-      previewPh.style.backgroundPosition = '';
-      previewPh.textContent = '?';
-      previewName.textContent  = 'Who do you like?';
-      previewHouse.textContent = '';
-      previewJob.textContent   = '';
+      if (!locked) {
+        previewImg.src = '';
+        previewImg.classList.add('cs-preview_img--hidden');
+        previewPh.classList.remove('cs-preview_placeholder--hidden');
+        previewPh.classList.remove('cs-preview_placeholder--sprite');
+        previewPh.style.backgroundImage    = '';
+        previewPh.style.backgroundSize     = '';
+        previewPh.style.backgroundPosition = '';
+        previewPh.textContent = '?';
+        previewName.textContent  = 'Who do you like?';
+        previewHouse.textContent = '';
+        previewJob.textContent   = '';
+      }
       if (!hasVoted) {
         voteBtn.disabled     = true;
         voteBtn.textContent  = 'Hover over a fighter';
@@ -121,14 +124,15 @@
       return;
     }
 
-    previewImg.classList.add('cs-preview_img--hidden');
-    previewPh.classList.remove('cs-preview_placeholder--hidden');
-    previewPh.classList.remove('cs-preview_placeholder--sprite');
-    previewPh.style.backgroundImage    = '';
-    previewPh.style.backgroundSize     = '';
-    previewPh.style.backgroundPosition = '';
-    previewPh.textContent = '?';
-    previewImg.alt = char.name;
+    if (!locked) {
+      previewImg.classList.add('cs-preview_img--hidden');
+      previewPh.classList.remove('cs-preview_placeholder--hidden');
+      previewPh.classList.remove('cs-preview_placeholder--sprite');
+      previewPh.style.backgroundImage    = '';
+      previewPh.style.backgroundSize     = '';
+      previewPh.style.backgroundPosition = '';
+      previewPh.textContent = '?';
+      previewImg.alt = char.name;
     previewImg.onload = function () {
       previewImg.classList.remove('cs-preview_img--hidden');
       previewPh.classList.add('cs-preview_placeholder--hidden');
@@ -149,7 +153,9 @@
       }
       previewPh.classList.remove('cs-preview_placeholder--hidden');
     };
-    previewImg.src = imgPath(char);
+      previewImg.src = imgPath(char);
+    }
+
     previewName.textContent  = char.name;
     previewHouse.textContent = houseLabel(char.house);
     previewJob.textContent   = char.job || '';
@@ -160,6 +166,33 @@
     } else {
       voteBtn.textContent = myVoteSlug === char.slug ? '✓ Your Vote' : 'Already Voted';
     }
+  }
+
+  /* ── Lock preview to voted character ────────────────────────── */
+
+  function lockToChar(char) {
+    locked = false;
+    updatePreview(char);
+    locked = true;
+    previewPortrait.classList.add('cs-preview_portrait--locked');
+    lockPanel.hidden = false;
+  }
+
+  function unlockPreview() {
+    locked = false;
+    previewPortrait.classList.remove('cs-preview_portrait--locked');
+    lockPanel.hidden = true;
+    previewImg.src = '';
+    previewImg.classList.add('cs-preview_img--hidden');
+    previewPh.classList.remove('cs-preview_placeholder--hidden');
+    previewPh.classList.remove('cs-preview_placeholder--sprite');
+    previewPh.style.backgroundImage    = '';
+    previewPh.style.backgroundSize     = '';
+    previewPh.style.backgroundPosition = '';
+    previewPh.textContent = '?';
+    previewName.textContent  = 'Who do you like?';
+    previewHouse.textContent = '';
+    previewJob.textContent   = '';
   }
 
   /* ── Confirm modal ───────────────────────────────────────────── */
@@ -197,9 +230,8 @@
         banner.dataset.state = 'voted';
 
         voteBtn.disabled = true;
-        voteBtn.textContent = '✓ Voted!';
         voteBtn.classList.add('cs-vote-btn--voted');
-        undoBtn.hidden = false;
+        lockToChar(char);
 
         /* Mark the voted cell */
         grid.querySelectorAll('.cs-cell').forEach(function (cell, i) {
@@ -215,7 +247,7 @@
         banner.dataset.state = 'voted';
         voteBtn.disabled     = true;
         voteBtn.classList.add('cs-vote-btn--voted');
-        undoBtn.hidden = false;
+        lockToChar(char);
       }
     } catch (e) {
       banner.textContent = 'Could not submit vote — try again.';
@@ -241,7 +273,7 @@
         banner.textContent   = 'Hover over a fighter — click to cast your vote';
         banner.dataset.state = 'idle';
 
-        undoBtn.hidden = true;
+        unlockPreview();
         voteBtn.disabled = true;
         voteBtn.textContent = 'Hover over a fighter';
         voteBtn.classList.remove('cs-vote-btn--voted');
@@ -357,9 +389,11 @@
     previewName  = document.getElementById('previewName');
     previewHouse = document.getElementById('previewHouse');
     previewJob   = document.getElementById('previewJob');
-    previewPh    = document.getElementById('previewPlaceholder');
-    voteBtn          = document.getElementById('voteBtn');
-    undoBtn          = document.getElementById('undoBtn');
+    previewPh       = document.getElementById('previewPlaceholder');
+    previewPortrait = document.querySelector('.cs-preview_portrait');
+    voteBtn         = document.getElementById('voteBtn');
+    undoBtn         = document.getElementById('undoBtn');
+    lockPanel       = document.getElementById('voteLockPanel');
     voteResults      = document.getElementById('voteResults');
     voteModalName    = document.getElementById('voteModalName');
     voteConfirmBtn   = document.getElementById('voteConfirmBtn');
@@ -375,12 +409,13 @@
 
     if (hasVoted) {
       const votedName = slugToName[myVoteSlug] || myVoteSlug;
+      const votedChar = ROSTER.find(function (c) { return c && c.slug === myVoteSlug; });
       banner.textContent   = 'You voted for ' + votedName + '. Thanks!';
       banner.dataset.state = 'voted';
       voteBtn.disabled     = true;
-      voteBtn.textContent  = '✓ Voted!';
       voteBtn.classList.add('cs-vote-btn--voted');
-      undoBtn.hidden = false;
+      if (votedChar) lockToChar(votedChar);
+      else lockPanel.hidden = false;
     }
 
     voteBtn.addEventListener('click', function () {

@@ -395,17 +395,37 @@ body.gvm.cs-body {
   flex-shrink: 0;
 }
 
-/* Keep space reserved even when hidden so layout doesn't jump */
-.cs-undo-btn[hidden] {
-  display: block !important;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 .cs-undo-btn:hover {
   background: rgba(214, 164, 58, 0.12);
   color: var(--gvm-gold);
   border-color: var(--gvm-gold);
+}
+
+/* ── Vote lock container ────────────────────────────────────── */
+
+.cs-vote-lock {
+  width: 200px;
+  margin: 0.4rem auto 0;
+  padding: 0.55rem 0.65rem 0.65rem;
+  border: 1px solid rgba(214, 164, 58, 0.3);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cs-vote-lock_label {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gvm-tertiary);
+}
+
+.cs-preview_portrait--locked {
+  border-color: var(--gvm-secondary);
+  box-shadow: 0 0 30px rgba(28, 97, 114, 0.35);
 }
 
 /* ── Results panel ──────────────────────────────────────────── */
@@ -495,7 +515,8 @@ body.gvm.cs-body {
   .cs-preview { width: 160px; min-height: 20rem; }
   .cs-preview_portrait { width: 160px; height: 160px; }
   .cs-vote-btn { width: 160px; }
-  .cs-undo-btn { width: 160px; }
+  .cs-undo-btn { width: 140px; }
+  .cs-vote-lock { width: 160px; }
 }
 
 @media (max-width: 767px) {
