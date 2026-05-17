@@ -270,7 +270,7 @@
         myVoteSlug = null;
         localStorage.removeItem('gvm_vote_slug');
 
-        banner.textContent   = 'Hover over a fighter — click to cast your vote';
+        banner.textContent   = 'Choose a figher and cast your vote';
         banner.dataset.state = 'idle';
 
         unlockPreview();

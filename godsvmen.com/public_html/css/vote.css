@@ -65,7 +65,7 @@ body.gvm.cs-body {
 }
 
 .cs-subtitle {
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: rgba(255, 206, 163, 0.5);
@@ -405,7 +405,7 @@ body.gvm.cs-body {
 
 
 .cs-preview_portrait--locked {
-  border-color: var(--gvm-secondary);
+  border-color: #00bbe9;
   box-shadow: 0 0 30px rgba(28, 97, 114, 0.35);
 }
 
