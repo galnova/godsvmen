@@ -1,0 +1,88 @@
+#gvmTabs,
+#myTab,
+#myTab2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#gvmTabs .nav-item,
+#myTab .nav-item,
+#myTab2 .nav-item {
+  flex: 1 1 0;
+  max-width: 180px;
+}
+
+#gvmTabs .nav-link,
+#myTab .nav-link,
+#myTab2 .nav-link {
+  position: relative;
+  height: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+#gvmTabs .nav-link:not(.active),
+#myTab .nav-link:not(.active),
+#myTab2 .nav-link:not(.active) {
+  border-bottom: 1px solid rgba(43, 18, 15, .18);
+}
+
+#gvmTabs .nav-link.active,
+#myTab .nav-link.active,
+#myTab2 .nav-link.active {
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px;
+  border-bottom: solid 1px var(--gvm-white);
+}
+
+#gvmTabs .nav-link.active::before,
+#gvmTabs .nav-link.active::after,
+#myTab .nav-link.active::before,
+#myTab .nav-link.active::after,
+#myTab2 .nav-link.active::before,
+#myTab2 .nav-link.active::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+#gvmTabs .nav-link.active::before,
+#myTab .nav-link.active::before,
+#myTab2 .nav-link.active::before {
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 20px solid var(--gvm-active);
+  z-index: 3;
+}
+
+#gvmTabs .nav-link.active::after,
+#myTab .nav-link.active::after,
+#myTab2 .nav-link.active::after {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 12px solid var(--gvm-white);
+  z-index: 4;
+}
+
+@media (max-width: 576px) {
+  #gvmTabs,
+  #myTab,
+  #myTab2 {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #gvmTabs .nav-item,
+  #myTab .nav-item,
+  #myTab2 .nav-item {
+    flex: 0 0 auto;
+    max-width: none;
+  }
+}
