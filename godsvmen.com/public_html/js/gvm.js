@@ -1392,7 +1392,7 @@ window.GVM.contact = `
           <a href="https://www.amazon.com/dp/B0F276HNG7" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Drawsesh Merch</a>
         </div>
         <div class="col-12 col-sm-6 col-lg-auto d-flex">
-          <a href="https://www.amazon.com/dp/B0DT93TFLK" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Artbook on Amazon</a>
+          <a href="https://svc.lulu.com/?items=389d697f-d994-4966-a283-708763e5ae14" class="btn btn-cta-tertiary w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Artbook on Lulu</a>
         </div>
         <div class="col-12 col-sm-6 col-lg-auto d-flex">
           <a href="https://www.tiktok.com/@greyvoth" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">TikTok</a>
