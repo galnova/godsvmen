@@ -71,7 +71,6 @@
 }
 
 @media (max-width: 576px) {
-  #gvmTabs,
   #myTab,
   #myTab2 {
     flex-wrap: nowrap;
@@ -79,10 +78,38 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  #gvmTabs .nav-item,
   #myTab .nav-item,
   #myTab2 .nav-item {
     flex: 0 0 auto;
     max-width: none;
+  }
+}
+
+/* Homepage tabs: all five fit across on phones, no sideways scroll */
+@media (max-width: 576px) {
+  #gvmTabs {
+    flex-wrap: nowrap;
+  }
+
+  #gvmTabs .nav-item {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+  }
+
+  #gvmTabs .nav-link {
+    width: 100%;
+    padding: 18px 2px;
+    font-size: .8rem;
+    white-space: nowrap;
+  }
+}
+
+/* Hide the white inner arrow on phones */
+@media (max-width: 576px) {
+  #gvmTabs .nav-link.active::after,
+  #myTab .nav-link.active::after,
+  #myTab2 .nav-link.active::after {
+    border-top: 0;
   }
 }

@@ -19,6 +19,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="css/global.css" rel="stylesheet">
   <link href="css/fancytabs.css" rel="stylesheet">
+  <link href="css/book.css" rel="stylesheet">
 </head>
 
 <body class="gvm">
@@ -65,38 +66,40 @@
     </nav>
   </header>
 
-  <main class="py-4">
+  <main class="pb-4">
 
-    <div class="container-full deep pb-4">
+    <section class="container-full deep book-hero" aria-labelledby="bookHeroTitle">
+      <div class="book-hero-bg" aria-hidden="true">
+        <div class="book-hero-art"></div>
+        <div class="book-hero-rays"></div>
+        <div class="book-hero-embers"><span style="--x:6%;--s:4px;--d:11s;--w:-2s"></span><span style="--x:14%;--s:3px;--d:14s;--w:-9s"></span><span style="--x:22%;--s:5px;--d:10s;--w:-5s"></span><span style="--x:31%;--s:3px;--d:13s;--w:-1s"></span><span style="--x:39%;--s:4px;--d:12s;--w:-7s"></span><span style="--x:47%;--s:3px;--d:15s;--w:-3s"></span><span style="--x:55%;--s:5px;--d:11s;--w:-10s"></span><span style="--x:63%;--s:3px;--d:13s;--w:-6s"></span><span style="--x:71%;--s:4px;--d:10s;--w:-4s"></span><span style="--x:79%;--s:3px;--d:14s;--w:-11s"></span><span style="--x:87%;--s:5px;--d:12s;--w:-8s"></span><span style="--x:94%;--s:3px;--d:11s;--w:-1s"></span></div>
+      </div>
       <div class="container">
-        <div class="row g-4 justify-content-center">
-          <div class="col-6 col-md-4 col-lg-3">
-            <article class="card h-100 shadow-sm book-card">
-              <div class="bg-light ratio ratio-1x1">
-                <img src="https://greyvoth.com/A25/godsvmencover.png" alt="Gods V. Men: The SwordSayers Compendium cover (Print)" class="book-card-img" loading="lazy" decoding="async">
-              </div>
-              <div class="card-body text-center p-2">
-                <h2 class="book-card-title mb-2">The SwordSayers Compendium<br><span class="text-muted">(Print)</span></h2>
-                <a href="https://svc.lulu.com/?items=389d697f-d994-4966-a283-708763e5ae14" target="_blank" rel="noopener noreferrer" class="btn w-100 btn-cta-tertiary">Buy on Lulu</a>
-              </div>
-            </article>
+        <div class="row align-items-center justify-content-center g-4 g-lg-5">
+          <div class="col-7 col-sm-5 col-md-4 col-lg-3">
+            <div class="book-3d">
+              <img src="https://greyvoth.com/A25/godsvmencover.png" alt="Cover of Gods V. Men: The SwordSayers Compendium" width="1440" height="1800" decoding="async">
+            </div>
           </div>
-
-          <div class="col-6 col-md-4 col-lg-3">
-            <article class="card h-100 shadow-sm book-card">
-              <div class="bg-light ratio ratio-1x1">
-                <img src="https://greyvoth.com/A25/godsvmencover.png" alt="Gods V. Men: The SwordSayers Compendium cover (Digital)" class="book-card-img" loading="lazy" decoding="async">
-              </div>
-              <div class="card-body text-center p-2">
-                <h2 class="book-card-title mb-2">The SwordSayers Compendium<br><span class="text-muted">(Digital)</span></h2>
-                <a href="https://www.amazon.com/dp/B0DYGB5WRM" target="_blank" rel="noopener noreferrer" class="btn w-100 btn-cta-tertiary">Buy on Amazon</a>
-              </div>
-            </article>
+          <div class="col-12 col-md-7 col-lg-6 text-center text-md-start">
+            <p class="book-hero-kicker">Now available in print &amp; digital</p>
+            <h2 id="bookHeroTitle" class="book-hero-title">The SwordSayers Compendium</h2>
+            <p class="book-hero-byline">Gods V. Men - An original story by Keith Jeter</p>
+            <div class="book-hero-buy">
+              <a href="https://svc.lulu.com/?items=389d697f-d994-4966-a283-708763e5ae14" target="_blank" rel="noopener noreferrer" class="btn btn-cta-tertiary book-buy">
+                <span class="book-buy-format">Print</span>
+                <span class="book-buy-store">Buy on Lulu</span>
+              </a>
+              <a href="https://www.patreon.com/greyvoth/posts/gods-v-men-72-158167008" target="_blank" rel="noopener noreferrer" class="btn book-buy book-buy-alt">
+                <span class="book-buy-format">Digital</span>
+                <span class="book-buy-store">Buy on Patreon</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
+    </section>
+
     <section class="container">
       <div class="text-center mb-3">
         <h1 class="h2 mb-2">Gods V. Men</h1>
