@@ -1,0 +1,231 @@
+/* Book hero (index.html only) */
+
+.book-hero {
+  padding: 3rem 0 3.5rem;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(214, 164, 58, .18), transparent 60%),
+    var(--gvm-ink);
+  color: var(--gvm-white);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.book-hero > .container { position: relative; z-index: 1; }
+
+/* Background layers */
+.book-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Layer 1: the cover art, blurred and darkened */
+.book-hero-art {
+  position: absolute;
+  inset: -40px;
+  background: url("https://greyvoth.com/A25/godsvmencover.png") center 35% / cover no-repeat;
+  filter: blur(18px) saturate(1.3);
+  opacity: .28;
+  animation: bookArtDrift 30s ease-in-out infinite alternate;
+}
+
+.book-hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(43, 18, 15, .55) 55%, rgba(43, 18, 15, .9) 100%),
+    linear-gradient(0deg, rgba(43, 18, 15, .85) 0%, transparent 35%);
+}
+
+/* Layer 2: slow rotating light rays behind the book */
+.book-hero-rays {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  width: 1400px;
+  height: 1400px;
+  margin: -700px 0 0 -700px;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 206, 163, .10) 0deg 6deg,
+    transparent 6deg 22deg
+  );
+  -webkit-mask: radial-gradient(circle, #000 0%, transparent 55%);
+          mask: radial-gradient(circle, #000 0%, transparent 55%);
+  animation: bookRaysSpin 90s linear infinite;
+}
+
+/* Layer 3: rising embers */
+.book-hero-embers span {
+  position: absolute;
+  bottom: -10px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: var(--gvm-gold-soft);
+  box-shadow: 0 0 6px 2px rgba(214, 164, 58, .7);
+  opacity: 0;
+  animation: bookEmberRise var(--d) linear infinite;
+  animation-delay: var(--w);
+}
+
+@keyframes bookArtDrift {
+  from { transform: scale(1.05) translateX(-10px); }
+  to   { transform: scale(1.12) translateX(10px); }
+}
+
+@keyframes bookRaysSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bookEmberRise {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: .9; }
+  50%  { transform: translate(18px, -260px); }
+  80%  { opacity: .5; }
+  100% { transform: translate(-12px, -520px); opacity: 0; }
+}
+
+@media (max-width: 767.98px) {
+  .book-hero-rays { left: 50%; top: 32%; }
+  .book-hero-art::after {
+    background: linear-gradient(0deg, rgba(43, 18, 15, .92) 0%, rgba(43, 18, 15, .5) 60%, rgba(43, 18, 15, .3) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-hero-art,
+  .book-hero-rays { animation: none; }
+  .book-hero-embers { display: none; }
+}
+
+/* Tilted 3D cover */
+.book-3d {
+  perspective: 1200px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.book-3d img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px 6px 6px 2px;
+  transform: rotateY(-18deg) rotateX(3deg);
+  transform-origin: left center;
+  box-shadow:
+    inset 6px 0 10px -4px rgba(0, 0, 0, .45),
+    18px 22px 40px rgba(0, 0, 0, .55),
+    4px 4px 0 rgba(255, 255, 255, .06);
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+
+.book-3d:hover img {
+  transform: rotateY(-4deg) rotateX(0deg) scale(1.02);
+  box-shadow: 10px 16px 36px rgba(0, 0, 0, .5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-3d img { transition: none; }
+}
+
+/* Copy */
+.book-hero-kicker {
+  margin: 0 0 .5rem;
+  color: var(--gvm-tertiary);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.book-hero-title {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--gvm-white);
+}
+
+.book-hero-byline {
+  margin: 0 0 1.75rem;
+  color: var(--gvm-gold-soft);
+  opacity: .85;
+}
+
+/* Buy buttons */
+.book-hero-buy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .book-hero-buy { justify-content: flex-start; }
+}
+
+.book-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 190px;
+  padding: .7rem 1.4rem;
+  border-width: 2px;
+  text-align: left;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+/* Primary (Print): brightens and glows on hover */
+.book-hero .btn-cta-tertiary {
+  --bs-btn-hover-color: var(--gvm-ink);
+  --bs-btn-hover-bg: #f2c75c;
+  --bs-btn-hover-border-color: #f2c75c;
+  --bs-btn-active-color: var(--gvm-ink);
+  --bs-btn-active-bg: var(--gvm-tertiary-hover);
+  --bs-btn-active-border-color: var(--gvm-tertiary-hover);
+}
+
+.book-hero .btn-cta-tertiary:hover {
+  box-shadow: 0 0 22px rgba(242, 199, 92, .45);
+}
+
+.book-buy-format {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.book-buy-store {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Second button: gold outline on dark */
+.book-buy-alt {
+  --bs-btn-color: var(--gvm-tertiary);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--gvm-tertiary);
+  --bs-btn-hover-color: var(--gvm-gold-soft);
+  --bs-btn-hover-bg: rgba(214, 164, 58, .14);
+  --bs-btn-hover-border-color: var(--gvm-gold-soft);
+  --bs-btn-active-color: var(--gvm-gold-soft);
+  --bs-btn-active-bg: rgba(214, 164, 58, .24);
+  --bs-btn-active-border-color: var(--gvm-gold-soft);
+}
+
+.book-buy-alt:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 .25rem var(--cta-focus-ring);
+}
+
+@media (max-width: 575.98px) {
+  .book-hero { padding: 2rem 0 2.5rem; }
+  .book-buy { flex: 1 1 100%; align-items: center; text-align: center; }
+}
