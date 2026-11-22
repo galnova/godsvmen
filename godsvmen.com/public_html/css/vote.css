@@ -146,6 +146,13 @@ body.gvm.cs-body {
 
 .cs-cell {
   position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
   overflow: visible;
   cursor: pointer;
   background-image: url('../img/gvm_char_select.png');
@@ -280,8 +287,30 @@ body.gvm.cs-body {
 .cs-preview_placeholder--sprite {
   position: absolute;
   inset: 0;
+  background-image: url('../img/gvm_char_select.png');
+  background-size: 900% 500%;
   background-repeat: no-repeat;
 }
+
+/* Sprite sheet tiles: 9 columns x 5 rows (vote.js adds cs-col-N / cs-row-N) */
+.cs-cell,
+.cs-preview_placeholder--sprite { background-position: var(--sprite-x, 0%) var(--sprite-y, 0%); }
+
+.cs-col-0 { --sprite-x: 0%; }
+.cs-col-1 { --sprite-x: 12.5%; }
+.cs-col-2 { --sprite-x: 25%; }
+.cs-col-3 { --sprite-x: 37.5%; }
+.cs-col-4 { --sprite-x: 50%; }
+.cs-col-5 { --sprite-x: 62.5%; }
+.cs-col-6 { --sprite-x: 75%; }
+.cs-col-7 { --sprite-x: 87.5%; }
+.cs-col-8 { --sprite-x: 100%; }
+
+.cs-row-0 { --sprite-y: 0%; }
+.cs-row-1 { --sprite-y: 25%; }
+.cs-row-2 { --sprite-y: 50%; }
+.cs-row-3 { --sprite-y: 75%; }
+.cs-row-4 { --sprite-y: 100%; }
 
 .cs-preview_img {
   position: absolute;
@@ -311,7 +340,7 @@ body.gvm.cs-body {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255, 206, 163, 0.5);
+  color: rgba(255, 206, 163, 0.7);
   margin: 0;
 }
 
@@ -361,18 +390,6 @@ body.gvm.cs-body {
   opacity: 0.35;
   cursor: default;
   transform: none;
-}
-
-.cs-vote-btn--voted {
-  background: transparent;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  padding: 0.2rem 0;
-  opacity: 1 !important;
-  cursor: default;
 }
 
 /* ── Undo button ────────────────────────────────────────────── */
@@ -438,7 +455,7 @@ body.gvm.cs-body {
 
 .cs-results_empty {
   font-size: 0.68rem;
-  color: rgba(255, 206, 163, 0.35);
+  color: rgba(255, 206, 163, 0.7);
   text-align: center;
   margin: 0;
   font-style: italic;
@@ -481,6 +498,7 @@ body.gvm.cs-body {
 }
 
 .vote-bar_fill {
+  width: var(--bar-w, 0%);
   height: 100%;
   background: var(--gvm-tertiary);
   border-radius: 2px;
@@ -554,7 +572,7 @@ body.gvm.cs-body {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(255, 206, 163, 0.5);
+  color: rgba(255, 206, 163, 0.7);
   margin: 0;
 }
 
@@ -584,7 +602,7 @@ body.gvm.cs-body {
 .cs-modal_cancel {
   background: transparent;
   border: none;
-  color: rgba(255, 206, 163, 0.4);
+  color: rgba(255, 206, 163, 0.7);
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;

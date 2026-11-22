@@ -36,6 +36,14 @@
   border-bottom: solid 1px var(--gvm-white);
 }
 
+/* Homepage tabs are 90% opaque: no seam between the active tab and the panel */
+#gvmTabs { border-bottom: 0; }
+
+#gvmTabs .nav-link.active {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
 #gvmTabs .nav-link.active::before,
 #gvmTabs .nav-link.active::after,
 #myTab .nav-link.active::before,
