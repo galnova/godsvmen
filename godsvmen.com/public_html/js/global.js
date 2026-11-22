@@ -12,11 +12,82 @@
 
   const norm = (s) => String(s ?? "").trim().toLowerCase();
 
-  const yearEl = $("#year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  const FILTER_BTN_CLASS = "btn btn-outline-secondary";
+  const BIO_BTN_CLASS = "btn btn-sm btn-outline-secondary w-100";
 
-  const backTop = $("#backToTop");
-  if (backTop) {
+  const isSwordsayersPage = () => window.location.pathname.includes("/swordsayers");
+
+  // ─── Shared helpers ────────────────────────────────────────────────────────
+
+  // Rebuilds a filter bar: keeps its "All" button, adds one button per value,
+  // and calls onPick(value) when a button is pressed.
+  const buildFilters = (filtersEl, values, label, onPick) => {
+    const allBtn = filtersEl.querySelector('[data-filter="all"]');
+    filtersEl.replaceChildren(...(allBtn ? [allBtn] : []));
+    for (const v of values) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = FILTER_BTN_CLASS;
+      b.dataset.filter = v;
+      b.setAttribute("aria-pressed", "false");
+      b.textContent = label(v);
+      filtersEl.appendChild(b);
+    }
+    filtersEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-filter]");
+      if (!btn) return;
+      $$("button[data-filter]", filtersEl).forEach((b) => {
+        b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
+      onPick(btn.dataset.filter || "all");
+    });
+  };
+
+  // Opens an image in one of the page's lightbox modals.
+  const showImage = (modalEl, title, src) => {
+    if (!modalEl || typeof bootstrap === "undefined") return false;
+    const img = modalEl.querySelector(".modal-body img");
+    modalEl.querySelector(".modal-title").textContent = title;
+    img.alt = title;
+    img.src = src;
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+    return true;
+  };
+
+  // One click handler for every image trigger on the site.
+  const initImageModals = () => {
+    document.addEventListener("click", (e) => {
+      const card = e.target.closest("#galleryGrid [data-open], #castGrid [data-open]");
+      if (card) {
+        const modalEl = card.closest("#galleryGrid") ? $("#galleryModal") : ($("#castModal") || $("#bracketModal"));
+        showImage(modalEl, card.dataset.title || "", card.dataset.img || "");
+        return;
+      }
+      const bracket = e.target.closest(".bracket-open");
+      if (bracket) {
+        showImage($("#bracketModal"), bracket.dataset.title || "", bracket.dataset.img || "");
+        return;
+      }
+      const world = e.target.closest(".world-open");
+      if (world && showImage($("#worldModal"), world.querySelector("img")?.alt || "World Image", world.getAttribute("href") || "")) {
+        e.preventDefault();
+      }
+    });
+    // Drop the large image when a modal closes so it doesn't linger in memory.
+    $$(".modal .modal-body img").forEach((img) => {
+      img.closest(".modal").addEventListener("hidden.bs.modal", () => img.removeAttribute("src"));
+    });
+  };
+
+  // ─── Page features ─────────────────────────────────────────────────────────
+
+  const initFooter = () => {
+    const yearEl = $("#year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    const backTop = $("#backToTop");
+    if (!backTop) return;
     const onScroll = () => backTop.classList.toggle("d-none", window.scrollY < 400);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -24,60 +95,48 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
-  }
-
-  const FILTER_BTN_CLASS = "btn btn-outline-secondary";
-  const BIO_BTN_CLASS = "btn btn-sm btn-outline-secondary w-100";
-
-  // Detect which page we're on.
-  // The swordsayers page has id="bracketModal" or body data-page="swordsayers".
-  // Fallback: check if the URL path contains /swordsayers/.
-  const isSwordsayersPage = () =>
-    !!document.getElementById("bracketModal") ||
-    document.body.dataset.page === "swordsayers" ||
-    window.location.pathname.indexOf("/swordsayers") !== -1;
+  };
 
   const initGallery = () => {
     const filtersEl = $("#galleryFilters");
     const gridEl = $("#galleryGrid");
-    const modalEl = $("#galleryModal");
-    const modalTitleEl = $("#galleryModalTitle");
-    const modalImgEl = $("#galleryModalImg");
+    const data = window.GVM?.gallery || [];
+    if (!filtersEl || !gridEl || !data.length) return;
 
-    if (!filtersEl || !gridEl) return;
-    const data = (window.GVM && Array.isArray(window.GVM.gallery)) ? window.GVM.gallery : [];
-    if (!data.length) return;
+    // An entry's char may list several names, e.g. "Grandle, Ignis".
+    const charsOf = (it) => String(it.char || "").split(",").map((c) => c.trim()).filter(Boolean);
+    const GRID_COL = "col-12 col-sm-6 col-lg-4";
 
-    const chars = Array.from(new Set(data.map((x) => (x.char || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+    // A featured entry gets its own centered row under "All", and joins the grid when filtered.
+    const layoutFeatured = (col, ownRow) => {
+      const card = col.querySelector("article");
+      col.className = ownRow ? "col-12" : GRID_COL;
+      if (!ownRow) { col.replaceChildren(card); return; }
+      const row = document.createElement("div");
+      row.className = "row justify-content-center";
+      const inner = document.createElement("div");
+      inner.className = "col-12 col-sm-8 col-md-6 col-lg-5";
+      inner.appendChild(card);
+      row.appendChild(inner);
+      col.replaceChildren(row);
+    };
 
-    const allBtn = filtersEl.querySelector('[data-filter="all"]');
-    filtersEl.innerHTML = "";
-    if (allBtn) filtersEl.appendChild(allBtn);
-
-    for (const c of chars) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = FILTER_BTN_CLASS;
-      b.dataset.filter = c;
-      b.setAttribute("aria-pressed", "false");
-      b.textContent = c;
-      filtersEl.appendChild(b);
-    }
-
-    gridEl.innerHTML = "";
+    gridEl.replaceChildren();
     for (const it of data) {
       const col = document.createElement("div");
-      col.className = "col-12 col-sm-6 col-lg-4";
-      col.dataset.char = norm(it.char);
-      const base = `img/${it.charArtYear}/${it.charArtName}`;
+      col.className = GRID_COL;
+      col.dataset.char = charsOf(it).map(norm).join("|");
+      if (it.featured) col.dataset.featured = "1";
+      const dir = `img/${it.charArtYear}/`;
       const hasExt = /\.[a-z0-9]+$/i.test(it.charArtName || "");
-      const src = hasExt ? base : `${base}.png`;
+      const src = dir + it.charArtName + (hasExt ? "" : ".png");
+      const thumb = it.charArtThumb ? dir + it.charArtThumb : src;
       const title = it.charArtTitle || it.charArtName || it.char || "Art";
       col.innerHTML = `
         <article class="card h-100 shadow-sm overflow-hidden">
           <button type="button" class="p-0 border-0 bg-transparent text-start" data-open="1"
-                  data-img="${escHtml(src)}" data-title="${escHtml(title)}" aria-label="Open ${escHtml(title)}">
-            <img src="${escHtml(src)}" class="img-fluid w-100" alt="${escHtml(title)}" loading="lazy" decoding="async">
+                  data-img="${escHtml(src)}" data-title="${escHtml(title)}" aria-label="Open ${escHtml(title)} full size">
+            <img src="${escHtml(thumb)}" class="img-fluid w-100" alt="" loading="lazy" decoding="async">
           </button>
           <div class="card-body text-center">
             <h3 class="h6 mb-0">${escHtml(title)}</h3>
@@ -86,85 +145,36 @@
       gridEl.appendChild(col);
     }
 
-    const setActive = (btn) => {
-      $$("#galleryFilters .btn").forEach((b) => {
-        b.classList.toggle("active", b === btn);
-        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
-      });
-    };
-
     const apply = (filterVal) => {
       const f = norm(filterVal);
-      $$("[data-char]", gridEl).forEach((card) => {
-        card.classList.toggle("d-none", !(f === "all" || norm(card.dataset.char) === f));
+      $$("[data-char]", gridEl).forEach((col) => {
+        col.classList.toggle("d-none", !(f === "all" || col.dataset.char.split("|").includes(f)));
       });
+      $$("[data-featured]", gridEl).forEach((col) => layoutFeatured(col, f === "all"));
     };
 
-    filtersEl.addEventListener("click", (e) => {
-      const btn = e.target.closest("button[data-filter]");
-      if (!btn) return;
-      setActive(btn);
-      apply(btn.dataset.filter || "all");
-    });
-
+    const chars = [...new Set(data.flatMap(charsOf))].sort((a, b) => a.localeCompare(b));
+    buildFilters(filtersEl, chars, (c) => c, apply);
     apply("all");
-
-    if (modalEl && modalTitleEl && modalImgEl && typeof bootstrap !== "undefined") {
-      const modal = new bootstrap.Modal(modalEl, { focus: true });
-      gridEl.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-open='1']");
-        if (!btn) return;
-        modalTitleEl.textContent = btn.getAttribute("data-title") || "";
-        modalImgEl.alt = btn.getAttribute("data-title") || "";
-        modalImgEl.src = btn.getAttribute("data-img") || "";
-        modal.show();
-      });
-      modalEl.addEventListener("hidden.bs.modal", () => { modalImgEl.removeAttribute("src"); });
-    }
   };
 
   const initCast = () => {
     const filtersEl = $("#castFilters");
     const gridEl = $("#castGrid");
-    const modalEl = $("#castModal") || $("#bracketModal");
-    const modalTitleEl = modalEl ? modalEl.querySelector(".modal-title") : null;
-    const modalImgEl = modalEl ? modalEl.querySelector(".modal-body img") : null;
+    if (!gridEl || gridEl.children.length) return;
 
-    if (!filtersEl || !gridEl) return;
-    if (gridEl.children.length > 0) return;
-
-    const allFighters = (window.GVM && Array.isArray(window.GVM.fighters)) ? window.GVM.fighters : [];
-
+    const fighters = window.GVM?.fighters || [];
+    const roster = isSwordsayersPage();
     let data;
-    if (isSwordsayersPage()) {
-      // Swordsayers: use ofighters if available (tournament roster), otherwise all fighters
-      data = (window.GVM && Array.isArray(window.GVM.ofighters) && window.GVM.ofighters.length)
-        ? window.GVM.ofighters
-        : allFighters;
+    if (roster) {
+      // Swordsayers: the tournament roster
+      data = window.GVM?.ofighters?.length ? window.GVM.ofighters : fighters;
     } else {
-      // Index page: use fighters filtered to showIndex === true
-      data = allFighters.filter(f => f.showIndex === true);
+      // Story pages: fighters whose stories list includes the grid's data-story
+      const story = norm(gridEl.dataset.story);
+      data = story ? fighters.filter((f) => (f.stories || []).map(norm).includes(story)) : [];
     }
-
     if (!data.length) return;
-
-    const isLiFilter = filtersEl.tagName === "UL" || filtersEl.tagName === "OL";
-
-    if (!isLiFilter) {
-      const groups = Array.from(new Set(data.map((x) => (x.filter || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
-      const allBtn = filtersEl.querySelector('[data-filter="all"]');
-      filtersEl.innerHTML = "";
-      if (allBtn) filtersEl.appendChild(allBtn);
-      for (const g of groups) {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = FILTER_BTN_CLASS;
-        b.dataset.filter = g;
-        b.setAttribute("aria-pressed", "false");
-        b.textContent = g.toUpperCase();
-        filtersEl.appendChild(b);
-      }
-    }
 
     for (const it of data) {
       const col = document.createElement("div");
@@ -172,178 +182,66 @@
       col.dataset.group = norm(it.filter);
       const title = it.fullname || it.name || "Fighter";
       const subtitle = [it.house, it.cityname].filter(Boolean).join(" • ");
+      const stats = [["Job", it.job], ["Style", it.style], ["Weapon", it.weapon], ["Special", it.special], ["Personality", it.personality]]
+        .filter(([, v]) => v)
+        .map(([k, v]) => `<li><strong>${k}:</strong> ${escHtml(v)}</li>`)
+        .join("");
+      // Only the Swordsayers roster links to bio pages.
+      const bio = roster && it.bio
+        ? `<div class="mt-3"><a class="${BIO_BTN_CLASS}" href="${escHtml(it.bio)}">${escHtml(it.name)}'s Bio</a></div>`
+        : "";
       col.innerHTML = `
         <article class="card h-100 shadow-sm overflow-hidden">
           <button type="button" class="p-0 border-0 bg-transparent text-start" data-open="1"
-                  data-img="${escHtml(it.img || "")}" data-title="${escHtml(title)}" aria-label="Open ${escHtml(title)}">
-            <img src="${escHtml(it.img || "")}" class="img-fluid w-100" alt="${escHtml(title)}" loading="lazy" decoding="async">
+                  data-img="${escHtml(it.img || "")}" data-title="${escHtml(title)}" aria-label="Open ${escHtml(title)} full size">
+            <img src="${escHtml(it.img || "")}" class="img-fluid w-100" alt="" loading="lazy" decoding="async">
           </button>
           <div class="card-body">
             <h3 class="h5 mb-1">${escHtml(title)}</h3>
             ${subtitle ? `<p class="mb-2 text-muted small">${escHtml(subtitle)}</p>` : ""}
-            <ul class="list-unstyled mb-0 small">
-              ${it.job         ? `<li><strong>Job:</strong> ${escHtml(it.job)}</li>` : ""}
-              ${it.style       ? `<li><strong>Style:</strong> ${escHtml(it.style)}</li>` : ""}
-              ${it.weapon      ? `<li><strong>Weapon:</strong> ${escHtml(it.weapon)}</li>` : ""}
-              ${it.special     ? `<li><strong>Special:</strong> ${escHtml(it.special)}</li>` : ""}
-              ${it.personality ? `<li><strong>Personality:</strong> ${escHtml(it.personality)}</li>` : ""}
-            </ul>
-            ${it.bio ? `<div class="mt-3"><a class="${BIO_BTN_CLASS}" href="${escHtml(it.bio)}">${escHtml(it.name)}'s Bio</a></div>` : ""}
+            <ul class="list-unstyled mb-0 small">${stats}</ul>
+            ${bio}
           </div>
         </article>`;
       gridEl.appendChild(col);
     }
 
-    const applyFilter = (filterVal) => {
-      const f = norm(filterVal);
-      $$("[data-group]", gridEl).forEach((card) => {
-        const g = norm(card.dataset.group);
-        card.classList.toggle("d-none", !(f === "all" || g === f || g.indexOf(f) !== -1));
-      });
-    };
-
-    if (isLiFilter) {
-      filtersEl.addEventListener("click", (e) => {
-        const li = e.target.closest("li[data-filter]");
-        if (!li) return;
-        $$("li", filtersEl).forEach((el) => el.classList.remove("filter-active"));
-        li.classList.add("filter-active");
-        applyFilter(li.dataset.filter || "all");
-      });
-    } else {
-      filtersEl.addEventListener("click", (e) => {
-        const btn = e.target.closest("button[data-filter]");
-        if (!btn) return;
-        $$("#castFilters .btn").forEach((b) => {
-          b.classList.toggle("active", b === btn);
-          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    // Filters are optional; story casts have none.
+    if (filtersEl) {
+      const groups = [...new Set(data.map((x) => (x.filter || "").trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+      buildFilters(filtersEl, groups, (g) => g.toUpperCase(), (filterVal) => {
+        const f = norm(filterVal);
+        $$("[data-group]", gridEl).forEach((col) => {
+          col.classList.toggle("d-none", !(f === "all" || col.dataset.group.includes(f)));
         });
-        applyFilter(btn.dataset.filter || "all");
       });
     }
-
-    applyFilter("all");
-
-    if (modalEl && modalTitleEl && modalImgEl && typeof bootstrap !== "undefined") {
-      const modal = new bootstrap.Modal(modalEl, { focus: true });
-      gridEl.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-open='1']");
-        if (!btn) return;
-        modalTitleEl.textContent = btn.getAttribute("data-title") || "";
-        modalImgEl.alt = btn.getAttribute("data-title") || "";
-        modalImgEl.src = btn.getAttribute("data-img") || "";
-        modal.show();
-      });
-      modalEl.addEventListener("hidden.bs.modal", () => { modalImgEl.removeAttribute("src"); });
-    }
   };
 
-  const initWorldModal = () => {
-    const modalEl = $("#worldModal");
-    const modalTitleEl = $("#worldModalTitle");
-    const modalImgEl = $("#worldModalImg");
-    if (!modalEl || !modalTitleEl || !modalImgEl || typeof bootstrap === "undefined") return;
-    const modal = new bootstrap.Modal(modalEl, { focus: true });
-    document.addEventListener("click", (e) => {
-      const link = e.target.closest(".world-open");
-      if (!link) return;
-      e.preventDefault();
-      const imgSrc = link.getAttribute("href") || "";
-      const img = link.querySelector("img");
-      const title = img?.alt || "World Image";
-      modalTitleEl.textContent = title;
-      modalImgEl.alt = title;
-      modalImgEl.src = imgSrc;
-      modal.show();
-    });
-    modalEl.addEventListener("hidden.bs.modal", () => { modalImgEl.removeAttribute("src"); });
-  };
-
-  const initBracketModal = () => {
-    const modalEl = $("#bracketModal");
-    const modalTitleEl = $("#bracketModalTitle");
-    const modalImgEl = $("#bracketModalImg");
-    if (!modalEl || !modalTitleEl || !modalImgEl || typeof bootstrap === "undefined") return;
-    const modal = new bootstrap.Modal(modalEl, { focus: true });
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".bracket-open");
-      if (!btn) return;
-      const title = btn.getAttribute("data-title") || "";
-      modalTitleEl.textContent = title;
-      modalImgEl.alt = title;
-      modalImgEl.src = btn.getAttribute("data-img") || "";
-      modal.show();
-    });
-    modalEl.addEventListener("hidden.bs.modal", () => { modalImgEl.removeAttribute("src"); });
-  };
-
-  const initMegamenu = () => {
-    const toggle = document.getElementById("tournDropdown");
-    const menu = document.getElementById("swordsMegamenu");
-    const header = document.getElementById("header");
-    if (!toggle || !menu || !header) return;
-
-    const isDesktop = () => window.innerWidth >= 992;
-
-    const positionMenu = () => {
-      const r = header.getBoundingClientRect();
-      menu.style.cssText =
-        "position:fixed !important;" +
-        "top:" + r.bottom + "px !important;" +
-        "left:0 !important;" +
-        "width:100vw !important;" +
-        "max-height:" + (window.innerHeight - r.bottom - 16) + "px !important;" +
-        "overflow-y:auto !important;" +
-        "z-index:1055 !important;" +
-        "border-radius:0 !important;" +
-        "border-left:none !important;" +
-        "border-right:none !important;" +
-        "border-top:solid 3px var(--gvm-primary) !important;" +
-        "border-bottom:solid 3px #999 !important;" +
-        "transform:none !important;";
-    };
-
-    const resetMenu = () => { menu.style.cssText = ""; };
-
-    toggle.addEventListener("shown.bs.dropdown", () => { if (isDesktop()) positionMenu(); });
-    toggle.addEventListener("hidden.bs.dropdown", () => { resetMenu(); });
-    window.addEventListener("resize", () => {
-      if (menu.classList.contains("show")) {
-        if (isDesktop()) positionMenu(); else resetMenu();
-      }
-    }, { passive: true });
-  };
-
+  // Round-page quote cards: the caret button swaps the first and second half of the quote.
   const initCharToggle = () => {
     document.addEventListener("click", (e) => {
       const btn = e.target.closest(".nuest");
       if (!btn) return;
       const card = btn.closest(".char_wrap") || btn.parentElement;
-      const show = card.querySelector(".t_show");
-      const hidd = card.querySelector(".t_hidd");
-      const expanded = btn.classList.contains("expanded");
-      if (show) show.style.display = expanded ? "block" : "none";
-      if (hidd) hidd.style.display = expanded ? "none" : "block";
-      btn.classList.toggle("expanded");
-      btn.classList.toggle("bx-caret-down", expanded);
-      btn.classList.toggle("bx-caret-up", !expanded);
+      const expand = card.classList.toggle("is-expanded");
+      btn.setAttribute("aria-expanded", String(expand));
+      btn.setAttribute("aria-label", expand ? "Show the start of the quote" : "Show the rest of the quote");
     });
   };
 
   const initContact = () => {
-    const el = document.getElementById("site-contact");
-    if (!el || !window.GVM || !window.GVM.contact) return;
-    el.outerHTML = window.GVM.contact;
+    const el = $("#site-contact");
+    if (el && window.GVM?.contact) el.outerHTML = window.GVM.contact;
   };
 
   const boot = () => {
     initContact();
-    initCharToggle();
+    initFooter();
     initGallery();
     initCast();
-    initWorldModal();
-    initBracketModal();
-    initMegamenu();
+    initImageModals();
+    initCharToggle();
   };
 
   if (document.readyState === "loading") {

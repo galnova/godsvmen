@@ -9,6 +9,7 @@
   overflow: hidden;
   position: relative;
   isolation: isolate;
+  border-bottom: solid 2px var(--gvm-tertiary);
 }
 
 .book-hero > .container { position: relative; z-index: 1; }
@@ -81,6 +82,20 @@
 @keyframes bookRaysSpin {
   to { transform: rotate(360deg); }
 }
+
+/* Each ember's position, size, speed and start offset */
+.book-hero-embers span:nth-child(1) { --x: 6%; --s: 4px; --d: 11s; --w: -2s; }
+.book-hero-embers span:nth-child(2) { --x: 14%; --s: 3px; --d: 14s; --w: -9s; }
+.book-hero-embers span:nth-child(3) { --x: 22%; --s: 5px; --d: 10s; --w: -5s; }
+.book-hero-embers span:nth-child(4) { --x: 31%; --s: 3px; --d: 13s; --w: -1s; }
+.book-hero-embers span:nth-child(5) { --x: 39%; --s: 4px; --d: 12s; --w: -7s; }
+.book-hero-embers span:nth-child(6) { --x: 47%; --s: 3px; --d: 15s; --w: -3s; }
+.book-hero-embers span:nth-child(7) { --x: 55%; --s: 5px; --d: 11s; --w: -10s; }
+.book-hero-embers span:nth-child(8) { --x: 63%; --s: 3px; --d: 13s; --w: -6s; }
+.book-hero-embers span:nth-child(9) { --x: 71%; --s: 4px; --d: 10s; --w: -4s; }
+.book-hero-embers span:nth-child(10) { --x: 79%; --s: 3px; --d: 14s; --w: -11s; }
+.book-hero-embers span:nth-child(11) { --x: 87%; --s: 5px; --d: 12s; --w: -8s; }
+.book-hero-embers span:nth-child(12) { --x: 94%; --s: 3px; --d: 11s; --w: -1s; }
 
 @keyframes bookEmberRise {
   0%   { transform: translate(0, 0); opacity: 0; }

@@ -93,6 +93,17 @@
     return 'img/char/' + (char.img || char.slug) + '_gvm_char.png';
   }
 
+  /* Sprite tile classes for roster index i (positions live in vote.css) */
+  function spriteClasses(i) {
+    return ['cs-col-' + (i % COLS), 'cs-row-' + Math.floor(i / COLS)];
+  }
+
+  /* Back to the "?" placeholder with no sprite tile */
+  function resetPlaceholder() {
+    previewPh.className = 'cs-preview_placeholder';
+    previewPh.textContent = '?';
+  }
+
   function houseLabel(house) {
     if (!house || house === 'None') return 'Independent';
     return 'House ' + house;
@@ -107,12 +118,7 @@
       if (!locked) {
         previewImg.src = '';
         previewImg.classList.add('cs-preview_img--hidden');
-        previewPh.classList.remove('cs-preview_placeholder--hidden');
-        previewPh.classList.remove('cs-preview_placeholder--sprite');
-        previewPh.style.backgroundImage    = '';
-        previewPh.style.backgroundSize     = '';
-        previewPh.style.backgroundPosition = '';
-        previewPh.textContent = '?';
+        resetPlaceholder();
         previewName.textContent  = 'Click a fighter';
         previewHouse.textContent = '';
         previewJob.textContent   = '';
@@ -122,12 +128,7 @@
 
     if (!locked) {
       previewImg.classList.add('cs-preview_img--hidden');
-      previewPh.classList.remove('cs-preview_placeholder--hidden');
-      previewPh.classList.remove('cs-preview_placeholder--sprite');
-      previewPh.style.backgroundImage    = '';
-      previewPh.style.backgroundSize     = '';
-      previewPh.style.backgroundPosition = '';
-      previewPh.textContent = '?';
+      resetPlaceholder();
       previewImg.alt = char.name;
     previewImg.onload = function () {
       previewImg.classList.remove('cs-preview_img--hidden');
@@ -137,14 +138,7 @@
       previewImg.classList.add('cs-preview_img--hidden');
       const idx = ROSTER.indexOf(char);
       if (idx >= 0) {
-        const col  = idx % COLS;
-        const row  = Math.floor(idx / COLS);
-        const posX = COLS > 1 ? (col / (COLS - 1)) * 100 : 0;
-        const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
-        previewPh.classList.add('cs-preview_placeholder--sprite');
-        previewPh.style.backgroundImage    = "url('img/gvm_char_select.png')";
-        previewPh.style.backgroundSize     = (COLS * 100) + '% ' + (ROWS * 100) + '%';
-        previewPh.style.backgroundPosition = posX + '% ' + posY + '%';
+        previewPh.classList.add('cs-preview_placeholder--sprite', ...spriteClasses(idx));
         previewPh.textContent = '';
       }
       previewPh.classList.remove('cs-preview_placeholder--hidden');
@@ -173,12 +167,7 @@
     lockPanel.hidden = true;
     previewImg.src = '';
     previewImg.classList.add('cs-preview_img--hidden');
-    previewPh.classList.remove('cs-preview_placeholder--hidden');
-    previewPh.classList.remove('cs-preview_placeholder--sprite');
-    previewPh.style.backgroundImage    = '';
-    previewPh.style.backgroundSize     = '';
-    previewPh.style.backgroundPosition = '';
-    previewPh.textContent = '?';
+    resetPlaceholder();
     previewName.textContent  = 'Who do you like?';
     previewHouse.textContent = '';
     previewJob.textContent   = '';
@@ -224,6 +213,7 @@
         grid.querySelectorAll('.cs-cell').forEach(function (cell, i) {
           if (ROSTER[i] && ROSTER[i].slug === char.slug) {
             cell.classList.add('cs-cell--voted');
+            cell.setAttribute('aria-pressed', 'true');
           }
         });
 
@@ -255,13 +245,14 @@
         myVoteSlug = null;
         localStorage.removeItem('gvm_vote_slug');
 
-        banner.textContent   = 'Choose a figher and cast your vote';
+        banner.textContent   = 'Choose a fighter and cast your vote';
         banner.dataset.state = 'idle';
 
         unlockPreview();
 
         grid.querySelectorAll('.cs-cell--voted').forEach(function (cell) {
           cell.classList.remove('cs-cell--voted');
+          cell.removeAttribute('aria-pressed');
         });
 
         if (hoveredChar) updatePreview(hoveredChar);
@@ -295,8 +286,8 @@
             '<span class="vote-bar_name">' + (i + 1) + '. ' + name + '</span>' +
             '<span class="vote-bar_pct">' + pct + '%</span>' +
           '</div>' +
-          '<div class="vote-bar_track">' +
-            '<div class="vote-bar_fill" style="width:' + pct + '%"></div>' +
+          '<div class="vote-bar_track" role="progressbar" aria-label="' + name + ' votes" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100">' +
+            '<div class="vote-bar_fill"></div>' +
           '</div>' +
         '</div>';
       }).join('');
@@ -311,39 +302,27 @@
     const frag = document.createDocumentFragment();
 
     for (let i = 0; i < COLS * ROWS; i++) {
-      const col  = i % COLS;
-      const row  = Math.floor(i / COLS);
       const char = ROSTER[i] || null;
-
-      const cell = document.createElement('div');
-      cell.className = 'cs-cell';
-      cell.setAttribute('role', 'gridcell');
-
-      const posX = COLS > 1 ? (col / (COLS - 1)) * 100 : 0;
-      const posY = ROWS > 1 ? (row / (ROWS - 1)) * 100 : 0;
-      cell.style.backgroundPosition = posX + '% ' + posY + '%';
 
       const isMystery = !char;
 
+      // Fighters are real buttons (native Enter/Space); empty art tiles are decorative.
+      const cell = document.createElement(isMystery ? 'div' : 'button');
+      cell.classList.add('cs-cell', ...spriteClasses(i));
+
       if (isMystery) {
         cell.classList.add('cs-cell--mystery');
-        cell.setAttribute('aria-label', char ? char.name : 'Unknown Fighter');
-        cell.setAttribute('aria-disabled', 'true');
+        cell.setAttribute('aria-hidden', 'true');
       } else {
-        cell.setAttribute('aria-label', char.name);
-        cell.setAttribute('tabindex', '0');
+        cell.type = 'button';
+        cell.setAttribute('aria-label', 'Vote for ' + char.name);
 
         if (myVoteSlug && char.slug === myVoteSlug) {
           cell.classList.add('cs-cell--voted');
+          cell.setAttribute('aria-pressed', 'true');
         }
 
         cell.addEventListener('click', function () { showConfirmModal(char); });
-        cell.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            showConfirmModal(char);
-          }
-        });
       }
 
       const label = document.createElement('span');

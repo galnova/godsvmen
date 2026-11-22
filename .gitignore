@@ -18,11 +18,25 @@ CLAUDE.md
 # OS / editor
 .DS_Store
 Thumbs.db
+desktop.ini
 *.swp
 *.swo
+.vscode/
 
 # Node
 node_modules/
 
-# Logs
+# Local secrets and Cloudflare dev files (never commit)
+.env
+.env.*
+.dev.vars
+.wrangler/
+
+# Backups and local copies
+*-backup.*
+*.bak
+*.orig
+
+# Logs (server access logs, local logs)
 *.log
+**/logs/

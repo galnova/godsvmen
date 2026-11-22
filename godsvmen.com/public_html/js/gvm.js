@@ -1,32 +1,17 @@
 window.GVM = window.GVM || {};
 
 window.GVM.gallery = [
-  // { char: "Group", charArtSize: "9", charArtYear: "2025", charArtName: "gvm_char_norm", charArtGallery: "porfolioGallery90", charArtTitle: "Character Poster" },
-  { char: "Shana",   charArtSize: "4", charArtYear: "2025", charArtName: "Shana-Sitting",          charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sitting" },
-  { char: "Shana",   charArtSize: "4", charArtYear: "2025", charArtName: "Shana_Sword",             charArtGallery: "porfolioGallery90", charArtTitle: "Shana Sword" },
-  { char: "Seth",    charArtSize: "4", charArtYear: "2025", charArtName: "seth-loyalty",            charArtGallery: "porfolioGallery90", charArtTitle: "Seth Loyalty" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "shana-grandle-fin",       charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 1" },
-  { char: "Ripper",  charArtSize: "3", charArtYear: "2025", charArtName: "shana-ripper-fin",        charArtGallery: "porfolioGallery90", charArtTitle: "Shana Fin 2" },
-  { char: "Ripper",  charArtSize: "3", charArtYear: "2025", charArtName: "the_ripper_resting",      charArtGallery: "porfolioGallery90", charArtTitle: "The Ripper Resting" },
-  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_landing",           charArtGallery: "porfolioGallery90", charArtTitle: "Shana Landing" },
-  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_defeated",          charArtGallery: "porfolioGallery90", charArtTitle: "Shana Defeated" },
-  { char: "Pond",    charArtSize: "3", charArtYear: "2025", charArtName: "pond-profile",            charArtGallery: "porfolioGallery90", charArtTitle: "The Young God Pond" },
-  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana_clarity",           charArtGallery: "porfolioGallery90", charArtTitle: "Shana Clarity" },
-  { char: "Ignis",   charArtSize: "3", charArtYear: "2025", charArtName: "Ignisback",               charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Back" },
-  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "Golden-grandle",          charArtGallery: "porfolioGallery90", charArtTitle: "Golden Grandle" },
-  // { char: "Grandle", charArtSize: "8", charArtYear: "2025", charArtName: "grandle-ignis-faceoff-sm",charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Ignis Faceoff" },
-  { char: "Ignis",   charArtSize: "5", charArtYear: "2025", charArtName: "ignis-faceoff-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Faceoff" },
-  { char: "Grandle", charArtSize: "5", charArtYear: "2025", charArtName: "grandle-faceoff-sm",      charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Faceoff" },
-  { char: "Samson",  charArtSize: "3", charArtYear: "2025", charArtName: "samson-loyalty-sm",       charArtGallery: "porfolioGallery90", charArtTitle: "Samson Loyalty" },
-  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana-loyalty-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Shana Loyalty" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-loss-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Loss" },
-  { char: "Shana",   charArtSize: "3", charArtYear: "2025", charArtName: "shana-cursed-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Shana Cursed" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-fist-sm",         charArtGallery: "porfolioGallery90", charArtTitle: "Grandle Fist" },
-  { char: "Yosh",    charArtSize: "3", charArtYear: "2025", charArtName: "yosh-kendo-ready-sm",     charArtGallery: "porfolioGallery90", charArtTitle: "Yosh and Kendo" },
-  { char: "Ignis",   charArtSize: "3", charArtYear: "2025", charArtName: "ignis-smile-sm",          charArtGallery: "porfolioGallery90", charArtTitle: "Ignis Smiles" },
-  { char: "Grandle", charArtSize: "3", charArtYear: "2025", charArtName: "grandle-intro-sm",        charArtGallery: "porfolioGallery90", charArtTitle: "Enter the Hero" }
+  { char: "Taur, Delila",   charArtYear: "2026", charArtName: "Taur-Delila-asunder-poster", charArtThumb: "sm/Taur-Delila-asunder-poster-sm.jpg", charArtTitle: "Asunder Poster", featured: true },
+  { char: "Ignis",          charArtYear: "2026", charArtName: "Ignis-Asunder",              charArtThumb: "sm/Ignis-Asunder-sm.jpg",              charArtTitle: "Ignis Asunder" },
+  { char: "Taur",           charArtYear: "2026", charArtName: "Taur-Armor",                 charArtThumb: "sm/Taur-Armor-sm.jpg",                 charArtTitle: "Taur Armor" },
+  { char: "Delila",         charArtYear: "2026", charArtName: "Delila-Broken-God",          charArtThumb: "sm/Delila-Broken-God-sm.jpg",          charArtTitle: "Delila Broken God" },
+  { char: "Christopher",    charArtYear: "2026", charArtName: "Chris-Fallen-GVM",           charArtThumb: "sm/Chris-Fallen-GVM-sm.jpg",           charArtTitle: "Christopher Fallen" },
+  { char: "Grandle, Ignis", charArtYear: "2026", charArtName: "Face-Off",                   charArtThumb: "sm/Face-Off-sm.jpg",                   charArtTitle: "Grandle and Ignis Face Off" },
+  { char: "Flow",           charArtYear: "2026", charArtName: "Flow-2027",                  charArtThumb: "sm/Flow-2027-sm.jpg",                  charArtTitle: "Flow 2027" }
 ];
 
+// Characters. A story page shows those whose stories list includes its data-story name,
+// e.g. stories: ["asunder"] or stories: ["asunder", "nextstory"].
 window.GVM.fighters = [
   {
     name: "Chalstolce",
@@ -44,8 +29,7 @@ window.GVM.fighters = [
     actionshot: "Bleeding Cut",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "1",
-    filter: "ottom",
-    showIndex: true
+    filter: "ottom"
   },
   {
     name: "Crin",
@@ -63,8 +47,7 @@ window.GVM.fighters = [
     actionshot: "Sword Mastery",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "2",
-    filter: "ab",
-    showIndex: true
+    filter: "ab"
   },
   {
     name: "Lem",
@@ -82,8 +65,7 @@ window.GVM.fighters = [
     actionshot: "Wolf Duo",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "3",
-    filter: "kreis",
-    showIndex: true
+    filter: "kreis"
   },
   {
     name: "Yosh",
@@ -102,8 +84,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Yosh-Full.png",
     bio: "https://godsvmen.com/characters/yosh.html",
     gallery: "4",
-    filter: "ab",
-    showIndex: true
+    filter: "ab"
   },
   {
     name: "Samson",
@@ -123,7 +104,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/samson.html",
     gallery: "5",
     filter: "unknown",
-    showIndex: true
+    stories: ["asunder"]
   },
   {
     name: "Grandle",
@@ -143,7 +124,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/grandle.html",
     gallery: "6",
     filter: "ab",
-    showIndex: true
+    stories: ["asunder"]
   },
   {
     name: "Shana",
@@ -162,8 +143,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Shana-full.png",
     bio: "https://godsvmen.com/characters/shana.html",
     gallery: "7",
-    filter: "ab",
-    showIndex: true
+    filter: "ab"
   },
   {
     name: "Christopher",
@@ -183,7 +163,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/chris.html",
     gallery: "8",
     filter: "unknown",
-    showIndex: true
+    stories: ["asunder"]
   },
   {
     name: "Seth",
@@ -201,8 +181,7 @@ window.GVM.fighters = [
     actionshot: "Cross Ax Olan",
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     gallery: "9",
-    filter: "unknown",
-    showIndex: true
+    filter: "unknown"
   },
   {
     name: "Flow",
@@ -221,8 +200,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Flower-full.png",
     bio: "https://godsvmen.com/characters/flow.html",
     gallery: "10",
-    filter: "ottom",
-    showIndex: true
+    filter: "ottom"
   },
   {
     name: "Ripper",
@@ -241,8 +219,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/ripper.html",
     gallery: "11",
-    filter: "unknown",
-    showIndex: true
+    filter: "unknown"
   },
   {
     name: "Delila",
@@ -262,7 +239,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/delila.html",
     gallery: "12",
     filter: "lords",
-    showIndex: false
+    stories: ["asunder"]
   },
   {
     name: "Eln-Delila",
@@ -281,8 +258,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Eln-Delila-full.png",
     bio: "https://godsvmen.com/characters/eln-delila.html",
     gallery: "120",
-    filter: "lords",
-    showIndex: false
+    filter: "lords"
   },
   {
     name: "Pond",
@@ -301,8 +277,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Pond-full.png",
     bio: "https://godsvmen.com/characters/pond.html",
     gallery: "13",
-    filter: "hanor",
-    showIndex: true
+    filter: "hanor"
   },
   {
     name: "Sordin",
@@ -321,8 +296,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/ChrisVSordin.png",
     bio: "https://godsvmen.com/characters/sordin.html",
     gallery: "13",
-    filter: "hanor",
-    showIndex: false
+    filter: "hanor"
   },
   {
     name: "Demoni",
@@ -341,8 +315,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
     bio: "https://godsvmen.com/characters/demoni.html",
     gallery: "13",
-    filter: "unknown",
-    showIndex: false
+    filter: "unknown"
   },
   {
     name: "Macabre Soldier",
@@ -361,8 +334,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Macabre_KnightVFlower.png",
     bio: "https://godsvmen.com/characters/macabre-knight.html",
     gallery: "111",
-    filter: "ottom",
-    showIndex: false
+    filter: "ottom"
   },
   {
     name: "Volcanis",
@@ -381,8 +353,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/VolcanisVShana.png",
     bio: "https://godsvmen.com/characters/volcanis.html",
     gallery: "14",
-    filter: "hanor",
-    showIndex: false
+    filter: "hanor"
   },
   {
     name: "Mouse",
@@ -401,8 +372,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/YoshVMouse.png",
     bio: "https://godsvmen.com/characters/mouse.html",
     gallery: "151",
-    filter: "lords",
-    showIndex: false
+    filter: "lords"
   },
   {
     name: "Stormheart",
@@ -421,8 +391,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/IgnisVStormheart.png",
     bio: "https://godsvmen.com/characters/stormheart.html",
     gallery: "13",
-    filter: "unknown",
-    showIndex: false
+    filter: "unknown"
   },
   {
     name: "Lit",
@@ -441,8 +410,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LitVLunar.png",
     bio: "https://godsvmen.com/characters/lit-knight.html",
     gallery: "200",
-    filter: "lords",
-    showIndex: false
+    filter: "lords"
   },
   {
     name: "Wolf Soldier",
@@ -461,8 +429,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LitVLunar.png",
     bio: "https://godsvmen.com/characters/lunar-knight.html",
     gallery: "3",
-    filter: "kreis",
-    showIndex: false
+    filter: "kreis"
   },
   {
     name: "Lars",
@@ -481,8 +448,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LarsVMaxither.png",
     bio: "https://godsvmen.com/characters/lars.html",
     gallery: "3",
-    filter: "kreis",
-    showIndex: false
+    filter: "kreis"
   },
   {
     name: "Fara",
@@ -501,8 +467,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
     bio: "https://godsvmen.com/characters/fara.html",
     gallery: "669",
-    filter: "gradis",
-    showIndex: false
+    filter: "gradis"
   },
   {
     name: "Quint",
@@ -520,8 +485,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
     bio: "https://godsvmen.com/characters/quint.html",
     gallery: "333",
-    filter: "kreis",
-    showIndex: false
+    filter: "kreis"
   },
   {
     name: "Tesha",
@@ -539,8 +503,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/TeshaVEln-Delila.png",
     bio: "https://godsvmen.com/characters/tesha.html",
     gallery: "330",
-    filter: "kreis",
-    showIndex: false
+    filter: "kreis"
   },
   {
     name: "Bastion",
@@ -558,8 +521,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/BastionVFara.png",
     bio: "https://godsvmen.com/characters/bastion.html",
     gallery: "333",
-    filter: "kreis",
-    showIndex: false
+    filter: "kreis"
   },
   {
     name: "Bruno",
@@ -577,8 +539,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/QuintVBruno.png",
     bio: "https://godsvmen.com/characters/bruno.html",
     gallery: "660",
-    filter: "gradis",
-    showIndex: false
+    filter: "gradis"
   },
   {
     name: "Franker",
@@ -597,8 +558,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/FrankerVSeth.png",
     bio: "https://godsvmen.com/characters/franker.html",
     gallery: "665",
-    filter: "gradis",
-    showIndex: false
+    filter: "gradis"
   },
   {
     name: "Tyree",
@@ -617,8 +577,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/DemoniVToth.png",
     bio: "https://godsvmen.com/characters/tyree.html",
     gallery: "664",
-    filter: "gradis",
-    showIndex: false
+    filter: "gradis"
   },
   {
     name: "Sparrow",
@@ -637,8 +596,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/SparrowVKendo.png",
     bio: "https://godsvmen.com/characters/sparrow.html",
     gallery: "7",
-    filter: "unknown",
-    showIndex: false
+    filter: "unknown"
   },
   {
     name: "Voorhies",
@@ -657,8 +615,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/SamsonVVoorhies.png",
     bio: "https://godsvmen.com/characters/voorhies.html",
     gallery: "7",
-    filter: "ab",
-    showIndex: false
+    filter: "ab"
   },
   {
     name: "Robe",
@@ -677,8 +634,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/GrandleVRobe.png",
     bio: "https://godsvmen.com/characters/robe.html",
     gallery: "6",
-    filter: "ab",
-    showIndex: false
+    filter: "ab"
   },
   {
     name: "Ignis",
@@ -698,7 +654,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/ignis.html",
     gallery: "155",
     filter: "lords",
-    showIndex: true
+    stories: ["asunder"]
   },
   {
     name: "Maxither",
@@ -717,8 +673,7 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/LarsVMaxither.png",
     bio: "https://godsvmen.com/characters/maxither.html",
     gallery: "14",
-    filter: "hanor",
-    showIndex: false
+    filter: "hanor"
   },
   {
     name: "Taur",
@@ -738,7 +693,7 @@ window.GVM.fighters = [
     bio: "https://godsvmen.com/characters/taur.html",
     gallery: "166",
     filter: "lords",
-    showIndex: true
+    stories: ["asunder"]
   },
   {
     name: "Sol",
@@ -757,15 +712,14 @@ window.GVM.fighters = [
     actionshotlink: "https://godsvmen.com/swordsayers/img/Kendo-full.png",
     bio: "https://godsvmen.com/characters/sol.html",
     gallery: "17",
-    filter: "lords",
-    showIndex: true
+    filter: "lords"
   }
 ];
 
 
 // ─── OFIGHTERS ───────────────────────────────────────────────────────────────
 // Tournament bracket / opponent fighters used by the swordsayers page only.
-// showIndex is not used here — these never appear on the index page.
+// Not filtered by stories; this list is the whole Swordsayers roster.
 
 window.GVM.ofighters = [
   {
@@ -1375,11 +1329,11 @@ window.GVM.ofighters = [
 ];
 
 window.GVM.contact = `
-  <section id="contact" class="py-4">
+  <section id="contact" class="py-4" aria-labelledby="contactTitle">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="h3 mb-2">Contact</h2>
-        <p class="mb-0">Thank you so much for visiting my page. I look forward to collaborating with you to make great things!</p>
+        <h2 id="contactTitle" class="h3 mb-2">Contact</h2>
+        <p class="mb-0">Thank you so much for visiting. I hope you enjoy the characters and world of Gods V. Men!</p>
       </div>
       <div class="row justify-content-center g-3">
         <div class="col-12 col-sm-6 col-lg-auto d-flex">
@@ -1397,9 +1351,9 @@ window.GVM.contact = `
         <div class="col-12 col-sm-6 col-lg-auto d-flex">
           <a href="https://www.tiktok.com/@greyvoth" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
-        <div class="col-12 col-sm-6 col-lg-auto d-flex">
+        <!--<div class="col-12 col-sm-6 col-lg-auto d-flex">
           <a href="https://www.instagram.com/greyvoth" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
+        </div>*-->
         <div class="col-12 col-sm-6 col-lg-auto d-flex">
           <a href="https://www.youtube.com/user/riotgear2007" class="btn btn-cta-outline w-100 px-3 py-3" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>

@@ -22,6 +22,8 @@
 
 <body class="gvm cs-body">
 
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-cta-secondary" href="#main">Skip to content</a>
+
   <header class="sticky-top gvm-header" id="header">
     <nav class="navbar navbar-expand-lg">
       <div class="container">
@@ -37,7 +39,7 @@
               <a class="nav-link" href="https://greyvoth.com">Greyvoth</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">GVM</a>
+              <a class="nav-link" href="index.html">GVM</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="tournDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tournaments</a>
@@ -57,7 +59,7 @@
     </nav>
   </header>
 
-  <main class="cs-main">
+  <main id="main" class="cs-main">
     <section class="cs-stage">
 
       <div class="cs-heading">
@@ -65,7 +67,7 @@
         <p class="cs-subtitle">Who do you want me to draw next?</p>
       </div>
 
-      <div class="cs-banner" id="csBanner" data-state="idle">
+      <div class="cs-banner" id="csBanner" data-state="idle" role="status">
         Choose a fighter and cast your vote
       </div>
 
@@ -83,7 +85,7 @@
             <!-- <a class="cs-preview_bio" id="previewBio" href="#" target="_blank" aria-hidden="true">View Bio</a> -->
           </div>
           <div class="cs-vote-lock" id="voteLockPanel" hidden>
-            <button class="cs-undo-btn" id="undoBtn">Change your vote</button>
+            <button type="button" class="cs-undo-btn" id="undoBtn">Change your vote</button>
           </div>
         </div>
 
@@ -98,20 +100,20 @@
 
       <div class="cs-grid-wrap">
         <div class="cs-grid-spinner" id="gridSpinner"></div>
-        <div class="cs-grid" id="csGrid" role="grid" aria-label="Character Vote Grid"></div>
+        <div class="cs-grid" id="csGrid" role="group" aria-label="Choose a fighter to vote for"></div>
       </div>
     </section>
   </main>
 
-  <div class="modal fade" id="voteConfirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="voteConfirmModal" tabindex="-1" aria-label="Confirm your vote" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm">
       <div class="modal-content cs-modal">
         <div class="modal-body text-center p-4">
           <p class="cs-modal_prompt">Cast your vote for</p>
           <p class="cs-modal_name" id="voteModalName">---</p>
           <div class="cs-modal_actions">
-            <button class="cs-vote-btn" id="voteConfirmBtn">Vote</button>
-            <button class="cs-modal_cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="cs-vote-btn" id="voteConfirmBtn">Vote</button>
+            <button type="button" class="cs-modal_cancel" data-bs-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
