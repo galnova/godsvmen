@@ -6,6 +6,7 @@
   --gvm-tertiary:          #d6a43a;
   --gvm-tertiary-hover:    #c4922c;
   --gvm-gold:              #ffcea3;
+  --gvm-gold-2:    #c4922c;
   --gvm-gold-soft:         #ffe3ab;
   --gvm-ink:               #2b120f;
   --gvm-white:             #ffffff;
@@ -155,13 +156,14 @@ body.gvm .nav-tabs {
 /* Outline contact buttons need light text and a gold edge on the dark background */
 body.gvm #contact .btn-cta-outline {
   --bs-btn-color: #f3e6d8;
-  --bs-btn-border-color: #d6a43a;
-  --bs-btn-hover-color: #2b120f;
-  --bs-btn-hover-bg: #d6a43a;
-  --bs-btn-hover-border-color: #d6a43a;
-  --bs-btn-active-color: #2b120f;
-  --bs-btn-active-bg: #d6a43a;
-  --bs-btn-active-border-color: #d6a43a;
+  --bs-btn-border-color: var(--gvm-tertiary);
+  /* Hover/press match the hero's "Buy on Patreon" outline button (book-buy-alt) */
+  --bs-btn-hover-color: var(--gvm-gold-soft);
+  --bs-btn-hover-bg: rgba(214, 164, 58, .14);
+  --bs-btn-hover-border-color: var(--gvm-gold-soft);
+  --bs-btn-active-color: var(--gvm-gold-soft);
+  --bs-btn-active-bg: rgba(214, 164, 58, .24);
+  --bs-btn-active-border-color: var(--gvm-gold-soft);
 }
 
 .gvm-header {
